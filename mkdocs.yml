@@ -3,7 +3,7 @@ site_description: >-
   Documentation for zoompilot, a Mazda-optimized fork of sunnypilot
   (openpilot). Install guides, feature reference, settings, safety, and
   technical design notes.
-site_url: https://wiki.zoompilot.ai
+site_url: https://zoompilot-wiki.pages.dev
 repo_url: https://github.com/zoompilot/wiki
 repo_name: zoompilot/wiki
 edit_uri: edit/main/docs/

@@ -2,7 +2,7 @@
 
 Documentation for [zoompilot](https://zoompilot.ai), a Mazda-optimized
 fork of sunnypilot (openpilot). Published at
-[wiki.zoompilot.ai](https://wiki.zoompilot.ai).
+[zoompilot-wiki.pages.dev](https://zoompilot-wiki.pages.dev).
 
 Built with [Zensical](https://zensical.org), the generator by the creators
 of Material for MkDocs. Zensical reads the same `mkdocs.yml` and uses its
@@ -80,19 +80,10 @@ Roll back with `npx wrangler pages deployment list` /
 
 ### Custom domain
 
-`wiki.zoompilot.ai` is not attached yet. A Pages custom domain works
-only if the domain's zone lives in the same Cloudflare account as the
-Pages project. The `zoompilot.ai` zone is owned by the project
-maintainer and is not in the account that holds this project, so the
-wiki serves from https://zoompilot-wiki.pages.dev until the maintainer
-adopts it. The clean path: the maintainer connects this repository to
-Pages in the account that runs the zone, then adds `wiki.zoompilot.ai`
-under Pages project → Custom domains — Cloudflare creates the DNS
-record automatically. A plain CNAME from the zone is not enough;
-Pages rejects hostnames that are not attached custom domains.
-
-This mirrors the zoompilot-site project's adoption situation. Keep the
-two projects in sync on whatever path the maintainer picks.
+None. The wiki serves from https://zoompilot-wiki.pages.dev
+permanently. Attaching a custom domain was declined in 2026-09 (the
+`zoompilot.ai` zone lives in a different Cloudflare account), so do
+not plan DNS or custom-domain work for this wiki.
 
 ### Git integration (alternative)
 
@@ -116,7 +107,6 @@ instead of Cloudflare:
 
 1. In the repository settings, set Pages → Source to **GitHub Actions**.
 2. Push to `main`. The workflow builds and publishes the site.
-3. Point the `wiki.zoompilot.ai` CNAME at the GitHub Pages target.
 
 Keep only one deployment target active at a time to avoid confusion.
 
