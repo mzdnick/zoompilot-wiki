@@ -13,7 +13,7 @@ site header always shows the current release commit.
 - **Fingerprint Mazdas on VIN and EPS.** Supports more Mazda models more reliably by using the VIN for fingerprinting. EPS fingerprinting determines whether an EPS-swapped car can steer to zero. By [@mzdnick](https://github.com/mzdnick).
 - **zoompilot branding in the UI.** By [@mzdnick](https://github.com/mzdnick).
 - **Speed-limit assist on metric cars.** Fixed reading speed limits on cars set to km/h.
-- **Updated speed-dependent torque seeds.** Refreshed the seeds using my latest learned values. Self-tune may converge a little faster now.
+- **Updated speed-dependent torque seeds.** Refreshed the seeds using the latest learned values from a tuned CX-5. Self-tune may converge a little faster now.
 - **Comma 4 toggles for new sunnypilot features.** Screensaver and road edge lane change.
 - **Synced sunnypilot as of 2026-08-24.** See the [sunnypilot docs](https://docs.sunnypilot.ai).
   - **Block lane changes at road edge.** Prevents a lane change from activating when the road's edge is detected.
@@ -43,7 +43,7 @@ zoompilot has its own home, its own build, and the biggest batch of changes yet.
 - **Prebuilt releases.** Every release is built ahead of time on a real comma device, so installing no longer means sitting through the better part of an hour of compiling.
 - **Alpha longitudinal on the CX-5.** openpilot can drive the gas and brakes on the 2022+ CX-5. Read section 05 first: it shuts the stock radar down, which takes automatic emergency braking and forward collision alerts with it.
 - **Torque control out of the box.** Fresh installs on 22+ EPS Mazdas arrive with torque control, self-tune, and speed-dependent self-tune already on.
-- **Fresher steering seeds.** The CX-5 2022 starting values come straight off my car's learned data, so a new install steers like a tuned car much sooner.
+- **Fresher steering seeds.** The CX-5 2022 starting values come straight off a real car's learned data, so a new install steers like a tuned car much sooner.
 - **Cruise buttons, rebuilt.** The speed you set is the speed you get back after every curve and speed zone, down to the exact number. Confirming a speed limit is one tap and the answer sticks. Press a button mid-adjustment and zoompilot hands control straight back. Big changes hold the button down the way you would.
 - **Cruise features under one roof.** Speed-limit assist and smart cruise now work the same way whether the stock radar or openpilot has the gas and brakes, and a speed limit prompt no longer nudges your set speed while you are still deciding.
 - **Latest sunnypilot and openpilot.** New alert sounds and softer driver monitoring nags. Lane changes arm right away if your blinker is already on. Map-based curve slowdowns are more accurate, map hiccups no longer trip false warnings, the false NO PANDA flash on screen wake is gone, and you can switch software branches from the device screen.
