@@ -43,7 +43,11 @@
     return view.x0 + (v / data.vMax) * (view.x1 - view.x0);
   };
   var py = function (c) {
-    return view.y1 - (c / data.cMax) * (view.y1 - view.y0);
+    return (
+      view.y1 -
+      ((c - data.cMin) / (data.cMax - data.cMin)) *
+        (view.y1 - view.y0)
+    );
   };
   /* v from a pointer x, clamped into the drawn range */
   var vx = function (pxv) {
@@ -96,6 +100,9 @@
     );
   });
 
+  /* the shaded band between the lines: the torque stock strands */
+  svg.appendChild(el("path", { d: data.paths.gap, class: "tc-gap-fill" }));
+
   /* the +torque gap callout */
   var gapLabelY = py(980);
   var gap = el("text", {
@@ -119,9 +126,8 @@
   svg.appendChild(el("line", { x1: view.x0, x2: view.x0, y1: view.y0, y2: view.y1, class: "tc-axis" }));
   svg.appendChild(el("text", { x: view.x1, y: view.y1 + 31, "text-anchor": "end", class: "tc-text tc-tiny" }, "speed · mph"));
   svg.appendChild(el("text", {
-    transform: "translate(14 " + (view.y1 - 6) + ") rotate(-90)",
-    "text-anchor": "start", class: "tc-text tc-tiny",
-  }, "available EPS torque"));
+    x: view.x0, y: 11, "text-anchor": "start", class: "tc-text tc-tiny",
+  }, "torque · counts"));
 
   /* hover crosshair: hidden until a pointer enters the plot */
   var cursor = el("line", { y1: view.y0, y2: view.y1, class: "tc-cursor", visibility: "hidden" });

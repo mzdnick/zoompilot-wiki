@@ -919,6 +919,9 @@ body[data-md-color-scheme="default"] .md-typeset details {
 .md-typeset .tc-live .tc-zp-shared {
   stroke-dasharray: 7 6;
 }
+.md-typeset .tc-live .tc-gap-fill {
+  fill: color-mix(in srgb, var(--zp-tint) 12%, transparent);
+}
 .md-typeset .tc-live .tc-cursor {
   stroke: var(--zp-hair-strong);
   stroke-width: 1;
