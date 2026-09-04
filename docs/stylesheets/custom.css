@@ -183,6 +183,22 @@ body {
   box-shadow: none;
   border-bottom: 1px solid var(--zp-hair);
 }
+/* home link: back to the main site, quiet, with the external arrow */
+.md-header__home {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--light);
+}
+.md-header__home::after {
+  content: "↗";
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+.md-header__home:hover {
+  color: var(--md-default-fg-color);
+}
+
 .md-tabs {
   background: transparent;
   border-bottom: 1px solid var(--zp-hair);

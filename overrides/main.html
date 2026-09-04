@@ -50,6 +50,27 @@
      * list validates a saved code before the chips are injected. */
     var CODES = ["46v", "45p", "47c", "45b", "46g", "25d", "42m", "41w"];
 
+    /* link back to the main site. zoompilot.ai does not resolve yet;
+     * the zone belongs to the maintainer. Flip HOME when it goes live. */
+    var HOME = "https://zoompilot-site.pages.dev";
+
+    /* home link: one quiet text link at the left of the header icons */
+    var innerEl = document.querySelector(".md-header__inner");
+    if (innerEl) {
+      var home = document.createElement("a");
+      home.className = "md-header__home md-header__button";
+      home.href = HOME;
+      home.textContent = "zoompilot.ai";
+      var anchorEl =
+        innerEl.querySelector("[data-md-component='palette']") ||
+        innerEl.querySelector(".md-header__source");
+      if (anchorEl) {
+        anchorEl.before(home);
+      } else {
+        innerEl.append(home);
+      }
+    }
+
     /* header entry point: palette button + chip panel */
     var btn = null;
     var panel = null;
