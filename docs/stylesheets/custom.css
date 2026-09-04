@@ -1230,3 +1230,34 @@ html {
   letter-spacing: 0.05em;
   color: var(--md-default-fg-color--lighter);
 }
+
+/* ---- settings panel strips (comma four panoramas) ---- */
+/* The captures are one wide frame per panel, so they scroll sideways
+   at a fixed height instead of shrinking to the column width. */
+.md-typeset .settings-strip {
+  margin: 0.6rem 0 1.2rem;
+  overflow-x: auto;
+  border: 1px solid var(--zp-hair);
+  border-radius: 12px;
+  background: #000;
+}
+.md-typeset .settings-strip img {
+  display: block;
+  height: 320px;
+  width: auto;
+  max-width: none;
+}
+@media screen and (max-width: 44rem) {
+  .md-typeset .settings-strip img {
+    height: 220px;
+  }
+}
+@media print {
+  .md-typeset .settings-strip {
+    overflow: visible;
+  }
+  .md-typeset .settings-strip img {
+    height: auto;
+    max-width: 100%;
+  }
+}
