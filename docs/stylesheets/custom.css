@@ -198,6 +198,15 @@ body {
 .md-header__home:hover {
   color: var(--md-default-fg-color);
 }
+/* repo widget: icon only. The name text is noise next to the wordmark;
+ * the icon still links to the repo. */
+.md-header__source .md-source__repository {
+  display: none;
+}
+.md-header__source .md-source {
+  display: block;
+  padding: 0.3rem 0;
+}
 /* build line: the install branch + the build the wiki documents. Lives
  * in the hero (under the Install button) and at the top of the install
  * page. Page flow, so no viewport can hide it — the header experiment
