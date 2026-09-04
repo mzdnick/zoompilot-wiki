@@ -5,7 +5,7 @@ reviewed: 2026-09
 # Install zoompilot
 
 <div class="zp-build" markdown>
-Install URL: `zoompilot/main`<span class="zoom-version" data-zp-version></span>
+Install URL: `zoompilot/main` <span class="zp-stamp">· build 393a506e61 · 2026-08-25</span>
 </div>
 
 !!! warning "Before you install"

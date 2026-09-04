@@ -162,28 +162,9 @@
       });
     }
 
-    /* build chips: the zoompilot build the wiki documents, fetched like
-     * the one on zoompilot.ai. They sit in the hero and on the install
-     * page (see .zp-build in custom.css). Stays hidden if the request
-     * fails, so the line reads as just the install URL. */
-    var chips = document.querySelectorAll("[data-zp-version]");
-    if (chips.length) {
-      fetch("https://api.github.com/repos/zoompilot/zoompilot/commits?per_page=1")
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (data) {
-          if (!data || !data[0]) return;
-          var c = data[0].commit.committer.date;
-          var d = new Date(c);
-          var pad = function (n) { return (n < 10 ? "0" : "") + n; };
-          var stamp = "· build " + data[0].sha.slice(0, 10) + " · " +
-            d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
-          chips.forEach(function (chip) {
-            chip.textContent = stamp;
-            chip.setAttribute("data-zp-ready", "");
-          });
-        })
-        .catch(function () { /* offline: chips stay hidden */ });
-    }
+    /* The build stamp in the hero and install page is baked in at
+     * build time (contrib/build_stamp.py + the build-stamp snippet),
+     * so nothing here talks to the GitHub API any more. */
   })();
 </script>
 {% endblock %}

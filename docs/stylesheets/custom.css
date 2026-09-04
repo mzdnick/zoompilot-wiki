@@ -210,8 +210,8 @@ body {
 /* build line: the install branch + the build the wiki documents. Lives
  * in the hero (under the Install button) and at the top of the install
  * page. Page flow, so no viewport can hide it — the header experiment
- * failed on exactly that. The chip after the branch fills in from the
- * GitHub API (see .zoom-version at the bottom of this file). */
+ * failed on exactly that. The stamp is baked in at build time by
+ * contrib/build_stamp.py (see .zp-stamp at the bottom of this file). */
 .zp-build {
   margin: 0.8rem 0 0;
   font-size: 0.72rem;
@@ -1156,11 +1156,10 @@ html {
   transform: translateY(-1px);
 }
 
-/* ---- build chip in the hero and install page lines ---- */
-/* When the chip may show is decided in the md-header__install block
- * above, so the header row never overflows on narrow desktops. */
-.zoom-version {
-  display: none;
+/* ---- build stamp in the hero and install page lines ---- */
+/* Baked in at build time by contrib/build_stamp.py, so it is always
+ * visible — no fetch, no rate limit, nothing to hide. */
+.zp-stamp {
   font-family: var(--md-code-font-family);
   font-size: 0.72rem;
   letter-spacing: 0.02em;

@@ -37,6 +37,9 @@ jobs:
           cache: npm
       - run: pip install -r requirements.txt
       - run: npm ci
+      # bake the latest zoompilot/main commit into the build-stamp
+      # snippet before the build reads it
+      - run: python3 contrib/build_stamp.py
       # Zensical writes to site/ (the mkdocs.yml default); it has no
       # --site-dir flag. Strict fails on broken internal links.
       - run: zensical build --strict
