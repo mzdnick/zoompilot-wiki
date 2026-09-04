@@ -8,10 +8,6 @@ Built with [Zensical](https://zensical.org), the generator by the creators
 of Material for MkDocs. Zensical reads the same `mkdocs.yml` and uses its
 new `modern` theme look. Content is plain markdown in `docs/`.
 
-> The old MkDocs Material toolchain is deprecated. It is kept as a build
-> fallback in `requirements-mkdocs.txt`; delete that file once the
-> Zensical build has shipped and run well.
-
 ## Quick start
 
 ```bash
