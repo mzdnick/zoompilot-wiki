@@ -199,11 +199,13 @@ body {
   color: var(--md-default-fg-color);
 }
 /* install info: branch + build the wiki documents, moved up from the
- * announce bar. Same quiet voice as the home link. The full string is
- * too wide for one header row, so it reveals in layers: branch first,
- * build sha from 82.5em, build date from 100em. Fixed width, so the
- * wordmark never gets squeezed instead. Hidden below 68em, where the
- * header has no slack. */
+ * announce bar, in the same quiet voice as the home link. Reveals in
+ * layers as the header gains room: branch from 60em, build sha from
+ * 68em, build date from 81.25em, the "Install URL:" label from
+ * 88.75em. Fixed width, so the wordmark never gets squeezed instead.
+ * The room comes from the repo widget, which only shows from 106em
+ * (see below). Hidden below 60em: phones get the drawer header, and
+ * nothing fits in it. */
 .md-header__install {
   flex-shrink: 0;
   margin: 0 0.4rem;
@@ -217,12 +219,12 @@ body {
   color: var(--zp-tint);
   font-family: var(--md-code-font-family);
 }
-@media screen and (max-width: 67.9375em) {
+@media screen and (max-width: 59.9375em) {
   .md-header__install {
     display: none;
   }
 }
-@media screen and (min-width: 82.5em) {
+@media screen and (min-width: 68em) {
   .zoom-version[data-zp-ready] {
     display: inline-block;
   }
@@ -230,10 +232,25 @@ body {
 .zp-i-date {
   display: none;
 }
-@media screen and (min-width: 100em) {
+@media screen and (min-width: 81.25em) {
   .zp-i-date {
     display: inline;
   }
+}
+.zp-i-label {
+  display: none;
+}
+@media screen and (min-width: 88.75em) {
+  .zp-i-label {
+    display: inline;
+  }
+}
+/* repo widget: off. The header row caps at ~1340px on every screen,
+ * so its ~253px can never fit next to the full install text — one or
+ * the other, not both. The install text wins; the repo link stays in
+ * the drawer nav and the footer. */
+.md-header__source {
+  display: none;
 }
 
 .md-tabs {

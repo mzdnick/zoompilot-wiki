@@ -71,13 +71,14 @@
       home.href = HOME;
       home.textContent = "zoompilot.ai";
       /* install info: branch + build the wiki documents. Moved out of
-       * the announce bar. The label lives on the tooltip; the chip and
-       * date join in as the header widens (see custom.css). */
+       * the announce bar. The label, chip, and date join in as the
+       * header gains room (see custom.css). */
       var install = document.createElement("div");
       install.className = "md-header__install";
       install.title = "Install URL: zoompilot/main";
       install.setAttribute("aria-label", "Install URL: zoompilot/main");
-      install.innerHTML = "<code>zoompilot/main</code>" +
+      install.innerHTML = '<span class="zp-i-label">Install URL: </span>' +
+        "<code>zoompilot/main</code>" +
         ' <span class="zoom-version" data-zp-version></span>';
       var anchorEl =
         innerEl.querySelector("[data-md-component='palette']") ||
