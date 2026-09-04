@@ -5,17 +5,6 @@ zoompilot is a [Mazda-optimized fork](https://zoompilot.ai) of
 [openpilot](https://comma.ai) by comma.ai. It runs on a comma device and
 gives Mazda drivers the best openpilot experience the hardware allows.
 
-## Fork lineage
-
-```mermaid
-graph LR
-    A[openpilot<br>comma.ai] --> B[sunnypilot]
-    B --> C[zoompilot<br>Mazda-optimized]
-```
-
-zoompilot stands on sunnypilot, which stands on openpilot. Nearly
-everything here rides on their work. See [About & credits](../about.md).
-
 ## What zoompilot changes
 
 zoompilot keeps openpilot's safety model and adds Mazda-specific work in
@@ -40,6 +29,8 @@ zoompilot is a community project. Alex Frutkin
 and implementation for alpha longitudinal. Contributors including
 [@mzdnick](https://github.com/mzdnick) added VIN and EPS fingerprinting.
 The source lives at [github.com/zoompilot/zoompilot](https://github.com/zoompilot/zoompilot).
+zoompilot stands on openpilot and sunnypilot. Full credits are on the
+[About & credits](../about.md) page.
 
 ## Disclaimers
 
