@@ -2,6 +2,7 @@
 title: Troubleshooting
 hide:
   - toc
+reviewed: 2026-09
 ---
 
 # Troubleshooting
@@ -9,6 +10,8 @@ hide:
 Starter fixes for the most common problems. For anything else, ask on the
 [Discord](https://discord.gg/jFWkHC2uhh) with your release version and a
 route ID.
+
+<div id="zp-triage" markdown="0"></div>
 
 ## Before you troubleshoot
 
@@ -55,11 +58,10 @@ For what the logs contain, see [Logging](how-to/logs.md).
 ## Dashboard errors (cruise, LKAS, or radar)
 
 If your dashboard throws cruise, LKAS, or radar errors, especially with
-[alpha longitudinal](features/alpha-longitudinal.md) on:
-
-1. Turn the car completely off.
-2. Leave it off for **15 minutes** so the ECU resets.
-3. Drive again.
+[alpha longitudinal](features/alpha-longitudinal.md) on, run the
+[ECU reset](how-to/ecu-reset.md): park, turn the car completely off for
+**15 minutes**, then drive again. If the error survives that, capture a
+route before you keep driving.
 
 ## "Cruise Fault: Restart the Car" on a cold start
 
@@ -128,6 +130,7 @@ Check, in order:
 
 ## Where to get more help
 
+- [FAQ](community/faq.md) — quick answers to common questions
 - [zoompilot Discord](https://discord.gg/jFWkHC2uhh) — post your release
   version, car, and route ID.
 - [zoompilot issues](https://github.com/zoompilot/zoompilot/issues)

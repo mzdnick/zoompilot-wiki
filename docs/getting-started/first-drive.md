@@ -1,3 +1,7 @@
+---
+reviewed: 2026-09
+---
+
 # First drive
 
 You can manage almost everything directly on the device. This page walks
@@ -37,6 +41,9 @@ What to expect on a first drive:
   drives.
 - Self-tune keeps improving the steering in the background. You do not
   need to touch anything.
+- Nags stay honest. zoompilot suppresses the known false alerts, like
+  the "place hands on wheel" warning on 2022+ models. See
+  [Alert fixes](../features/alerts.md).
 - If anything feels wrong, cancel and pull the [troubleshooting
   page](../troubleshooting.md).
 

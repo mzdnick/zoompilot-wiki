@@ -76,6 +76,64 @@ model: another chassis code (BP, DM, KE) or an out-of-range year. The matcher ne
 second-guesses that and returns nothing. Only export VINs, which cannot decode, go on to the
 swap fallback. An invalid VIN or VIN_UNKNOWN returns nothing before either stage.
 
+## VIN decoder
+
+The decode above, as a tool. Type a VIN or its first 10 characters; the
+verdict below is what the matcher's VIN stage would conclude. The VIN
+never leaves the page — the decode runs in your browser.
+
+<style>
+  .zp-vin { margin: 1.4em 0 1.8em; }
+  .zp-vin input {
+    width: 100%; max-width: 34rem;
+    padding: 0.55rem 0.8rem;
+    font-family: var(--md-code-font-family, ui-monospace, monospace);
+    font-size: 0.95em; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--zp-ink);
+    background: var(--zp-card);
+    border: 1px solid var(--zp-card-line);
+    border-radius: 8px;
+  }
+  .zp-vin input:focus {
+    outline: none;
+    border-color: var(--zp-paint);
+  }
+  .zp-vin-out {
+    margin-top: 0.9rem; max-width: 42rem;
+    padding: 0.85rem 1rem;
+    background: var(--zp-card);
+    border: 1px solid var(--zp-card-line);
+    border-radius: 10px;
+  }
+  .zp-vin-pill {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.72em; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid var(--zp-card-line);
+    border-radius: 99px;
+    color: var(--zp-dim);
+  }
+  .zp-vin-good .zp-vin-pill {
+    color: var(--zp-paint-hi);
+    border-color: var(--zp-paint);
+    background: color-mix(in srgb, var(--zp-paint) 16%, transparent);
+  }
+  .zp-vin-mid .zp-vin-pill { color: var(--zp-warn); border-color: var(--zp-warn); }
+  .zp-vin-info .zp-vin-pill { color: var(--zp-tint); border-color: var(--zp-tint); }
+  .zp-vin-body {
+    margin: 0.6rem 0 0.1rem;
+    color: var(--zp-dim);
+  }
+</style>
+
+<div id="zp-vin-decoder" class="zp-vin">
+  <input type="text" autocomplete="off" autocapitalize="characters"
+         spellcheck="false" aria-label="VIN or VIN prefix"
+         placeholder="VIN or first 10 characters">
+  <div class="zp-vin-out" hidden aria-live="polite"></div>
+</div>
+
 ## The EPS-swap fallback
 
 The case that motivated the swap in the first place is a JM0 CX-9 with the 2022 CX-5 EPS. Its VIN

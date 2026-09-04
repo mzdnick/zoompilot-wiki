@@ -68,6 +68,7 @@ plugins:
   # planned). The dates were CI-only and are gone for now.
 
 markdown_extensions:
+  - abbr
   - admonition
   - attr_list
   - md_in_html
@@ -86,6 +87,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
+  - pymdownx.snippets:
+      auto_append:
+        - docs/includes/abbreviations.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -97,6 +101,19 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/custom.css
+  - stylesheets/print.css
+
+extra_javascript:
+  # site -> wiki generated data (npm run sync:wiki)
+  - assets/steering-torque-data.js
+  - assets/js/car-checker-data.js
+  # wiki-side interactive features; each exits when its mount is absent
+  - assets/js/torque-live.js
+  - assets/js/settings-data.js
+  - assets/js/settings-explorer.js
+  - assets/js/troubleshoot-wizard.js
+  - assets/js/car-checker.js
+  - assets/js/vin-decoder.js
 
 extra:
   generator: false
@@ -115,10 +132,13 @@ nav:
   - Home: index.md
   - Getting started:
       - getting-started/about.md
+      - getting-started/how-it-works.md
       - getting-started/supported-cars.md
+      - getting-started/comparison.md
       - getting-started/hardware.md
       - getting-started/install.md
       - getting-started/first-drive.md
+      - getting-started/eps-swap.md
   - Features:
       - features/steering.md
       - features/smart-cruise.md
@@ -129,9 +149,11 @@ nav:
       - features/alpha-longitudinal.md
       - features/alerts.md
       - Settings: settings/index.md
+      - Settings explorer: settings/explorer.md
   - Safety: safety.md
   - Technical:
       - technical/index.md
+      - technical/route-library.md
       - technical/mazda-lateral.md
       - technical/mazda-longitudinal.md
       - technical/mazda-fingerprinting.md
@@ -140,19 +162,27 @@ nav:
       - technical/cruise-arbiter.md
       - technical/icbm.md
       - technical/scc-curve-planning.md
+      - technical/rejected.md
   - How-to:
+      - how-to/index.md
       - how-to/connect-to-comma.md
       - how-to/replay-a-drive.md
       - how-to/logs.md
+      - how-to/logs-and-privacy.md
+      - how-to/ecu-reset.md
       - how-to/car-port.md
+      - how-to/custom-tune.md
+      - how-to/uninstall.md
       - how-to/turn-the-speed-blue.md
   - Community:
       - community/contribute.md
       - community/feedback.md
       - community/roadmap.md
+  - Reference:
       - community/faq.md
+      - reference/glossary.md
+      - troubleshooting.md
       - Releases: releases/changelog.md
-      - Troubleshooting: troubleshooting.md
       - About & credits: about.md
 
 validation:

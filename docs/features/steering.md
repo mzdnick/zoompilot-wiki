@@ -1,5 +1,6 @@
 ---
 title: Steering improvements
+reviewed: 2026-09
 ---
 
 # Steering improvements
@@ -25,7 +26,9 @@ Self-tune does the learning in the background. Fresh installs on 2022+
 EPS Mazdas start from seeds learned on a real CX-5, so the car steers
 well from day one and improves from there.
 
+<div id="zp-torque-live" markdown="1">
 ![EPS torque response across speed: stock openpilot holds one factor at every speed, while zoompilot keeps a learned tune per band and steps down at the cliff near 32 mph, where the measured EPS scale steps from 1200 to 800 counts](../assets/steering-torque.svg)
+</div>
 
 *One corner demand, held constant. Stock openpilot asks for the same
 torque at every speed — short of the wheel in parking lots, pushy on the

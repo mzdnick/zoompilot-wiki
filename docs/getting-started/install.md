@@ -1,3 +1,7 @@
+---
+reviewed: 2026-09
+---
+
 # Install zoompilot
 
 !!! warning "Before you install"
@@ -19,7 +23,7 @@ from previous forks and prevents odd behavior after switching.
     <marker id="zp-arrow-a" class="m-acc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
   </defs>
   <rect class="d-box" x="20" y="38" width="150" height="48"/>
-  <text class="d-hi" x="95" y="58" text-anchor="middle">comma 3X / 3</text>
+  <text class="d-hi" x="95" y="58" text-anchor="middle">comma four</text>
   <text x="95" y="74" text-anchor="middle">finish setup</text>
   <line class="d-flow" x1="170" y1="62" x2="246" y2="62"/>
   <rect class="d-box-accent" x="250" y="38" width="210" height="48"/>

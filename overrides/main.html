@@ -3,9 +3,18 @@
 {% block announce %}
   Experimental software — you drive the car, follow the law, and carry all
   the risk. Read the
-  <a href="{{ 'safety/' | url }}">safety page</a> first. Install URL:
-  <code>zoompilot/main</code>.
-  <span class="zoom-version" data-zp-version></span>
+  <a href="{{ 'safety/' | url }}">safety page</a> first.
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  {# Hand-kept review dates. Zensical has no MkDocs plugin runtime yet,
+     so git-revision-date-localized is out (see mkdocs.yml); pages that
+     were verified against zoompilot/main carry `reviewed:` front matter
+     and it shows here. #}
+  {% if page.meta and page.meta.reviewed %}
+  <p class="zp-reviewed">reviewed {{ page.meta.reviewed }} against <code>zoompilot/main</code></p>
+  {% endif %}
 {% endblock %}
 
 {% block styles %}
@@ -61,13 +70,22 @@
       home.className = "md-header__home md-header__button";
       home.href = HOME;
       home.textContent = "zoompilot.ai";
+      /* install info: branch + build the wiki documents. Moved out of
+       * the announce bar. The label lives on the tooltip; the chip and
+       * date join in as the header widens (see custom.css). */
+      var install = document.createElement("div");
+      install.className = "md-header__install";
+      install.title = "Install URL: zoompilot/main";
+      install.setAttribute("aria-label", "Install URL: zoompilot/main");
+      install.innerHTML = "<code>zoompilot/main</code>" +
+        ' <span class="zoom-version" data-zp-version></span>';
       var anchorEl =
         innerEl.querySelector("[data-md-component='palette']") ||
         innerEl.querySelector(".md-header__source");
       if (anchorEl) {
-        anchorEl.before(home);
+        anchorEl.before(home, install);
       } else {
-        innerEl.append(home);
+        innerEl.append(home, install);
       }
     }
 
@@ -164,8 +182,12 @@
           var c = data[0].commit.committer.date;
           var d = new Date(c);
           var pad = function (n) { return (n < 10 ? "0" : "") + n; };
-          chip.textContent = data[0].sha.slice(0, 10) + " · " +
-            d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+          /* sha and date are separate spans; the date joins in only on
+           * wide screens, so the header row never overflows */
+          chip.innerHTML = "<span>" + data[0].sha.slice(0, 10) + "</span>" +
+            '<span class="zp-i-date"> · ' +
+            d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
+            "</span>";
           chip.setAttribute("data-zp-ready", "");
         })
         .catch(function () { /* offline: chip stays hidden */ });

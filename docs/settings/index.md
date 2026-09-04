@@ -1,5 +1,6 @@
 ---
 title: Settings
+reviewed: 2026-09
 ---
 
 # Settings
@@ -11,6 +12,13 @@ and Developer.
 This page lists every on-device setting with its accepted values, its
 default, and notes for Mazda installs. Values shown here come from the
 toggle definitions in the zoompilot source (2026.08 releases).
+
+Each panel below shows its settings screen. The current images are
+placeholders; the capture checklist for replacing them with real
+comma four screenshots lives in
+[assets/settings](../assets/settings/README.md). Prefer cards and
+search? The same settings are in the
+[Settings explorer](explorer.md).
 
 !!! note "Offroad only"
 
@@ -40,6 +48,8 @@ A factory reset clears all settings back to these values. See
 
 ## Steering
 
+![The Steering settings panel on the device](../assets/settings/steering.svg)
+
 Steering settings control lateral (steering) behavior: MADS, lane
 changes, and torque tuning. Some of these settings are covered in more
 depth on [Steering improvements](../features/steering.md).
@@ -58,7 +68,7 @@ depth on [Steering improvements](../features/steering.md).
 | Self-Tune | On / Off | Off (**On** on Mazda) | Learns your motor's torque values as you drive. |
 | Less Restrict Settings for Self-Tune (Beta) | On / Off | Off | More forgiving learning. Needs Self-Tune. |
 | Speed-Dependent Self-Tune (Beta) | On / Off | Off (**On** on Mazda) | Learns separate values across speed bins. See [Steering improvements](../features/steering.md). Needs Self-Tune. |
-| Enable Custom Tuning | On / Off | Off | Manual lateral acceleration factor and friction, instead of the offline data. **Recommended off.** See [First drive](../getting-started/first-drive.md). |
+| Enable Custom Tuning | On / Off | Off | Manual lateral acceleration factor and friction, instead of the offline data. **Recommended off.** See [Custom tune](../how-to/custom-tune.md). |
 | Manual Real-Time Tuning | On / Off | Off | Forces your fixed values live, over self-tune. Needs Enable Custom Tuning. |
 | Lateral Acceleration Factor | 0.1–5.0 m/s², step 0.1 | 2.5 | Needs Enable Custom Tuning. |
 | Friction | 0.0–1.0, step 0.01 | 0.1 | Needs Enable Custom Tuning. |
@@ -70,6 +80,8 @@ depth on [Steering improvements](../features/steering.md).
 | Neural Network Lateral Control (NNLC) | On / Off | Off | Neural-network steering. Models exist for the CX-5 2022 and CX-9, but zoompilot's tuned torque control is the tested path on Mazda. Conflicts with Enforce Torque and the jerk controller. See [Models](#models). |
 
 ## Cruise
+
+![The Cruise settings panel on the device](../assets/settings/cruise.svg)
 
 Cruise settings control speed and distance behavior. See
 [Smart cruise](../features/smart-cruise.md) and
@@ -95,6 +107,8 @@ Cruise settings control speed and distance behavior. See
 
 ## Models
 
+![The Models settings panel on the device](../assets/settings/models.svg)
+
 Model behavior settings: steering delay, turn speeds, and camera offset.
 
 | Setting | Values | Default | Notes |
@@ -107,6 +121,8 @@ Model behavior settings: steering delay, turn speeds, and camera offset.
 | Adjust Camera Offset | −0.35 to +0.35 m, step 0.01 | 0 | Shifts the model's view. Positive moves it left. Needs Show Advanced Controls. |
 
 ## Visuals
+
+![The Visuals settings panel on the device](../assets/settings/visuals.svg)
 
 Display-only settings. None of them change how the car drives.
 
@@ -128,6 +144,8 @@ Display-only settings. None of them change how the car drives.
 
 ## Toggles
 
+![The Toggles settings panel on the device](../assets/settings/toggles.svg)
+
 Core on/off switches.
 
 | Setting | Values | Default | Notes |
@@ -140,6 +158,8 @@ Core on/off switches.
 | Record and Upload Microphone Audio | On / Off | Off | Audio in dashcam clips. Takes effect next drive. |
 
 ## Device
+
+![The Device settings panel on the device](../assets/settings/device.svg)
 
 Device behavior. See [Your comma device](../how-to/connect-to-comma.md)
 for the hardware basics.
@@ -155,11 +175,15 @@ for the hardware basics.
 
 ## Software
 
+![The Software settings panel on the device](../assets/settings/software.svg)
+
 | Setting | Values | Default | Notes |
 | --- | --- | --- | --- |
 | Disable Updates | On / Off | Off | Stops over-the-air updates. Hidden until Show Advanced Controls is on. Keep updates on to get releases. |
 
 ## Developer
+
+![The Developer settings panel on the device](../assets/settings/developer.svg)
 
 Power-user and debug settings. Test-only items are **not for road use**.
 

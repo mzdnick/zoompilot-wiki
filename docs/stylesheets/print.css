@@ -1,0 +1,105 @@
+/*
+ * Print stylesheet. People print the install, first-drive, and safety
+ * pages for driveway installs with no signal. Strip the chrome and
+ * remap the dark-scheme inks to paper.
+ */
+
+@media print {
+  /* chrome off */
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer,
+  .md-top,
+  .md-search,
+  .md-announce,
+  .md-paints,
+  .md-content__button,
+  .zp-video {
+    display: none !important;
+  }
+
+  /* the dark scheme, remapped to paper. the light scheme already
+   * prints fine; these variables are read by both. */
+  body {
+    --md-default-bg-color: #ffffff;
+    --md-default-fg-color: #14161a;
+    --md-default-fg-color--light: #4a4f55;
+    --md-default-fg-color--lighter: #7e8695;
+    --md-default-fg-color--lightest: rgba(20, 22, 26, 0.1);
+    --md-typeset-a-color: #14161a;
+    --md-code-bg-color: #f1efe9;
+    --md-code-fg-color: #33373c;
+    --zp-ink: #14161a;
+    --zp-dim: #4a4f55;
+    --zp-faint: #7e8695;
+    --zp-card: #ffffff;
+    --zp-card-line: #dddddd;
+    --zp-bg: #ffffff;
+    --zp-hair: #dddddd;
+  }
+  .md-container {
+    background: #ffffff !important;
+  }
+
+  .md-content {
+    margin: 0;
+    max-width: 100%;
+  }
+  .md-typeset {
+    font-size: 10.5pt;
+  }
+  .md-typeset h1 {
+    font-size: 20pt;
+  }
+  .md-typeset h2 {
+    font-size: 15pt;
+  }
+
+  /* links: plain ink, targets kept for the print reader */
+  .md-typeset a:not(.md-button) {
+    color: #14161a;
+  }
+  .md-typeset a:not(.md-button)[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.78em;
+    color: #4a4f55;
+    word-break: break-all;
+  }
+
+  /* surfaces: white plates, hairlines */
+  .md-typeset .admonition,
+  .md-typeset details,
+  .md-typeset pre,
+  .md-typeset .diagram {
+    background: #ffffff;
+    border-color: #cccccc;
+    box-shadow: none;
+  }
+  .md-typeset .grid.cards > ul > li {
+    background: #ffffff;
+    border-color: #cccccc;
+    box-shadow: none;
+  }
+  .md-typeset table:not([class]) tr:hover td {
+    background: transparent;
+  }
+
+  /* code blocks: never clip */
+  .md-typeset pre {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+
+  /* page breaks: keep admonitions, figures, and table rows whole */
+  .md-typeset .admonition,
+  .md-typeset figure,
+  .md-typeset .diagram,
+  .md-typeset tr {
+    break-inside: avoid;
+  }
+  .md-typeset h2,
+  .md-typeset h3 {
+    break-after: avoid;
+  }
+}

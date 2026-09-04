@@ -74,7 +74,7 @@ After making changes, re-run the UI to see your new UI:
 ```bash
 ./openpilot/selfdrive/ui/ui.py
 ```
-![](https://blog.comma.ai/img/blue_speed_ui.png)
+![The openpilot UI during a demo replay, with the current speed drawn in blue](../assets/dev-blue-speed-ui.png)
 
 You should now see the speed displayed in a nice blue shade during the demo replay.
 
@@ -108,4 +108,4 @@ installer.comma.ai/<your-github-username>/master
 
 You’ve now successfully modified Openpilot’s UI and deployed it to your own car!
 
-![](https://blog.comma.ai/img/c3_blue_ui.jpg)
+![A comma device running the blue-speed fork in a car](../assets/dev-c3-blue-ui.jpg)

@@ -1,0 +1,138 @@
+/*
+ * Data for the settings explorer (docs/settings/explorer.md).
+ *
+ * This is a structured copy of the tables in docs/settings/index.md —
+ * that page is canonical. When you change a setting there, mirror it
+ * here. Notes are trimmed to one clause; the reference carries the
+ * full picture and every "why".
+ */
+window.ZP_SETTINGS = [
+  {
+    panel: "Steering",
+    anchor: "steering",
+    items: [
+      { name: "Enable Modular Assistive Driving System (MADS)", values: "On / Off", def: "On", note: "Steering stays active without cruise engaged." },
+      { name: "Toggle with Main Cruise", values: "On / Off", def: "On", note: "MADS sub-panel." },
+      { name: "Unified Engagement Mode (UEM)", values: "On / Off", def: "On", note: "One pedal action engages steering and cruise together." },
+      { name: "Steering Mode on Brake Pedal", values: "Remain Active / Pause / Disengage", def: "Remain Active", note: "What steering does when you press the brake pedal." },
+      { name: "Pause Lateral Control with Blinker", values: "On / Off", def: "Off", note: "Pauses steering below a speed while the blinker is on." },
+      { name: "Minimum Speed to Pause Lateral Control", values: "0–255, step 5", def: "20", note: "km/h or mph. Needs the toggle above." },
+      { name: "Post-Blinker Delay", values: "0–10 s, step 1", def: "0 s", note: "Wait before steering resumes after the blinker ends." },
+      { name: "Enforce Torque Lateral Control", values: "On / Off", def: "Off (On on Mazda)", note: "Forces the torque controller. Seeded on for steer-to-zero Mazdas." },
+      { name: "Lateral Jerk Torque Controller", values: "On / Off", def: "Off", note: "Tested on Mazdas: no gain. Leave it off." },
+      { name: "Self-Tune", values: "On / Off", def: "Off (On on Mazda)", note: "Learns your motor's torque values as you drive." },
+      { name: "Less Restrict Settings for Self-Tune (Beta)", values: "On / Off", def: "Off", note: "More forgiving learning. Needs Self-Tune." },
+      { name: "Speed-Dependent Self-Tune (Beta)", values: "On / Off", def: "Off (On on Mazda)", note: "Learns separate values across the seven speed bands." },
+      { name: "Enable Custom Tuning", values: "On / Off", def: "Off", note: "Manual values instead of learned ones. Recommended off." },
+      { name: "Manual Real-Time Tuning", values: "On / Off", def: "Off", note: "Forces your fixed values live, over self-tune." },
+      { name: "Lateral Acceleration Factor", values: "0.1–5.0 m/s², step 0.1", def: "2.5", note: "Needs Enable Custom Tuning." },
+      { name: "Friction", values: "0.0–1.0, step 0.01", def: "0.1", note: "Needs Enable Custom Tuning." },
+      { name: "Torque Control Tune Version", values: "v0.0 / v1.0 / v2.0", def: "v0.0 (v2.0 on Mazda)", note: "Mazda steer-to-zero cars are seeded with v2.0." },
+      { name: "Auto Lane Change by Blinker", values: "Off / Nudge / Nudgeless / 0.5 / 1 / 2 / 3 s", def: "Nudge", note: "Blinker-only lane changes after a delay." },
+      { name: "Block Lane Change: Road Edge Detection", values: "On / Off", def: "Off", note: "Blocks a lane change when the model sees a road edge." },
+      { name: "Lane Change Smoothing", values: "Off / Fast / Medium / Slow / Extra Slow", def: "Off", note: "Slows the lane change down. Off is stock." },
+      { name: "Auto Lane Change: Delay with Blind Spot", values: "On / Off", def: "Off", note: "Waits when BSM sees a car. Needs BSM and a lane change timer." },
+      { name: "Neural Network Lateral Control (NNLC)", values: "On / Off", def: "Off", note: "The tuned torque control is the tested path on Mazda." },
+    ],
+  },
+  {
+    panel: "Cruise",
+    anchor: "cruise",
+    items: [
+      { name: "Experimental Mode", values: "On / Off", def: "Off", note: "End-to-end driving. Appears with alpha longitudinal on Mazda." },
+      { name: "Dynamic Experimental Control", values: "On / Off", def: "Off", note: "The model picks between ACC and end-to-end per moment." },
+      { name: "Disengage Cruise on Accelerator Pedal", values: "On / Off", def: "Off", note: "When off, the gas pedal overrides without canceling." },
+      { name: "Driving Personality", values: "Aggressive / Standard / Relaxed", def: "Standard", note: "Follow distance and gas/brake style." },
+      { name: "Intelligent Cruise Button Management (ICBM) (Alpha)", values: "On / Off", def: "Off", note: "zoompilot presses your cruise buttons for you." },
+      { name: "Enable Custom ACC Speed Intervals", values: "On / Off", def: "Off", note: "Custom step sizes for your cruise buttons." },
+      { name: "Short Press Increment", values: "1–10", def: "1", note: "km/h or mph per short press." },
+      { name: "Long Press Increment", values: "1–10", def: "5", note: "Step size while holding." },
+      { name: "Speed Limit Assist Mode", values: "Off / Information / Warning / Assist", def: "Information", note: "Assist changes the set speed; needs ICBM or longitudinal control." },
+      { name: "Speed Limit Source", values: "Car State Only / Map Data Only / Car State Priority / Map Data Priority / Combined", def: "Map Data Priority", note: "Nav SD card gives map data." },
+      { name: "Speed Limit Offset Type", values: "Off / Fixed / Percentage", def: "Off", note: "How the offset is applied." },
+      { name: "Speed Limit Offset Value", values: "−30 to +30, step 1", def: "0", note: "km/h or mph. Needs an offset type." },
+      { name: "Smart Cruise Control: Vision", values: "On / Off", def: "Off", note: "Slows for curves read from the cameras." },
+      { name: "Smart Cruise Control: Map", values: "On / Off", def: "Off", note: "Slows for curves from map data. Needs the nav SD card." },
+      { name: "Deceleration Overshoot (Alpha)", values: "On / Off", def: "Off", note: "Mazda-only. More deceleration than the model wants, for the slow ECU." },
+    ],
+  },
+  {
+    panel: "Models",
+    anchor: "models",
+    items: [
+      { name: "Use Lane Turn Desires", values: "On / Off", def: "Off", note: "Plans a turn toward your blinker at low speed." },
+      { name: "Adjust Lane Turn Speed", values: "0–20, step 1", def: "19", note: "km/h or mph cap. Needs the toggle above and Show Advanced Controls." },
+      { name: "Live Learning Steer Delay", values: "On / Off", def: "On", note: "Learns your car's steering response delay." },
+      { name: "Adjust Software Delay", values: "0.05–0.5 s, step 0.01", def: "0.2", note: "Fixed delay when Live Learning is off." },
+      { name: "Neural Network Lateral Control (NNLC)", values: "On / Off", def: "Off", note: "Same setting as in the Steering panel." },
+      { name: "Adjust Camera Offset", values: "−0.35 to +0.35 m, step 0.01", def: "0", note: "Shifts the model's view. Positive moves it left." },
+    ],
+  },
+  {
+    panel: "Visuals",
+    anchor: "visuals",
+    items: [
+      { name: "Show Blind Spot Warnings", values: "On / Off", def: "Off", note: "Needs a car with blind spot monitoring." },
+      { name: "Steering Arc", values: "On / Off", def: "Off", note: "Draws the steering arc on the driving screen." },
+      { name: "Display Turn Signals", values: "On / Off", def: "Off", note: "Draws turn indicators on the HUD." },
+      { name: "Display Road Name", values: "On / Off", def: "Off", note: "Needs OpenStreetMap data for your area." },
+      { name: "Standstill Timer", values: "On / Off", def: "Off", note: "Shows a timer when stopped." },
+      { name: "Real-time Acceleration Bar", values: "On / Off", def: "Off", note: "Shows what the car is doing right now." },
+      { name: "Display Metrics Below Chevron", values: "Off / Distance / Speed / Time / All", def: "All", note: "Needs longitudinal control to show." },
+      { name: "Developer UI", values: "Off / Bottom / Right / Right & Bottom", def: "Off", note: "Real-time debug values." },
+      { name: "Speedometer: Always Display True Speed", values: "On / Off", def: "Off", note: "Wheel-speed-based speed on supported cars." },
+      { name: "Speedometer: Hide from Onroad Screen", values: "On / Off", def: "Off", note: "Hides the speedometer." },
+      { name: "Green Traffic Light Alert (Beta)", values: "On / Off", def: "Off", note: "Chime when your light turns green. A notification only." },
+      { name: "Lead Departure Alert (Beta)", values: "On / Off", def: "Off", note: "Chime when the car ahead moves." },
+      { name: "Tesla Rainbow Mode", values: "On / Off", def: "Off", note: "Cosmetic path colors." },
+    ],
+  },
+  {
+    panel: "Toggles",
+    anchor: "toggles",
+    items: [
+      { name: "Enable zoompilot", values: "On / Off", def: "On", note: "Master switch. Some screens label it Enable sunnypilot." },
+      { name: "Enable Lane Departure Warnings", values: "On / Off", def: "Off", note: "Alerts when you drift over a lane line above 50 km/h." },
+      { name: "Always-On Driver Monitoring", values: "On / Off", def: "Off", note: "Runs driver monitoring even when not engaged." },
+      { name: "Use Metric System", values: "On / Off", def: "Off", note: "km/h instead of mph." },
+      { name: "Record and Upload Driver Camera", values: "On / Off", def: "Off", note: "Helps improve driver monitoring. Takes effect next drive." },
+      { name: "Record and Upload Microphone Audio", values: "On / Off", def: "Off", note: "Audio in dashcam clips. Takes effect next drive." },
+    ],
+  },
+  {
+    panel: "Device",
+    anchor: "device",
+    items: [
+      { name: "Force Offroad Mode", values: "On / Off", def: "Off", note: "Keeps the device offroad. Waits for a parked radar hand-back on alpha long." },
+      { name: "Wake Up Behavior", values: "Standard / Always Offroad", def: "Standard", note: "What the device does after boot or sleep." },
+      { name: "Quiet Mode", values: "On / Off", def: "Off", note: "Fewer sounds." },
+      { name: "Onroad Uploads", values: "On / Off", def: "On", note: "Upload route logs while driving." },
+      { name: "Max Time Offroad", values: "Always On, 5 m – 30 h", def: "30 h", note: "Auto shutdown after the engine goes off." },
+      { name: "Language", values: "—", def: "English", note: "Device language." },
+    ],
+  },
+  {
+    panel: "Software",
+    anchor: "software",
+    items: [
+      { name: "Disable Updates", values: "On / Off", def: "Off", note: "Stops OTA updates. Hidden until Show Advanced Controls is on. Keep updates on." },
+    ],
+  },
+  {
+    panel: "Developer",
+    anchor: "developer",
+    items: [
+      { name: "Enable ADB", values: "On / Off", def: "Off", note: "Debug bridge over USB or network." },
+      { name: "Enable SSH", values: "On / Off", def: "Off", note: "Shell access. SSH keys load from a GitHub username." },
+      { name: "Joystick Debug Mode", values: "On / Off", def: "Off", note: "Drives the car from a virtual joystick. Test benches only." },
+      { name: "Alpha Longitudinal", values: "On / Off", def: "Off", note: "zoompilot drives gas and brakes. Turns radar, AEB, and FCW off." },
+      { name: "UI Debug Mode", values: "On / Off", def: "Off", note: "Shows touch and FPS overlays." },
+      { name: "[TEST] Lateral Maneuver Mode", values: "On / Off", def: "Off", note: "Deterministic steering test sequence. Not for road use." },
+      { name: "[TEST] Longitudinal Maneuver Mode", values: "On / Off", def: "Off", note: "Deterministic speed test sequence. Not for road use." },
+      { name: "Show Advanced Controls", values: "On / Off", def: "Off", note: "Reveals advanced and debug settings across panels." },
+      { name: "GitHub Runner Service", values: "On / Off", def: "Off", note: "For zoompilot development builds." },
+      { name: "copyparty Service", values: "On / Off", def: "Off", note: "Browse and download routes from a browser on your network." },
+      { name: "Quickboot Mode", values: "On / Off", def: "Off", note: "Faster boot. Needs updates disabled and Show Advanced Controls." },
+    ],
+  },
+];

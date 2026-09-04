@@ -36,7 +36,13 @@ For historical reasons, openpilot still contains a small amount of car-specific 
 
 [Jason Young](https://github.com/jyoung8607) gave a talk at COMMA_CON with an overview of the car porting process. The talk is available on YouTube:
 
-https://www.youtube.com/watch?v=XxPS5TpTUnI
+<div class="zp-video">
+<iframe src="https://www.youtube-nocookie.com/embed/XxPS5TpTUnI" title="COMMA_CON: car porting overview by Jason Young" loading="lazy" allowfullscreen></iframe>
+</div>
+
+The talk is also on YouTube directly:
+[watch it there](https://www.youtube.com/watch?v=XxPS5TpTUnI) if the
+embed does not load.
 
 ## Brand Port
 

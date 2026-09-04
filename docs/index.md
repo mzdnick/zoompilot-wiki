@@ -116,8 +116,8 @@ measurement record behind every change.
 
     ---
 
-    Get help, give feedback, and contribute on GitHub or Discord. Roadmap and
-    FAQ live here too.
+    Get help, give feedback, and contribute on GitHub or Discord. Common
+    questions are answered in the [FAQ](community/faq.md).
 
     [Join in](community/contribute.md)
 

@@ -178,6 +178,28 @@ pass through idle once before `cruiseState.enabled` may follow it (`cruise_enabl
 
 ## MRCC state semantics under openpilot longitudinal
 
+The state machine below is the picture version of this section: cruise
+state comes from PEDALS, engagement needs a button behind the edge, and
+a wheel CANCEL always lands.
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    state "MRCC main off" as off
+    state "armed, idle (PEDALS.ACC_OFF)" as armed
+    state "engaged (PEDALS.ACC_ACTIVE)" as engaged
+
+    [*] --> off
+    off --> armed: MRCC main button
+    armed --> engaged: SET / RES press, ACC_ACTIVE edge 30-70 ms later
+    engaged --> armed: ACC_ACTIVE drop (hold through brake-only samples)
+    engaged --> off: wheel CANCEL, lands even with brake down
+    note right of engaged
+        panda arms controls_allowed only on an ACC_ACTIVE
+        edge backed by a recent press (MAZDA_ENGAGE_BTN_WINDOW, 1 s)
+    end note
+```
+
 ### PEDALS as the cruise state source
 
 The radar teardown silences the radar-owned CRZ_CTRL frame, so cruise state comes from PEDALS

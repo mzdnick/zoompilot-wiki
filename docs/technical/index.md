@@ -12,7 +12,10 @@ Each page carries a **Constants** table (name, value, measurement,
 route) and a **Tried and rejected** section. Rlogs and the analysis
 scripts live in the private `zoompilot-research` repository. Route IDs
 are the dongle-side segment names in `tools/mazda_long/test_data/` of the
-[zoompilot repository](https://github.com/zoompilot/zoompilot).
+[zoompilot repository](https://github.com/zoompilot/zoompilot). The
+[route library](route-library.md) indexes the citations, and
+[Tried and rejected](rejected.md) collects every rejected design in one
+place.
 
 ## Lateral (steering)
 
@@ -43,3 +46,9 @@ are the dongle-side segment names in `tools/mazda_long/test_data/` of the
 
 - [Mazda fingerprinting](mazda-fingerprinting.md) — a VIN decode table
   and the EPS-swap fallback.
+
+## Evidence
+
+- [Route library](route-library.md) — every route citation in these
+  pages, with the claim each one backs. Generated from the pages above;
+  a number is only as good as the drive behind it.

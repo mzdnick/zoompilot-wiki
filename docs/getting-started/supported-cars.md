@@ -1,9 +1,15 @@
+---
+reviewed: 2026-09
+---
+
 # Supported cars
 
 zoompilot runs on any Mazda with the 2022-25 CX-5 electric power
 steering (EPS) motor — factory-fitted, or swapped into an older Mazda.
 Support depends on which steering motor your car has, not just the model
 year.
+
+<div id="zp-car-checker" markdown="0"></div>
 
 ## Supported vehicles
 

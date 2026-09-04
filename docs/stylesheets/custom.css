@@ -198,6 +198,43 @@ body {
 .md-header__home:hover {
   color: var(--md-default-fg-color);
 }
+/* install info: branch + build the wiki documents, moved up from the
+ * announce bar. Same quiet voice as the home link. The full string is
+ * too wide for one header row, so it reveals in layers: branch first,
+ * build sha from 82.5em, build date from 100em. Fixed width, so the
+ * wordmark never gets squeezed instead. Hidden below 68em, where the
+ * header has no slack. */
+.md-header__install {
+  flex-shrink: 0;
+  margin: 0 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+  cursor: default;
+}
+.md-header__install code {
+  color: var(--zp-tint);
+  font-family: var(--md-code-font-family);
+}
+@media screen and (max-width: 67.9375em) {
+  .md-header__install {
+    display: none;
+  }
+}
+@media screen and (min-width: 82.5em) {
+  .zoom-version[data-zp-ready] {
+    display: inline-block;
+  }
+}
+.zp-i-date {
+  display: none;
+}
+@media screen and (min-width: 100em) {
+  .zp-i-date {
+    display: inline;
+  }
+}
 
 .md-tabs {
   background: transparent;
@@ -222,9 +259,6 @@ body {
 }
 .md-announce a,
 .md-announce a:hover {
-  color: var(--zp-tint);
-}
-.md-announce code {
   color: var(--zp-tint);
 }
 
@@ -826,6 +860,269 @@ body[data-md-color-scheme="default"] .md-typeset details {
   fill: none;
 }
 
+/* ---- video embeds (lazy YouTube, privacy domain) ---- */
+.md-typeset .zp-video {
+  position: relative;
+  padding-top: 56.25%;
+  margin: 1.2rem 0;
+  border: 1px solid var(--zp-hair);
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+.md-typeset .zp-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---- live EPS torque chart (features/steering.md) ---- */
+.md-typeset .tc-live {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.md-typeset .tc-live .tc-panel {
+  fill: color-mix(in srgb, var(--zp-paint) 5%, var(--md-code-bg-color));
+  stroke: var(--zp-hair);
+}
+.md-typeset .tc-live .tc-grid {
+  stroke: var(--zp-hair);
+  stroke-width: 1;
+}
+.md-typeset .tc-live .tc-axis {
+  stroke: var(--zp-hair-strong);
+  stroke-width: 1;
+}
+.md-typeset .tc-live text {
+  font-family: var(--md-code-font-family);
+}
+.md-typeset .tc-live .tc-text {
+  fill: var(--md-default-fg-color--light);
+  font-size: 11px;
+}
+.md-typeset .tc-live .tc-label {
+  fill: var(--md-default-fg-color--light);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+.md-typeset .tc-live .tc-zp-text {
+  fill: var(--zp-tint);
+}
+.md-typeset .tc-live .tc-tiny {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+.md-typeset .tc-live .tc-small {
+  font-size: 10.5px;
+}
+.md-typeset .tc-live .tc-tag {
+  fill: var(--zp-warn);
+}
+.md-typeset .tc-live .tc-stock {
+  fill: none;
+  stroke: var(--md-default-fg-color--light);
+  stroke-width: 1.6;
+}
+.md-typeset .tc-live .tc-zp {
+  fill: none;
+  stroke: var(--zp-tint);
+  stroke-width: 2;
+}
+.md-typeset .tc-live .tc-zp-shared {
+  stroke-dasharray: 7 6;
+}
+.md-typeset .tc-live .tc-cursor {
+  stroke: var(--zp-hair-strong);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+.md-typeset .tc-live .tc-dot-zp {
+  fill: var(--zp-tint);
+}
+.md-typeset .tc-live .tc-dot-stock {
+  fill: var(--md-default-fg-color--light);
+}
+.md-typeset .tc-live .tc-tip {
+  fill: var(--md-default-fg-color);
+  font-size: 10.5px;
+}
+.md-typeset .tc-live .tc-tip tspan.tc-zp-text {
+  fill: var(--zp-tint);
+}
+.md-typeset .tc-live .tc-tip-bg {
+  fill: var(--zp-card);
+  stroke: var(--zp-card-line);
+}
+
+/* ---- interactive widgets: settings explorer, triage wizard, car
+ * checker. All plain DOM, all no-op when their mount is absent. ---- */
+.md-typeset .zp-explorer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+.md-typeset .zp-explorer-search {
+  flex: 1 1 14rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--zp-hair-strong);
+  border-radius: 999px;
+  background: var(--zp-card);
+  color: var(--md-default-fg-color);
+  font-size: 0.72rem;
+}
+.md-typeset .zp-explorer-search:focus-visible {
+  outline: 1px solid var(--zp-tint);
+}
+.md-typeset .zp-explorer-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.md-typeset .zp-explorer-chip {
+  padding: 0.32rem 0.8rem;
+  border: 1px solid var(--zp-hair);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.md-typeset .zp-explorer-chip[aria-pressed="true"] {
+  border-color: var(--zp-tint);
+  color: var(--zp-tint);
+}
+.md-typeset .zp-explorer-count {
+  font-size: 0.64rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-bottom: 0.8rem;
+}
+.md-typeset .zp-explorer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.6rem;
+}
+.md-typeset .zp-explorer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--zp-card);
+  border: 1px solid var(--zp-card-line);
+  border-radius: 0.7rem;
+  text-decoration: none !important;
+  color: var(--md-default-fg-color);
+}
+.md-typeset .zp-explorer-card:hover {
+  border-color: var(--zp-hair-strong);
+}
+.md-typeset .zp-explorer-card .zp-explorer-panel {
+  font-family: var(--md-code-font-family);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--zp-tint);
+}
+.md-typeset .zp-explorer-card strong {
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+.md-typeset .zp-explorer-card code {
+  font-size: 0.62rem;
+}
+.md-typeset .zp-explorer-card .zp-explorer-def {
+  font-size: 0.62rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .zp-explorer-card .zp-explorer-note {
+  font-size: 0.64rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .zp-triage-prompt {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.md-typeset .zp-triage-symptoms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.md-typeset .zp-triage-btn {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--zp-hair-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--md-default-fg-color);
+  font-size: 0.66rem;
+  cursor: pointer;
+}
+.md-typeset .zp-triage-btn:hover,
+.md-typeset .zp-triage-btn.is-active {
+  border-color: var(--zp-tint);
+  color: var(--zp-tint);
+}
+.md-typeset .zp-triage-out {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--zp-card);
+  border: 1px solid var(--zp-card-line);
+  border-radius: 0.7rem;
+  font-size: 0.72rem;
+}
+.md-typeset .zp-triage-out ol {
+  margin: 0 0 0.4rem !important;
+}
+.md-typeset .zp-triage-out a {
+  font-size: 0.66rem;
+}
+
+.md-typeset .zp-checker-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0.4rem 0;
+}
+.md-typeset .zp-checker-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.66rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .zp-checker-form select {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--zp-hair-strong);
+  border-radius: 0.5rem;
+  background: var(--zp-card);
+  color: var(--md-default-fg-color);
+  font-size: 0.7rem;
+  min-width: 12rem;
+}
+.md-typeset .zp-checker-out {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--zp-card);
+  border: 1px solid var(--zp-card-line);
+  border-radius: 0.7rem;
+  font-size: 0.72rem;
+}
+.md-typeset .zp-checker-out[hidden] {
+  display: none;
+}
+.md-typeset .zp-checker-out strong.is-good {
+  color: var(--zp-tint);
+}
+.md-typeset .zp-checker-out strong.is-bad {
+  color: var(--zp-p46v-hi);
+}
+.md-typeset .zp-checker-out p {
+  margin: 0.3rem 0 0 !important;
+}
+
 /* ---- micro-polish ---- */
 html {
   scroll-behavior: smooth;
@@ -873,16 +1170,15 @@ html {
   transform: translateY(-1px);
 }
 
-/* ---- version chip in the announce bar ---- */
+/* ---- version chip in the header ---- */
+/* When the chip may show is decided in the md-header__install block
+ * above, so the header row never overflows on narrow desktops. */
 .zoom-version {
   display: none;
   font-family: var(--md-code-font-family);
   font-size: 0.72rem;
   letter-spacing: 0.02em;
   color: var(--zp-tint);
-}
-.zoom-version[data-zp-ready] {
-  display: inline-block;
 }
 
 /* ---- 404: wrong exit ---- */
@@ -934,4 +1230,15 @@ html {
   background-color: var(--zp-paint);
   border-color: var(--zp-paint);
   color: #ffffff;
+}
+
+/* ---- reviewed stamp (overrides/main.html content block) ---- */
+.md-typeset .zp-reviewed {
+  margin-top: 2.2rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--zp-hair);
+  font-family: var(--md-code-font-family);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--lighter);
 }

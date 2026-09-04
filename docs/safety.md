@@ -1,3 +1,7 @@
+---
+reviewed: 2026-09
+---
+
 # Safety
 
 Read this page before using zoompilot.
@@ -57,7 +61,7 @@ For safety implementation details, refer to the
   and carry all the risk.
 - If your dashboard throws cruise, LKAS, or radar errors, turn the car
   completely off for 15 minutes to reset. See
-  [Troubleshooting](troubleshooting.md).
+  [ECU reset](how-to/ecu-reset.md).
 - Driver monitoring stays active in zoompilot. Do not disable or weaken
   it.
 - Keep the device mounted high and centered, and keep the windscreen
