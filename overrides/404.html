@@ -1,0 +1,27 @@
+{#-
+  Branded 404: overrides the Material default. Keeps the wiki chrome
+  (header, paint, version chip) and adds the "wrong exit" copy.
+-#}
+{% extends "main.html" %}
+{% block content %}
+<div class="zoom-404">
+  <div class="zoom-404-code">404</div>
+  <h1>wrong exit</h1>
+  <p class="zoom-404-lede">
+    This page does not exist. The manual does — it just starts somewhere
+    else.
+  </p>
+  <p class="zoom-404-row">
+    <a href="{{ 'index.md' | url }}" class="md-button md-button--primary">
+      back to the wiki
+    </a>
+    <a href="{{ 'getting-started/install.md' | url }}" class="md-button">
+      install page
+    </a>
+  </p>
+  <p class="zoom-404-hint">
+    still lost? the install URL is <code>zoompilot/main</code>, same as
+    always
+  </p>
+</div>
+{% endblock %}

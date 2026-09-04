@@ -1,0 +1,52 @@
+# Primary deploy: Cloudflare Pages.
+#
+# - push to main: build the wiki and deploy to the zoompilot-wiki
+#   Pages project
+# - workflow_dispatch: manual run from the Actions tab
+#
+# Requires two repo secrets (Settings -> Secrets and variables ->
+# Actions), from a Cloudflare API token with Cloudflare Pages: Edit:
+#   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
+# Without them the workflow still builds, and skips the deploy step
+# with a notice.
+#
+# The GitHub Pages alternative in gh-pages.yml stays dispatch-only
+# while Cloudflare is the primary target.
+name: build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: pip install -r requirements.txt
+      - run: npm ci
+      # Zensical writes to site/ (the mkdocs.yml default); it has no
+      # --site-dir flag. Strict fails on broken internal links.
+      - run: zensical build --strict
+      - name: deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::notice::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID secrets are not set. Build ran; deploy skipped."
+            exit 0
+          fi
+          npx wrangler pages deploy site --project-name zoompilot-wiki --branch main

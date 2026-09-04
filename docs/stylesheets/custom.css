@@ -1,0 +1,921 @@
+/*
+ * zoompilot wiki theme — mirrors zoompilot.ai.
+ *
+ * The design language comes from the main site: a near-black canvas tinted
+ * by the car's paint, Inter body text, JetBrains Mono details, Audiowide
+ * for the wordmark, glossy CX-5 paint chips, pill CTAs dipped in paint,
+ * and hairline dividers.
+ *
+ * Layers:
+ *   1. Paint tokens     — the 2022-2025 CX-5 factory line, one var set
+ *                         per paint. body[data-md-paint] picks the car.
+ *   2. Scheme mapping   — slate (dark, default) and default (light) map
+ *                         the paint onto Material's color variables.
+ *   3. Chrome           — header, tabs, sidebar, footer (paint stripe).
+ *   4. Content          — hero, chip wall, cards, tables, code, tabs,
+ *                         admonitions, diagrams.
+ */
+
+/* ============================================================
+ * 1. Paint tokens — the 2022-2025 CX-5 line (zoompilot.ai)
+ *    base / highlight / shadow / text-legible tint per paint.
+ * ============================================================ */
+body {
+  --zp-p46v: #a01c2f; --zp-p46v-hi: #d0414f; --zp-p46v-lo: #5f0d1a; --zp-p46v-t: #e05a6b;
+  --zp-p45p: #85898e; --zp-p45p-hi: #a9adb2; --zp-p45p-lo: #54575b; --zp-p45p-t: #b0b4b9;
+  --zp-p47c: #566269; --zp-p47c-hi: #79868f; --zp-p47c-lo: #333d43; --zp-p47c-t: #9fb0b5;
+  --zp-p45b: #2e5a8b; --zp-p45b-hi: #4a7fb8; --zp-p45b-lo: #17304d; --zp-p45b-t: #6ea3dd;
+  --zp-p46g: #55585a; --zp-p46g-hi: #777b7e; --zp-p46g-lo: #323436; --zp-p46g-t: #9da2a6;
+  --zp-p25d: #f3f2ed; --zp-p25d-hi: #ffffff; --zp-p25d-lo: #cfceca; --zp-p25d-t: #f3f2ed;
+  --zp-p42m: #1c2f4e; --zp-p42m-hi: #33507e; --zp-p42m-lo: #0e1728; --zp-p42m-t: #7f9dcb;
+  --zp-p41w: #121316; --zp-p41w-hi: #2c2e33; --zp-p41w-lo: #000000; --zp-p41w-t: #aab2bd;
+
+  /* the paint the page currently wears. default 46G: same as the site. */
+  --zp-paint: var(--zp-p46g);
+  --zp-paint-hi: var(--zp-p46g-hi);
+  --zp-paint-lo: var(--zp-p46g-lo);
+  --zp-tint: var(--zp-p46g-t);
+  /* an accent that stays legible on the light scheme */
+  --zp-deep: var(--zp-p46g-lo);
+
+  /* shared surfaces and inks */
+  --zp-ink: rgba(255, 255, 255, 0.93);
+  --zp-dim: #a9aeb8;
+  --zp-faint: #7e8695;
+  --zp-warn: #e8a13c;
+  --zp-card: #07080a;
+  --zp-card-line: rgba(255, 255, 255, 0.07);
+}
+
+body[data-md-paint="46v"] {
+  --zp-paint: var(--zp-p46v); --zp-paint-hi: var(--zp-p46v-hi);
+  --zp-paint-lo: var(--zp-p46v-lo); --zp-tint: var(--zp-p46v-t);
+  --zp-deep: var(--zp-p46v);
+}
+body[data-md-paint="45p"] {
+  --zp-paint: var(--zp-p45p); --zp-paint-hi: var(--zp-p45p-hi);
+  --zp-paint-lo: var(--zp-p45p-lo); --zp-tint: var(--zp-p45p-t);
+  --zp-deep: var(--zp-p45p-lo);
+}
+body[data-md-paint="47c"] {
+  --zp-paint: var(--zp-p47c); --zp-paint-hi: var(--zp-p47c-hi);
+  --zp-paint-lo: var(--zp-p47c-lo); --zp-tint: var(--zp-p47c-t);
+  --zp-deep: var(--zp-p47c-lo);
+}
+body[data-md-paint="45b"] {
+  --zp-paint: var(--zp-p45b); --zp-paint-hi: var(--zp-p45b-hi);
+  --zp-paint-lo: var(--zp-p45b-lo); --zp-tint: var(--zp-p45b-t);
+  --zp-deep: var(--zp-p45b);
+}
+body[data-md-paint="46g"] {
+  --zp-paint: var(--zp-p46g); --zp-paint-hi: var(--zp-p46g-hi);
+  --zp-paint-lo: var(--zp-p46g-lo); --zp-tint: var(--zp-p46g-t);
+  --zp-deep: var(--zp-p46g-lo);
+}
+body[data-md-paint="25d"] {
+  --zp-paint: var(--zp-p25d); --zp-paint-hi: var(--zp-p25d-hi);
+  --zp-paint-lo: var(--zp-p25d-lo); --zp-tint: var(--zp-p25d-t);
+  /* white paint never works as text; use a warm gray in light mode */
+  --zp-deep: #6e6a61;
+}
+body[data-md-paint="42m"] {
+  --zp-paint: var(--zp-p42m); --zp-paint-hi: var(--zp-p42m-hi);
+  --zp-paint-lo: var(--zp-p42m-lo); --zp-tint: var(--zp-p42m-t);
+  --zp-deep: var(--zp-p42m);
+}
+body[data-md-paint="41w"] {
+  --zp-paint: var(--zp-p41w); --zp-paint-hi: var(--zp-p41w-hi);
+  --zp-paint-lo: #121316; --zp-tint: var(--zp-p41w-t);
+  --zp-deep: var(--zp-p41w);
+}
+
+/* ============================================================
+ * 2. Scheme mapping — paint onto Material variables.
+ *    Static fallback first, then the paint-mixed value; a browser
+ *    without color-mix keeps the fallback.
+ * ============================================================ */
+
+/* Dark (default). The canvas carries 18% paint over near-black,
+ * exactly like zoompilot.ai. */
+body[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0b0c0f;
+  --md-default-bg-color: color-mix(in srgb, var(--zp-paint) 18%, #04060a);
+  --md-primary-fg-color: #0b0c0e;
+  --md-primary-bg-color: var(--zp-ink);
+  --md-accent-fg-color: var(--zp-tint);
+  --md-default-fg-color: var(--zp-ink);
+  --md-default-fg-color--light: var(--zp-dim);
+  --md-default-fg-color--lighter: var(--zp-faint);
+  --md-default-fg-color--lightest: rgba(255, 255, 255, 0.07);
+  --md-typeset-a-color: var(--zp-tint);
+  --md-code-bg-color: #0d0e11;
+  --md-code-fg-color: var(--zp-dim);
+  --md-footer-bg-color: #0b0c0e;
+  --md-footer-fg-color: var(--zp-dim);
+  --md-footer-fg-color--light: var(--zp-dim);
+  --md-footer-fg-color--lighter: var(--zp-faint);
+
+  --zp-bg: #0b0c0f;
+  --zp-bg: color-mix(in srgb, var(--zp-paint) 18%, #04060a);
+  --zp-hair: rgba(255, 255, 255, 0.09);
+  --zp-hair-strong: color-mix(in srgb, var(--zp-tint) 44%, transparent);
+}
+
+/* Light. Warm paper (a nod to 25D snowflake white), ink-dark text,
+ * the paint's dark tone as accent. */
+body[data-md-color-scheme="default"] {
+  --md-default-bg-color: #f4f3ef;
+  --md-primary-fg-color: #ffffff;
+  --md-primary-bg-color: #14161a;
+  --md-accent-fg-color: var(--zp-deep);
+  --md-default-fg-color: #14161a;
+  --md-default-fg-color--light: #4a4f55;
+  --md-default-fg-color--lighter: #7e8695;
+  --md-default-fg-color--lightest: rgba(20, 22, 26, 0.08);
+  --md-typeset-a-color: var(--zp-deep);
+  --md-code-bg-color: #eceae4;
+  --md-code-fg-color: #33373c;
+  --md-footer-bg-color: #101114;
+  --md-footer-fg-color: var(--zp-dim);
+  --md-footer-fg-color--light: var(--zp-dim);
+  --md-footer-fg-color--lighter: var(--zp-faint);
+
+  --zp-bg: #f4f3ef;
+  --zp-hair: rgba(20, 22, 26, 0.12);
+  --zp-hair-strong: color-mix(in srgb, var(--zp-deep) 40%, transparent);
+}
+
+/* ============================================================
+ * 3. Type and chrome
+ * ============================================================ */
+
+body {
+  font-feature-settings: "ss01" on;
+  transition: background-color 0.45s ease;
+}
+
+::selection {
+  background: var(--zp-paint);
+  color: #ffffff;
+}
+
+/* the paint glow off the top of the page, like the site canvas */
+.md-container {
+  background:
+    radial-gradient(
+        80rem 42rem at 60% -14rem,
+        color-mix(in srgb, var(--zp-paint-hi) 22%, transparent),
+        transparent 70%
+      )
+      no-repeat,
+    var(--md-default-bg-color);
+}
+
+/* Wordmark: Audiowide, lowercase, small — the site's .id */
+.md-header__title {
+  font-family: "Audiowide", var(--md-text-font-family);
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid var(--zp-hair);
+}
+.md-tabs {
+  background: transparent;
+  border-bottom: 1px solid var(--zp-hair);
+}
+.md-tabs__link {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin-top: 0.35rem;
+}
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  color: var(--md-accent-fg-color);
+}
+
+/* Announce bar: quiet, mono, paint-tinted */
+.md-announce {
+  background: color-mix(in srgb, var(--zp-paint) 12%, #0b0c0e);
+  color: var(--zp-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+.md-announce a,
+.md-announce a:hover {
+  color: var(--zp-tint);
+}
+.md-announce code {
+  color: var(--zp-tint);
+}
+
+/* Sidebar: section labels small-caps and letterspaced, active = paint */
+.md-nav__item--section > .md-nav__link {
+  letter-spacing: 0.07em;
+  font-size: 0.68rem;
+}
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: var(--md-accent-fg-color);
+}
+.md-nav__item--nested .md-nav__link--active {
+  font-weight: 600;
+}
+
+/* Prose links: hairline underline like the site */
+.md-typeset a:not(.md-button) {
+  text-decoration: underline;
+  text-decoration-color: var(--zp-hair-strong);
+  text-underline-offset: 3px;
+}
+.md-typeset a:not(.md-button):hover {
+  text-decoration-color: var(--md-accent-fg-color);
+}
+
+.md-typeset strong {
+  font-weight: 600;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+.md-typeset h1 {
+  font-size: 1.7rem;
+  color: var(--md-default-fg-color);
+}
+
+/* Footer: the paint stripe, then a near-black plate.
+ * The eight segments run in CX-5 code order; two-position stops keep
+ * each paint to one line. */
+.md-footer {
+  border-top: none;
+  position: relative;
+}
+.md-footer::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--zp-p46v) 0 14%,
+    var(--zp-p45p) 14% 26%,
+    var(--zp-p47c) 26% 38%,
+    var(--zp-p45b) 38% 50%,
+    var(--zp-p46g) 50% 62%,
+    var(--zp-p25d) 62% 74%,
+    var(--zp-p42m) 74% 86%,
+    var(--zp-p41w) 86% 100%
+  );
+}
+.md-footer__inner.md-typeset {
+  font-size: 0.7rem;
+}
+.md-copyright {
+  font-family: var(--md-code-font-family);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+ * 4. Content components
+ * ============================================================ */
+
+/* ---- hero (home page) ---- */
+.md-typeset .zoom-hero {
+  position: relative;
+  text-align: center;
+  padding: 2.2rem 0 1rem;
+}
+.md-typeset .zoom-copy h1 {
+  font-family: "Audiowide", var(--md-text-font-family);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin-bottom: 0.9rem;
+}
+.md-typeset .zoom-tagline {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  margin: 0 0 0.9rem;
+}
+.md-typeset .zoom-lede {
+  color: var(--md-default-fg-color--light);
+  max-width: 40em;
+  margin: 0 auto 1.6rem;
+}
+
+/* ---- hero watermark: paint tiles scattered across the hero width,
+ * faint, zero layout space. Centered on the hero, so it stays visible
+ * at any pane width. Fills are the live paint tokens, so it repaints
+ * with the switcher. */
+.md-typeset .zoom-deco {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: min(100%, 74rem);
+  pointer-events: none;
+  opacity: 0.3;
+}
+.md-typeset .zoom-copy {
+  position: relative;
+  z-index: 1;
+}
+body[data-md-color-scheme="default"] .md-typeset .zoom-deco {
+  opacity: 0.14;
+}
+@media (max-width: 560px) {
+  .md-typeset .zoom-deco {
+    display: none;
+  }
+}
+.md-typeset .zoom-deco svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- CTAs: pills dipped in paint ---- */
+.md-typeset .md-button {
+  border-radius: 999px;
+  border-width: 1px;
+  font-weight: 600;
+  padding: 0.55rem 1.5rem;
+}
+.md-typeset .md-button--primary {
+  color: #ffffff;
+  border: 0;
+  background: linear-gradient(
+    180deg,
+    var(--zp-paint-hi),
+    var(--zp-paint) 55%,
+    var(--zp-paint-lo)
+  );
+  box-shadow:
+    0 6px 22px color-mix(in srgb, var(--zp-paint) 40%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.md-typeset .md-button--primary:focus-visible,
+.md-typeset .md-button--primary:hover {
+  color: #ffffff;
+  filter: brightness(1.1);
+  background: linear-gradient(
+    180deg,
+    var(--zp-paint-hi),
+    var(--zp-paint) 55%,
+    var(--zp-paint-lo)
+  );
+}
+body[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
+  color: var(--zp-ink);
+  border-color: var(--zp-hair-strong);
+}
+body[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary):hover {
+  color: var(--zp-tint);
+  border-color: var(--zp-tint);
+  background: transparent;
+}
+body[data-md-color-scheme="default"] .md-typeset .md-button:not(.md-button--primary) {
+  color: var(--md-default-fg-color);
+  border-color: var(--zp-hair-strong);
+}
+body[data-md-color-scheme="default"] .md-typeset .md-button:not(.md-button--primary):hover {
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  background: transparent;
+}
+
+/* ---- paint selector: header button + dropdown panel ---- */
+.md-header__paints {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.md-header__paints svg {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.md-paints {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  width: min(15rem, calc(100vw - 1.5rem));
+  padding: 0.8rem;
+  background: var(--zp-card);
+  border: 1px solid var(--zp-card-line);
+  border-radius: 0.9rem;
+  box-shadow: 0 18px 40px rgba(2, 5, 10, 0.5);
+}
+/* the panel is a grid, so hide it past the hidden attribute */
+.md-paints[hidden] {
+  display: none;
+}
+body[data-md-color-scheme="default"] .md-paints {
+  background: #fffefb;
+  border-color: rgba(20, 22, 26, 0.1);
+}
+.md-paints .wearing {
+  grid-column: 1 / -1;
+  margin: 0.3rem 0 0;
+  font-family: var(--md-code-font-family);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+.md-paints .wearing::before {
+  content: "wearing ";
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* ---- the chips ---- */
+.chip {
+  position: relative;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  padding: 0;
+  background: linear-gradient(150deg, var(--ch), var(--cb) 52%, var(--cl));
+  box-shadow:
+    0 8px 18px rgba(2, 5, 10, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+/* the light catching the clearcoat */
+.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 46%);
+  pointer-events: none;
+}
+/* mica flake */
+.chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 0.5px, transparent 0.6px);
+  background-size: 3px 3px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.chip:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 26px rgba(2, 5, 10, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.chip:focus-visible {
+  outline: 2px solid var(--md-default-fg-color);
+  outline-offset: 2px;
+}
+.chip[aria-pressed="true"] {
+  box-shadow:
+    0 0 0 2px var(--md-default-fg-color),
+    0 8px 18px rgba(2, 5, 10, 0.5);
+}
+.chip .code {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.35rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+}
+/* chip colors key off the same data attribute the switcher script uses;
+ * there is no separate class layer. */
+.chip[data-zp-paint="46v"] { --cb: var(--zp-p46v); --ch: var(--zp-p46v-hi); --cl: var(--zp-p46v-lo); }
+.chip[data-zp-paint="45p"] { --cb: var(--zp-p45p); --ch: var(--zp-p45p-hi); --cl: var(--zp-p45p-lo); }
+.chip[data-zp-paint="47c"] { --cb: var(--zp-p47c); --ch: var(--zp-p47c-hi); --cl: var(--zp-p47c-lo); }
+.chip[data-zp-paint="45b"] { --cb: var(--zp-p45b); --ch: var(--zp-p45b-hi); --cl: var(--zp-p45b-lo); }
+.chip[data-zp-paint="46g"] { --cb: var(--zp-p46g); --ch: var(--zp-p46g-hi); --cl: var(--zp-p46g-lo); }
+.chip[data-zp-paint="25d"] { --cb: var(--zp-p25d); --ch: var(--zp-p25d-hi); --cl: var(--zp-p25d-lo); }
+.chip[data-zp-paint="42m"] { --cb: var(--zp-p42m); --ch: var(--zp-p42m-hi); --cl: var(--zp-p42m-lo); }
+.chip[data-zp-paint="41w"] { --cb: var(--zp-p41w); --ch: var(--zp-p41w-hi); --cl: var(--zp-p41w-lo); }
+/* the light paints print their code in dark ink */
+.chip[data-zp-paint="45p"] .code,
+.chip[data-zp-paint="25d"] .code {
+  color: rgba(20, 22, 26, 0.65);
+}
+/* chips boot in like a terminal color test when the panel opens */
+@keyframes zp-boot {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+}
+.md-paints .chip {
+  animation: zp-boot 0.4s both;
+}
+.md-paints .chip:nth-child(2) { animation-delay: 0.05s; }
+.md-paints .chip:nth-child(3) { animation-delay: 0.1s; }
+.md-paints .chip:nth-child(4) { animation-delay: 0.15s; }
+.md-paints .chip:nth-child(5) { animation-delay: 0.2s; }
+.md-paints .chip:nth-child(6) { animation-delay: 0.25s; }
+.md-paints .chip:nth-child(7) { animation-delay: 0.3s; }
+.md-paints .chip:nth-child(8) { animation-delay: 0.35s; }
+@media (prefers-reduced-motion: reduce) {
+  .md-paints .chip {
+    animation: none;
+  }
+}
+
+/* ---- section eyebrows: 01 / 02 / 03 ---- */
+.md-typeset .zoom-eyebrow {
+  font-family: var(--md-code-font-family);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--zp-tint);
+  margin: 2.2rem 0 0.6rem;
+}
+.md-typeset .zoom-eyebrow::after {
+  content: "";
+  display: block;
+  margin-top: 0.55rem;
+  height: 1px;
+  background: var(--zp-hair);
+}
+
+/* ---- cards: jet-black plates with a hairline ---- */
+.md-typeset .grid.cards > ul > li {
+  background: var(--zp-card);
+  border: 1px solid var(--zp-card-line);
+  border-radius: 0.85rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-3px);
+  border-color: var(--zp-hair-strong);
+  box-shadow: 0 14px 30px rgba(2, 5, 10, 0.4);
+}
+body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li {
+  background: #fffefb;
+  border-color: rgba(20, 22, 26, 0.1);
+}
+body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li:hover {
+  box-shadow: 0 14px 30px rgba(20, 22, 26, 0.1);
+}
+.md-typeset .grid.cards > ul > li .twemoji,
+.md-typeset .grid.cards > ul > li .icon {
+  color: var(--zp-tint);
+}
+body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li .twemoji,
+body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li .icon {
+  color: var(--zp-deep);
+}
+
+/* ---- tables: hairline ledger, no zebra ---- */
+.md-typeset table:not([class]) {
+  font-size: 0.72rem;
+  border-collapse: collapse;
+}
+.md-typeset table:not([class]) th {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--zp-hair-strong);
+  background: transparent;
+}
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid var(--zp-hair);
+  background: transparent;
+}
+.md-typeset table:not([class]) tr:hover td {
+  background: color-mix(in srgb, var(--zp-paint) 7%, transparent);
+}
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 0.55rem 0.9rem;
+}
+
+/* ---- code ---- */
+.md-typeset code,
+.md-typeset kbd,
+.md-typeset pre {
+  font-size: 0.82em;
+}
+.md-typeset pre > code,
+.md-typeset pre {
+  border-radius: 0.6rem;
+}
+.md-typeset pre {
+  border: 1px solid var(--zp-card-line);
+}
+.md-typeset :not(pre) > code {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.35rem;
+  padding: 0.08em 0.35em;
+}
+
+/* ---- content tabs ---- */
+.md-typeset .tabbed-set {
+  border-radius: 0.7rem;
+}
+.md-typeset .tabbed-labels {
+  border-bottom: 1px solid var(--zp-hair);
+}
+.md-typeset .tabbed-labels > label {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 0.9rem;
+}
+.md-typeset .tabbed-labels > label:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* ---- admonitions ---- */
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--zp-hair);
+  background: var(--zp-card);
+  border-radius: 0.7rem;
+  box-shadow: none;
+}
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background: transparent;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+body[data-md-color-scheme="default"] .md-typeset .admonition,
+body[data-md-color-scheme="default"] .md-typeset details {
+  background: #fffefb;
+}
+
+/* note: eternal blue voice */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: color-mix(in srgb, var(--zp-p45b-t) 40%, transparent);
+}
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  color: var(--zp-p45b-t);
+}
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.note > summary::before {
+  background-color: var(--zp-p45b-t);
+}
+
+/* warning: hazard amber, like the site's alpha callouts */
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: color-mix(in srgb, var(--zp-warn) 40%, transparent);
+}
+.md-typeset .admonition.warning > .admonition-title,
+.md-typeset details.warning > summary {
+  color: var(--zp-warn);
+}
+.md-typeset .admonition.warning > .admonition-title::before,
+.md-typeset details.warning > summary::before {
+  background-color: var(--zp-warn);
+}
+
+/* danger: soul red */
+.md-typeset .admonition.danger,
+.md-typeset details.danger,
+.md-typeset .admonition.caution {
+  border-color: color-mix(in srgb, var(--zp-p46v-hi) 45%, transparent);
+}
+.md-typeset .admonition.danger > .admonition-title,
+.md-typeset details.danger > summary,
+.md-typeset .admonition.caution > .admonition-title {
+  color: var(--zp-p46v-hi);
+}
+.md-typeset .admonition.danger > .admonition-title::before,
+.md-typeset details.danger > summary::before,
+.md-typeset .admonition.caution > .admonition-title::before {
+  background-color: var(--zp-p46v-hi);
+}
+
+/* tip: machine gray tint */
+.md-typeset .admonition.tip,
+.md-typeset .admonition.success,
+.md-typeset details.tip {
+  border-color: var(--zp-hair-strong);
+}
+.md-typeset .admonition.tip > .admonition-title,
+.md-typeset .admonition.success > .admonition-title,
+.md-typeset details.tip > summary {
+  color: var(--zp-tint);
+}
+.md-typeset .admonition.tip > .admonition-title::before,
+.md-typeset .admonition.success > .admonition-title::before,
+.md-typeset details.tip > summary::before {
+  background-color: var(--zp-tint);
+}
+
+/* blockquotes: hairline left, dim */
+.md-typeset blockquote {
+  border-left: 2px solid var(--zp-hair-strong);
+  color: var(--md-default-fg-color--light);
+}
+
+/* ---- diagrams ---- */
+.md-typeset .diagram {
+  margin: 1.2rem 0;
+  padding: 1rem 0.8rem;
+  background: color-mix(in srgb, var(--zp-paint) 5%, var(--md-code-bg-color));
+  border: 1px solid var(--zp-hair);
+  border-radius: 0.85rem;
+  overflow-x: auto;
+}
+.md-typeset .diagram svg {
+  width: 100%;
+  min-width: 620px;
+  height: auto;
+  display: block;
+}
+.md-typeset .diagram svg text {
+  font-family: var(--md-code-font-family);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  fill: var(--md-default-fg-color--light);
+}
+.md-typeset .diagram svg .d-hi {
+  fill: var(--md-default-fg-color);
+  font-weight: 600;
+}
+.md-typeset .diagram svg .d-box {
+  fill: color-mix(in srgb, var(--zp-paint) 8%, transparent);
+  stroke: var(--zp-hair-strong);
+  stroke-width: 1;
+  rx: 10;
+}
+.md-typeset .diagram svg .d-box-accent {
+  fill: color-mix(in srgb, var(--zp-paint) 20%, transparent);
+  stroke: var(--zp-tint);
+  stroke-width: 1.2;
+  rx: 10;
+}
+.md-typeset .diagram svg .d-box-stock {
+  fill: transparent;
+  stroke: var(--zp-hair);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  rx: 10;
+}
+.md-typeset .diagram svg .d-flow {
+  stroke: var(--zp-faint);
+  stroke-width: 1.2;
+  fill: none;
+  marker-end: url(#zp-arrow);
+}
+.md-typeset .diagram svg .d-flow-accent {
+  stroke: var(--zp-tint);
+  stroke-width: 1.4;
+  fill: none;
+  marker-end: url(#zp-arrow);
+}
+.md-typeset .diagram svg .d-red {
+  fill: var(--zp-p46v-hi);
+}
+.md-typeset .diagram svg .d-redline {
+  stroke: var(--zp-p46v-hi);
+  stroke-width: 1.5;
+}
+.md-typeset .diagram svg .d-lane {
+  stroke: var(--zp-hair);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+.md-typeset .diagram svg .m-dim path {
+  fill: var(--zp-faint);
+}
+.md-typeset .diagram svg .m-acc path {
+  fill: var(--zp-tint);
+}
+.md-typeset .diagram svg .d-line-axis {
+  stroke: var(--zp-faint);
+  stroke-width: 1;
+}
+.md-typeset .diagram svg .d-ceiling {
+  stroke: var(--zp-faint);
+  stroke-width: 1.2;
+  stroke-dasharray: 5 4;
+  fill: none;
+}
+
+/* ---- micro-polish ---- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--zp-tint) 55%, transparent) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--zp-tint) 45%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.md-paints {
+  animation: zp-panel 0.16s ease;
+}
+@keyframes zp-panel {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .md-paints {
+    animation: none;
+  }
+}
+.md-typeset .md-button--primary {
+  transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.md-typeset .md-button--primary:hover {
+  transform: translateY(-1px);
+}
+
+/* ---- version chip in the announce bar ---- */
+.zoom-version {
+  display: none;
+  font-family: var(--md-code-font-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--zp-tint);
+}
+.zoom-version[data-zp-ready] {
+  display: inline-block;
+}
+
+/* ---- 404: wrong exit ---- */
+.md-typeset .zoom-404 {
+  text-align: center;
+  padding: 3rem 0 2rem;
+}
+.md-typeset .zoom-404-code {
+  font-family: "Audiowide", var(--md-text-font-family);
+  font-size: clamp(4.5rem, 14vw, 7rem);
+  line-height: 1;
+  color: var(--md-default-fg-color);
+}
+.md-typeset .zoom-404 h1 {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+.md-typeset .zoom-404-lede {
+  color: var(--md-default-fg-color--light);
+  max-width: 30em;
+  margin: 0.7rem auto 0;
+}
+.md-typeset .zoom-404-row {
+  margin-top: 1.8rem;
+}
+.md-typeset .zoom-404-hint {
+  margin-top: 2.2rem;
+  font-family: var(--md-code-font-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* ---- search ---- */
+.md-search__form {
+  background-color: var(--md-default-fg-color--lightest);
+}
+.md-search__input:hover + .md-search__icon,
+.md-search__input:focus-visible + .md-search__icon {
+  color: var(--md-accent-fg-color);
+}
+.md-search-result__link:hover,
+.md-search-result__item--active {
+  background: color-mix(in srgb, var(--zp-paint) 10%, transparent);
+}
+
+/* scroll-to-top: paint accent */
+.md-top:hover {
+  background-color: var(--zp-paint);
+  border-color: var(--zp-paint);
+  color: #ffffff;
+}

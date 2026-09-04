@@ -1,0 +1,161 @@
+site_name: zoompilot wiki
+site_description: >-
+  Documentation for zoompilot, a Mazda-optimized fork of sunnypilot
+  (openpilot). Install guides, feature reference, settings, safety, and
+  technical design notes.
+site_url: https://wiki.zoompilot.ai
+repo_url: https://github.com/zoompilot/wiki
+repo_name: zoompilot/wiki
+edit_uri: edit/main/docs/
+copyright: >
+  zoom-zoom-zoom · zoompilot is experimental software. You drive the car,
+  follow the law, and carry all the risk.
+
+theme:
+  name: material
+  # Zensical's new design. Switch to "classic" to get the exact old
+  # Material for MkDocs look (same HTML, different stylesheet).
+  variant: modern
+  custom_dir: overrides
+  logo: assets/brand/logo.svg
+  favicon: assets/brand/favicon.svg
+  # Same faces as zoompilot.ai: Inter for body, JetBrains Mono for code.
+  # Audiowide (the site display face) is added in overrides/main.html and
+  # used for the wordmark and the home-page hero.
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Dark is the default. The first entry wins when no toggle was used
+    # yet. Scheme names must stay "slate"/"default": Material's built-in
+    # dark and light variables key off these names. Brand colors are
+    # layered on in stylesheets/custom.css (docs/stylesheets/).
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - scheme: default
+      primary: red
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+  features:
+    - announce.dismiss
+    - content.code.copy
+    - content.code.select
+    - content.tabs
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+plugins:
+  - search
+  # git-revision-date-localized was dropped in the Zensical move:
+  # Zensical has no MkDocs plugin runtime yet (native support is
+  # planned). The dates were CI-only and are gone for now.
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tilde
+
+extra_css:
+  - stylesheets/custom.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zoompilot/zoompilot
+      name: zoompilot on GitHub
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/jFWkHC2uhh
+      name: zoompilot Discord
+    - icon: material/web
+      link: https://zoompilot.ai
+      name: zoompilot.ai
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - getting-started/about.md
+      - getting-started/supported-cars.md
+      - getting-started/hardware.md
+      - getting-started/install.md
+      - getting-started/first-drive.md
+  - Features:
+      - features/steering.md
+      - features/smart-cruise.md
+      - features/icbm.md
+      - features/speed-limit-assist.md
+      - features/deceleration-overshoot.md
+      - features/sensor-readouts.md
+      - features/alpha-longitudinal.md
+      - features/alerts.md
+      - Settings: settings/index.md
+  - Safety: safety.md
+  - Technical:
+      - technical/index.md
+      - technical/mazda-lateral.md
+      - technical/mazda-longitudinal.md
+      - technical/mazda-fingerprinting.md
+      - technical/lateral-tune.md
+      - technical/lateral-tune-roadmap.md
+      - technical/cruise-arbiter.md
+      - technical/icbm.md
+      - technical/scc-curve-planning.md
+  - How-to:
+      - how-to/connect-to-comma.md
+      - how-to/replay-a-drive.md
+      - how-to/logs.md
+      - how-to/car-port.md
+      - how-to/turn-the-speed-blue.md
+  - Community:
+      - community/contribute.md
+      - community/feedback.md
+      - community/roadmap.md
+      - community/faq.md
+      - Releases: releases/changelog.md
+      - Troubleshooting: troubleshooting.md
+      - About & credits: about.md
+
+validation:
+  omitted_files: warn
+  not_found: warn
+  absolute_links: warn

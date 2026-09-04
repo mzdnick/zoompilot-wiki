@@ -1,0 +1,8 @@
+# DEPRECATED — the old MkDocs Material toolchain, kept only as a
+# fallback while the Zensical build (requirements.txt) settles.
+# Zensical parses the same mkdocs.yml; build with:
+#   pip install -r requirements-mkdocs.txt && mkdocs build
+# Delete this file once the Zensical site has shipped and run well.
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-git-revision-date-localized-plugin==1.5.4

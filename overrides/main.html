@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block announce %}
+  Experimental software — you drive the car, follow the law, and carry all
+  the risk. Read the
+  <a href="{{ 'safety/' | url }}">safety page</a> first. Install URL:
+  <code>zoompilot/main</code>.
+  <span class="zoom-version" data-zp-version></span>
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+{# Audiowide: the zoompilot.ai display face, for the wordmark and hero.
+   Inter and JetBrains Mono come from theme.font in mkdocs.yml. #}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{# Paint switcher, mirroring zoompilot.ai: body[data-md-paint] drives the
+   CSS variables in stylesheets/custom.css. The chips live in the
+   template below; the script clones them into the header as a dropdown
+   so the selector is on every page without taking page space. Chip
+   colors are keyed on data-zp-paint in the CSS; names are the chips'
+   aria-labels, so there is no second list to keep in step. The choice
+   persists across pages and visits. Keep this inline at the end of the
+   body: it must run before first paint, or a saved paint would flash
+   the default. #}
+<template id="zp-paints">
+  <div class="md-paints" role="group" aria-label="Paint the wiki like your car">
+    <button class="chip" type="button" data-zp-paint="46v" aria-label="46V soul red crystal"><span class="code">46V</span></button>
+    <button class="chip" type="button" data-zp-paint="45p" aria-label="45P sonic silver"><span class="code">45P</span></button>
+    <button class="chip" type="button" data-zp-paint="47c" aria-label="47C titanium flash"><span class="code">47C</span></button>
+    <button class="chip" type="button" data-zp-paint="45b" aria-label="45B eternal blue"><span class="code">45B</span></button>
+    <button class="chip" type="button" data-zp-paint="46g" aria-label="46G machine gray"><span class="code">46G</span></button>
+    <button class="chip" type="button" data-zp-paint="25d" aria-label="25D snowflake white pearl"><span class="code">25D</span></button>
+    <button class="chip" type="button" data-zp-paint="42m" aria-label="42M deep crystal blue"><span class="code">42M</span></button>
+    <button class="chip" type="button" data-zp-paint="41w" aria-label="41W jet black"><span class="code">41W</span></button>
+    <p class="wearing" data-zp-wearing>46G machine gray</p>
+  </div>
+</template>
+<script>
+  (function () {
+    var KEY = "zp-wiki-paint";
+    var DEFAULT = "46g";
+    /* the 2022-2025 CX-5 line, in chip order. Codes only: the names
+     * live on the chips (aria-label), the colors in custom.css. The
+     * list validates a saved code before the chips are injected. */
+    var CODES = ["46v", "45p", "47c", "45b", "46g", "25d", "42m", "41w"];
+
+    /* header entry point: palette button + chip panel */
+    var btn = null;
+    var panel = null;
+    var tpl = document.getElementById("zp-paints");
+    var inner = document.querySelector(".md-header__inner");
+    if (tpl && inner) {
+      var wrap = document.createElement("div");
+      wrap.className = "md-header__paints";
+      btn = document.createElement("button");
+      btn.className = "md-header__button md-icon";
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Choose paint");
+      btn.setAttribute("aria-expanded", "false");
+      btn.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
+        '<path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>';
+      panel = tpl.content.firstElementChild.cloneNode(true);
+      panel.hidden = true;
+      wrap.append(btn, panel);
+      /* before the repo block, so it never lands past the content edge */
+      var source = inner.querySelector(".md-header__source");
+      if (source) {
+        source.before(wrap);
+      } else {
+        inner.append(wrap);
+      }
+    }
+
+    function setOpen(open) {
+      if (!panel) return;
+      panel.hidden = !open;
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    function apply(code, save) {
+      if (CODES.indexOf(code) < 0) return;
+      document.body.setAttribute("data-md-paint", code);
+      var name = null;
+      document.querySelectorAll("[data-zp-paint]").forEach(function (el) {
+        var on = el.getAttribute("data-zp-paint") === code;
+        el.setAttribute("aria-pressed", on ? "true" : "false");
+        if (on) name = el.getAttribute("aria-label");
+      });
+      if (name) {
+        document.querySelectorAll("[data-zp-wearing]").forEach(function (el) {
+          el.textContent = name;
+        });
+      }
+      if (save) {
+        try { localStorage.setItem(KEY, code); } catch (e) { /* private mode */ }
+      }
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) { /* private mode */ }
+    apply(saved || DEFAULT, false);
+
+    document.addEventListener("click", function (ev) {
+      var chip = ev.target.closest("[data-zp-paint]");
+      if (chip) {
+        apply(chip.getAttribute("data-zp-paint"), true);
+        setOpen(false);
+        return;
+      }
+      if (panel && !panel.hidden && !ev.target.closest(".md-header__paints")) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape" && panel && !panel.hidden) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    if (btn) {
+      btn.addEventListener("click", function () {
+        setOpen(panel.hidden);
+      });
+    }
+
+    /* version chip: the zoompilot build the wiki documents, fetched like
+     * the one on zoompilot.ai. Stays hidden if the request fails. */
+    var chip = document.querySelector("[data-zp-version]");
+    if (chip) {
+      fetch("https://api.github.com/repos/zoompilot/zoompilot/commits?per_page=1")
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (!data || !data[0]) return;
+          var c = data[0].commit.committer.date;
+          var d = new Date(c);
+          var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+          chip.textContent = data[0].sha.slice(0, 10) + " · " +
+            d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+          chip.setAttribute("data-zp-ready", "");
+        })
+        .catch(function () { /* offline: chip stays hidden */ });
+    }
+  })();
+</script>
+{% endblock %}
