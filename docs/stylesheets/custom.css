@@ -179,10 +179,55 @@ body {
   letter-spacing: 0.03em;
 }
 
+/* Header bar: the site topbar's glass — translucent canvas over a
+ * blur, hairline at the bottom. */
 .md-header {
   box-shadow: none;
   border-bottom: 1px solid var(--zp-hair);
+  background: color-mix(in srgb, var(--md-default-bg-color) 82%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: background-color 0.45s ease;
 }
+@supports not (backdrop-filter: blur(1px)) {
+  .md-header {
+    background: var(--md-default-bg-color);
+  }
+}
+
+/* Header links: the zoompilot.ai topbar's text row (site / github /
+ * discord). Lowercase, letterspaced, quiet until hover. */
+.md-header__links {
+  display: flex;
+  align-items: baseline;
+  gap: 1.35rem;
+  margin-left: auto;
+  margin-right: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.md-header__links a {
+  color: var(--md-default-fg-color--lighter);
+  text-decoration: none;
+}
+.md-header__links a:hover {
+  color: var(--md-default-fg-color);
+}
+/* external links leave the wiki: the arrow, only on github + discord */
+.md-header__links a.ext::after {
+  content: "↗";
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+/* the row crowds the title once the drawer takes over */
+@media (max-width: 59.9375em) {
+  .md-header__links {
+    display: none;
+  }
+}
+
 .md-tabs {
   background: transparent;
   border-bottom: 1px solid var(--zp-hair);

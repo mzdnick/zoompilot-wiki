@@ -69,10 +69,11 @@
       panel = tpl.content.firstElementChild.cloneNode(true);
       panel.hidden = true;
       wrap.append(btn, panel);
-      /* before the repo block, so it never lands past the content edge */
-      var source = inner.querySelector(".md-header__source");
-      if (source) {
-        source.before(wrap);
+      /* last among the header icons, before the search dialog node;
+       * the repo source widget is gone (site-style links now) */
+      var anchor = inner.querySelector(".md-search");
+      if (anchor) {
+        anchor.before(wrap);
       } else {
         inner.append(wrap);
       }
