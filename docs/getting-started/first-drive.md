@@ -33,7 +33,7 @@ the minimum speed is 0 mph, so the car can steer from a stop.
 What to expect on a first drive:
 
 - Steering should feel confident at low speed and calm on the highway.
-  The speed-dependent torque learns your specific rack over the first
+  The speed-dependent torque learns your specific motor over the first
   drives.
 - Self-tune keeps improving the steering in the background. You do not
   need to touch anything.

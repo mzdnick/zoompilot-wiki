@@ -31,7 +31,7 @@ seeds the torque-control stack once, on the first start:
 | Torque Control Tune Version | v2.0 |
 
 The seed runs only once, on cars with the steer-to-zero EPS (the 2022+
-CX-5 rack, the CX-9, and EPS swaps). After it runs, you can turn any of
+CX-5 motor, the CX-9, and EPS swaps). After it runs, you can turn any of
 these off and zoompilot keeps your choice. Everything else starts at the
 defaults in the tables below.
 
@@ -55,7 +55,7 @@ depth on [Steering improvements](../features/steering.md).
 | Post-Blinker Delay | 0–10 s, step 1 | 0 s | Wait time before steering resumes after the blinker ends. |
 | Enforce Torque Lateral Control | On / Off | Off (**On** on Mazda) | Forces the torque steering controller. Hidden on angle-steering cars. Conflicts with NNLC. Seeded on for steer-to-zero Mazdas. |
 | Lateral Jerk Torque Controller | On / Off | Off | Smoother wheel movement in theory. Tested on Mazdas: no gain, and it hurt performance. **Leave it off.** |
-| Self-Tune | On / Off | Off (**On** on Mazda) | Learns your rack's torque values as you drive. |
+| Self-Tune | On / Off | Off (**On** on Mazda) | Learns your motor's torque values as you drive. |
 | Less Restrict Settings for Self-Tune (Beta) | On / Off | Off | More forgiving learning. Needs Self-Tune. |
 | Speed-Dependent Self-Tune (Beta) | On / Off | Off (**On** on Mazda) | Learns separate values across speed bins. See [Steering improvements](../features/steering.md). Needs Self-Tune. |
 | Enable Custom Tuning | On / Off | Off | Manual lateral acceleration factor and friction, instead of the offline data. **Recommended off.** See [First drive](../getting-started/first-drive.md). |

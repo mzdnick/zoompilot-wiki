@@ -104,7 +104,7 @@ settings from a previous fork cause hard-to-explain faults. See
   [Settings](settings/index.md#steering) and
   [First drive](getting-started/first-drive.md).
 - Give self-tune a few drives. Fresh installs start from learned CX-5
-  seeds, but your rack still needs some miles.
+  seeds, but your motor still needs some miles.
 - CX-9 owners: speed-dependent torque takes longer to learn, because the
   starting seeds come from a CX-5.
 
@@ -118,9 +118,9 @@ Check, in order:
 2. The car is in a state that allows engagement: driver door closed,
    seatbelt on, and stock cruise able to set. See
    [First drive](getting-started/first-drive.md).
-3. Your car is supported. zoompilot targets the 2022+ EPS rack. The
+3. Your car is supported. zoompilot targets the 2022+ EPS motor. The
    device fingerprints on VIN and EPS firmware; EPS swaps are identified
-   by rack firmware. See
+   by motor firmware. See
    [Supported cars](getting-started/supported-cars.md).
 4. The engagement conditions for your model are met. The CX-5 steers
    from 0 mph; stock-radar cars keep their stock stop-and-go limits. See

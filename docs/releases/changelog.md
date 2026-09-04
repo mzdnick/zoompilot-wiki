@@ -51,11 +51,11 @@ zoompilot has its own home, its own build, and the biggest batch of changes yet.
 
 ## 2026-07-04 — Smart cruise and EPS swaps
 
-Curve slowdowns get usable, and older Mazdas with a 2022+ rack join in.
+Curve slowdowns get usable, and older Mazdas join in with a swapped-in CX-5 motor.
 
 - **Smart cruise decel overshoot.** New alpha toggle. The Mazda ECU is slow to obey a lower set speed, so this asks for more than the model wants and gets the deceleration the curve needs.
 - **ICBM fixes.** Fixed set-speed desync with the stock ECU and the target-chasing oscillation. Button presses are suppressed while you press yours, and pacing adapts to how far the target is.
-- **EPS swap support.** 2022+ racks in older Mazdas fingerprint by the rack's firmware and steer to a stop.
+- **EPS swap support.** A 2022-25 CX-5 steering motor in an older Mazda fingerprints by its firmware and steers to a stop.
 - **Upstream sync.** Merged sunnypilot master and the opendbc upstream into zoompilot.
 
 ## Upstream release notes

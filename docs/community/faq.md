@@ -12,9 +12,9 @@ missing.
 
 ## Is my Mazda supported?
 
-zoompilot targets the 2022+ EPS rack. Full support: CX-5 2022–2025 and
-CX-9 2021–2023. Older Mazdas with a swapped 2022+ CX-5 EPS rack are also
-supported. See [Supported cars](../getting-started/supported-cars.md).
+zoompilot targets the 2022+ EPS motor. Full support: CX-5 2022–2025
+and CX-9 2021–2023. Older Mazdas with a swapped 2022-25 CX-5 EPS motor
+are also supported. See [Supported cars](../getting-started/supported-cars.md).
 
 ## What hardware do I need?
 
@@ -51,7 +51,7 @@ automatic emergency braking and forward collision alerts with it. See
 
 No. Fresh installs on 2022+ EPS Mazdas arrive with torque control,
 self-tune, and speed-dependent self-tune already on. The steering
-improves as self-tune learns your rack. See
+improves as self-tune learns your motor. See
 [First drive](../getting-started/first-drive.md).
 
 ## Why does the steering feel different at different speeds?

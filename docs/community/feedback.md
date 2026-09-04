@@ -21,7 +21,7 @@ Before posting, please make sure:
 
 Steering feel is zoompilot's core work. Useful feedback includes:
 
-- Car model and year, and whether the EPS rack is original or swapped.
+- Car model and year, and whether the EPS motor is original or swapped.
 - The speed range where something feels off.
 - Whether self-tune was on, and roughly how many miles the install has.
 - Route IDs from the drives in question.
