@@ -1261,3 +1261,85 @@ html {
     max-width: 100%;
   }
 }
+
+/* ---- device switcher (comma four / comma 3/3X) ---- */
+/* The Settings reference embeds both devices' screens per panel. With JS,
+   the switcher hides one set (body.zp-device-pick + body.zp-device-tici);
+   without JS both render stacked with their captions. */
+.md-typeset .device-switch {
+  display: inline-flex;
+  gap: 0;
+  margin: 0.4rem 0 1rem;
+  border: 1px solid var(--zp-hair);
+  border-radius: 10px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--zp-paint) 6%, transparent);
+}
+.md-typeset .device-switch button {
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.45rem 0.9rem;
+  border: 0;
+  cursor: pointer;
+  color: var(--md-default-fg-color--light);
+  background: transparent;
+}
+.md-typeset .device-switch button[aria-pressed="true"] {
+  background: var(--zp-paint);
+  color: #ffffff;
+}
+.md-typeset .device-switch button:focus-visible {
+  outline: 2px solid var(--zp-paint);
+  outline-offset: -2px;
+}
+
+/* figure captions: only shown when JS is off (both devices stacked) */
+.md-typeset .settings-strip figcaption,
+.md-typeset .settings-shot figcaption {
+  font-family: var(--md-code-font-family);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--lighter);
+  padding: 0.4rem 0.7rem;
+  border-top: 1px solid var(--zp-hair);
+  text-align: right;
+}
+body.zp-device-pick .md-typeset .settings-strip figcaption,
+body.zp-device-pick .md-typeset .settings-shot figcaption {
+  display: none;
+}
+
+/* tici panels are full-frame portrait captures, not sideways strips */
+.md-typeset .settings-shot {
+  margin: 0.6rem 0 1.2rem;
+  overflow: hidden;
+  border: 1px solid var(--zp-hair);
+  border-radius: 12px;
+  background: #000;
+}
+.md-typeset .settings-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* with JS on, show only the picked device's figures */
+body.zp-device-pick .md-typeset .settings-figure-tici {
+  display: none;
+}
+body.zp-device-pick.zp-device-tici .md-typeset .settings-figure-tici {
+  display: block;
+}
+body.zp-device-pick.zp-device-tici .md-typeset .settings-figure-mici {
+  display: none;
+}
+@media print {
+  body.zp-device-pick .md-typeset .settings-figure-tici {
+    display: block;
+  }
+  body.zp-device-pick.zp-device-tici .md-typeset .settings-figure-mici {
+    display: block;
+  }
+}

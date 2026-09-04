@@ -1,25 +1,20 @@
 #!/usr/bin/env python3
 """Render the eight mici settings panels embedded in the zoompilot wiki to PNG.
 
-Lives in the wiki repo (contrib/). Copy it into a zoompilot super-repo
-clone to run it — see docs/assets/settings/README.md.
-
 Based on selfdrive/ui/tests/screenshot_layouts.py, but captures a fresh
 Mazda install: declared defaults plus the one-time torque-control seed,
 and the four stock panels the upstream tool does not capture.
 
 Usage:
   cd /path/to/zoompilot   (super-repo root)
-  cp /path/to/wiki/contrib/capture-settings.py .
-  PYTHONPATH=. SCALE=3 .venv/bin/python capture-settings.py
-
-SCALE=3 keeps the hidden window inside the Mac screen; larger scales
-make the centered window position overflow and AppKit aborts.
+  PYTHONPATH=. SCALE=4 .venv/bin/python capture_wiki_settings.py
 """
 import os
 
-os.environ["BIG"] = "0"
-os.environ.setdefault("SCALE", "4")
+DEVICE = os.getenv("DEVICE", "mici")  # mici (comma four) or tici (comma 3/3X)
+BIG_UI = DEVICE == "tici"
+os.environ["BIG"] = "1" if BIG_UI else "0"
+os.environ.setdefault("SCALE", "0.75" if BIG_UI else "3")
 
 import pyray as rl
 
@@ -33,7 +28,7 @@ GIT_COMMIT = "393a506e61b5e3c74ebd58258c729ef247480950"
 GIT_BRANCH = "main"
 VERSION = "2026.08.25-8"
 
-OUTPUT_DIR = Path(__file__).parent / "wiki_captures"
+OUTPUT_DIR = Path(__file__).parent / ("wiki_captures_tici" if BIG_UI else "wiki_captures")
 SETTLE_FRAMES = 30
 
 
@@ -69,6 +64,9 @@ def setup_params():
   params.put("SpeedLimitMode", 1)    # information
   params.put("SpeedLimitPolicy", 3)  # map data priority
   params.put("LongitudinalPersonality", 1)  # standard
+  # models.py reads this with a positional default that lands on `block`,
+  # so it must exist or the blocking read raises on a fresh params DB
+  params.put("LagdToggleDelay", 0.2)
 
   # Release metadata so the Software panel shows this build.
   params.put("Version", VERSION)
@@ -134,22 +132,38 @@ def capture(widget, filename, frames=SETTLE_FRAMES):
       rl.begin_drawing()
       rl.end_drawing()
 
-  # First lay out at the logical device size so the card scroller sizes
-  # its content, then re-render as a panorama wide enough for every card.
+  # First lay out at the logical device size so the scroller sizes its
+  # content. The mici panels are one-card-per-screen horizontal
+  # scrollers, so re-render as a panorama wide enough for every card;
+  # the tici panels are vertical lists, so extend the frame downward.
   logical_rect = rl.Rectangle(0, 0, gui_app.width, gui_app.height)
   warmup = rl.load_render_texture(gui_app._scaled_width, gui_app._scaled_height)
   render_pass(warmup, logical_rect, frames)
   rl.unload_render_texture(warmup)
 
-  content_w = gui_app.width
+  content_w, content_h = gui_app.width, gui_app.height
   scroller = getattr(widget, '_scroller', None)
-  if scroller is not None and getattr(scroller, '_content_size', 0) > content_w:
-    content_w = scroller._content_size
+  if BIG_UI:
+    # scroller_tici computes its content height inline; mirror it
+    if scroller is not None and getattr(scroller, '_items', None):
+      items = [i for i in scroller._items if i.is_visible]
+      h = sum(i.rect.height for i in items) + scroller._spacing * len(items)
+      if not scroller._pad_end:
+        h -= scroller._spacing
+      if h > content_h:
+        content_h = h
+      # rows can still grow (text wrap) during the final pass
+      content_h += 48
+  else:
+    if scroller is not None and getattr(scroller, '_content_size', 0) > content_w:
+      content_w = scroller._content_size
   content_w = int(content_w + 4)
   content_w += content_w % 2
+  content_h = int(content_h + 4)
+  content_h += content_h % 2
 
-  rt = rl.load_render_texture(int(content_w * scale), gui_app._scaled_height)
-  wide_rect = rl.Rectangle(0, 0, float(content_w), float(gui_app.height))
+  rt = rl.load_render_texture(int(content_w * scale), int(content_h * scale))
+  wide_rect = rl.Rectangle(0, 0, float(content_w), float(content_h))
   if hasattr(widget, '_pos_filter'):
     widget._pos_filter.x = 0.0
   render_pass(rt, wide_rect, frames)
@@ -163,7 +177,7 @@ def capture(widget, filename, frames=SETTLE_FRAMES):
 
   rl.unload_image(image)
   rl.unload_render_texture(rt)
-  print(f"  {filename} ({int(content_w * scale)}x{gui_app._scaled_height})")
+  print(f"  {filename} ({int(content_w * scale)}x{int(content_h * scale)})")
 
 
 def main():
@@ -177,26 +191,47 @@ def main():
 
     setup_ui_state()
 
-    from openpilot.selfdrive.ui.sunnypilot.mici.layouts.steering import SteeringLayoutMici
-    from openpilot.selfdrive.ui.sunnypilot.mici.layouts.cruise import CruiseLayoutMici
-    from openpilot.selfdrive.ui.sunnypilot.mici.layouts.models import ModelsLayoutMici
-    from openpilot.selfdrive.ui.sunnypilot.mici.layouts.visuals import VisualsLayoutMici
-    from openpilot.selfdrive.ui.mici.layouts.settings.toggles import TogglesLayoutMici
-    from openpilot.selfdrive.ui.mici.layouts.settings.device import DeviceLayoutMici
-    from openpilot.selfdrive.ui.mici.layouts.settings.software import SoftwareLayoutMici
-    from openpilot.selfdrive.ui.mici.layouts.settings.developer import DeveloperLayoutMici
+    if BIG_UI:
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.steering import SteeringLayout
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.cruise import CruiseLayout
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.models import ModelsLayout
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.visuals import VisualsLayout
+      from openpilot.selfdrive.ui.layouts.settings.toggles import TogglesLayout
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.device import DeviceLayoutSP
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.software import SoftwareLayoutSP
+      from openpilot.selfdrive.ui.sunnypilot.layouts.settings.developer import DeveloperLayoutSP
+      panels = [
+        (SteeringLayout, "steering.png"),
+        (CruiseLayout, "cruise.png"),
+        (ModelsLayout, "models.png"),
+        (VisualsLayout, "visuals.png"),
+        (TogglesLayout, "toggles.png"),
+        (DeviceLayoutSP, "device.png"),
+        (SoftwareLayoutSP, "software.png"),
+        (DeveloperLayoutSP, "developer.png"),
+      ]
+    else:
+      from openpilot.selfdrive.ui.sunnypilot.mici.layouts.steering import SteeringLayoutMici
+      from openpilot.selfdrive.ui.sunnypilot.mici.layouts.cruise import CruiseLayoutMici
+      from openpilot.selfdrive.ui.sunnypilot.mici.layouts.models import ModelsLayoutMici
+      from openpilot.selfdrive.ui.sunnypilot.mici.layouts.visuals import VisualsLayoutMici
+      from openpilot.selfdrive.ui.mici.layouts.settings.toggles import TogglesLayoutMici
+      from openpilot.selfdrive.ui.mici.layouts.settings.device import DeviceLayoutMici
+      from openpilot.selfdrive.ui.mici.layouts.settings.software import SoftwareLayoutMici
+      from openpilot.selfdrive.ui.mici.layouts.settings.developer import DeveloperLayoutMici
+      panels = [
+        (SteeringLayoutMici, "steering.png"),
+        (CruiseLayoutMici, "cruise.png"),
+        (ModelsLayoutMici, "models.png"),
+        (VisualsLayoutMici, "visuals.png"),
+        (TogglesLayoutMici, "toggles.png"),
+        (DeviceLayoutMici, "device.png"),
+        (SoftwareLayoutMici, "software.png"),
+        (DeveloperLayoutMici, "developer.png"),
+      ]
 
     print("Capturing screenshots...")
-    for cls, name in [
-      (SteeringLayoutMici, "steering.png"),
-      (CruiseLayoutMici, "cruise.png"),
-      (ModelsLayoutMici, "models.png"),
-      (VisualsLayoutMici, "visuals.png"),
-      (TogglesLayoutMici, "toggles.png"),
-      (DeviceLayoutMici, "device.png"),
-      (SoftwareLayoutMici, "software.png"),
-      (DeveloperLayoutMici, "developer.png"),
-    ]:
+    for cls, name in panels:
       widget = cls()
       widget.show_event()
       capture(widget, name)

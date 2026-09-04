@@ -111,6 +111,7 @@ extra_javascript:
   - assets/js/torque-live.js
   - assets/js/settings-data.js
   - assets/js/settings-explorer.js
+  - assets/js/device-switch.js
   - assets/js/troubleshoot-wizard.js
   - assets/js/car-checker.js
   - assets/js/vin-decoder.js

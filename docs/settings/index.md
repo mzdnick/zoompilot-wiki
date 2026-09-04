@@ -13,13 +13,20 @@ This page lists every on-device setting with its accepted values, its
 default, and notes for Mazda installs. Values shown here come from the
 toggle definitions in the zoompilot source (2026.08 releases).
 
-Each panel below shows its settings screen on a comma four, rendered
-from the release code. Swipe or scroll each strip sideways to see
-every card in the panel. The capture checklist and the tool that
-regenerates these images live in
+Each panel below shows its settings screen for both supported
+devices, rendered from the release code — comma four strips scroll
+sideways; comma 3/3X panels are full-frame. Pick a device once and
+every panel follows. The tables stay shared: both devices drive the
+same settings, so a row's value means the same thing on each. The
+capture checklist and the tool that regenerates these images live in
 [assets/settings](../assets/settings/README.md). Prefer cards and
 search? The same settings are in the
 [Settings explorer](explorer.md).
+
+<div class="device-switch" data-device-switch role="group" aria-label="Which device's settings screens to show">
+  <button type="button" data-device="mici" aria-pressed="true">comma four</button>
+  <button type="button" data-device="tici" aria-pressed="false">comma 3/3X</button>
+</div>
 
 !!! note "Offroad only"
 
@@ -49,8 +56,13 @@ A factory reset clears all settings back to these values. See
 
 ## Steering
 
-<figure class="settings-strip">
-  <img src="../assets/settings/steering.png" alt="The Steering settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/steering.png" alt="The Steering settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/steering.png" alt="The Steering settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Steering settings control lateral (steering) behavior: MADS, lane
@@ -84,8 +96,13 @@ depth on [Steering improvements](../features/steering.md).
 
 ## Cruise
 
-<figure class="settings-strip">
-  <img src="../assets/settings/cruise.png" alt="The Cruise settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/cruise.png" alt="The Cruise settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/cruise.png" alt="The Cruise settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Cruise settings control speed and distance behavior. See
@@ -112,8 +129,13 @@ Cruise settings control speed and distance behavior. See
 
 ## Models
 
-<figure class="settings-strip">
-  <img src="../assets/settings/models.png" alt="The Models settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/models.png" alt="The Models settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/models.png" alt="The Models settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Model behavior settings: steering delay, turn speeds, and camera offset.
@@ -129,8 +151,13 @@ Model behavior settings: steering delay, turn speeds, and camera offset.
 
 ## Visuals
 
-<figure class="settings-strip">
-  <img src="../assets/settings/visuals.png" alt="The Visuals settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/visuals.png" alt="The Visuals settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/visuals.png" alt="The Visuals settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Display-only settings. None of them change how the car drives.
@@ -153,15 +180,20 @@ Display-only settings. None of them change how the car drives.
 
 ## Toggles
 
-<figure class="settings-strip">
-  <img src="../assets/settings/toggles.png" alt="The Toggles settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/toggles.png" alt="The Toggles settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/toggles.png" alt="The Toggles settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Core on/off switches.
 
 | Setting | Values | Default | Notes |
 | --- | --- | --- | --- |
-| Enable zoompilot | On / Off | **On** | Master switch for driving support. Some screens still label this "Enable sunnypilot"; it is the same toggle. |
+| Enable zoompilot | On / Off | **On** | Master switch for driving support. Some screens still label this "Enable sunnypilot"; it is the same toggle. On comma 3/3X the alpha longitudinal toggle likewise reads "sunnypilot Longitudinal Control (Alpha)". |
 | Enable Lane Departure Warnings | On / Off | Off | Alerts when you drift over a lane line above 50 km/h (31 mph). |
 | Always-On Driver Monitoring | On / Off | Off | Runs driver monitoring even when zoompilot is not engaged. |
 | Use Metric System | On / Off | Off | km/h instead of mph. |
@@ -170,8 +202,13 @@ Core on/off switches.
 
 ## Device
 
-<figure class="settings-strip">
-  <img src="../assets/settings/device.png" alt="The Device settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/device.png" alt="The Device settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/device.png" alt="The Device settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Device behavior. See [Your comma device](../how-to/connect-to-comma.md)
@@ -188,8 +225,13 @@ for the hardware basics.
 
 ## Software
 
-<figure class="settings-strip">
-  <img src="../assets/settings/software.png" alt="The Software settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/software.png" alt="The Software settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/software.png" alt="The Software settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 | Setting | Values | Default | Notes |
@@ -198,8 +240,13 @@ for the hardware basics.
 
 ## Developer
 
-<figure class="settings-strip">
-  <img src="../assets/settings/developer.png" alt="The Developer settings panel on the device" loading="lazy">
+<figure class="settings-strip settings-figure-mici">
+  <img src="../assets/settings/developer.png" alt="The Developer settings panel on comma four" loading="lazy">
+  <figcaption>comma four</figcaption>
+</figure>
+<figure class="settings-shot settings-figure-tici">
+  <img src="../assets/settings/tici/developer.png" alt="The Developer settings panel on comma 3/3X" loading="lazy">
+  <figcaption>comma 3/3X</figcaption>
 </figure>
 
 Power-user and debug settings. Test-only items are **not for road use**.

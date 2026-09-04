@@ -1,9 +1,9 @@
 # Settings screenshots — capture checklist
 
-The Settings reference (`docs/settings/index.md`) embeds one image per
-panel from this directory. The images are panoramas of the comma four
-(mici) settings screens: every card of the panel in one strip. They are
-rendered from the release code with the simulator tool in
+The Settings reference (`docs/settings/index.md`) embeds two images per
+panel from this directory: comma four (mici) panoramas at the root, and
+comma 3/3X (tici/tizi) full-frame panels in `tici/`. Both are rendered
+from the release code with the simulator tool in
 [contrib/capture-settings.py](../../../contrib/capture-settings.py) —
 no device needed.
 
@@ -33,14 +33,20 @@ no device needed.
 
 3. Copy `contrib/capture-settings.py` into the zoompilot clone root.
    Edit its `VERSION`, `GIT_BRANCH`, and `GIT_COMMIT` constants for the
-   release, then:
+   release, then run it once per device:
 
    ```bash
-   PYTHONPATH=. SCALE=3 .venv/bin/python capture_wiki_settings.py
+   PYTHONPATH=. .venv/bin/python capture-settings.py              # comma four
+   DEVICE=tici PYTHONPATH=. .venv/bin/python capture-settings.py  # comma 3/3X
    ```
 
-4. Copy the eight PNGs from `wiki_captures/` over the files here, and
-   resample to 480 px tall (`sips --resampleHeight 480 f.png`).
+   The mici pass renders each panel as one wide strip (every card);
+   the tici pass renders each panel top to bottom in one frame.
+
+4. Copy the eight PNGs from `wiki_captures/` over the files here
+   (resample to 480 px tall, `sips --resampleHeight 480 f.png`), and
+   the eight from `wiki_captures_tici/` over `tici/` (keep native
+   size; they display at column width).
 
 ## What the tool renders
 
@@ -63,21 +69,30 @@ If you have a comma four running `zoompilot/main`, a photo works too:
 
 ## The panels
 
-| File | Screen to capture |
+| File(s) | Screen to capture |
 | --- | --- |
-| `steering.png` | Settings → Steering |
-| `cruise.png` | Settings → Cruise |
-| `models.png` | Settings → Models |
-| `visuals.png` | Settings → Visuals |
-| `toggles.png` | Settings → Toggles |
-| `device.png` | Settings → Device |
-| `software.png` | Settings → Software |
-| `developer.png` | Settings → Developer, default state |
+| `steering.png`, `tici/steering.png` | Settings → Steering |
+| `cruise.png`, `tici/cruise.png` | Settings → Cruise |
+| `models.png`, `tici/models.png` | Settings → Models |
+| `visuals.png`, `tici/visuals.png` | Settings → Visuals |
+| `toggles.png`, `tici/toggles.png` | Settings → Toggles |
+| `device.png`, `tici/device.png` | Settings → Device |
+| `software.png`, `tici/software.png` | Settings → Software |
+| `developer.png`, `tici/developer.png` | Settings → Developer, default state |
 
 ## Notes
 
-- If a future release adds a panel, add its file here and one
-  `<figure class="settings-strip">` block to
-  `docs/settings/index.md`.
+- The two devices lay the same settings out differently: the mici
+  Visuals panel has 4 toggles while tici has 12 rows, mici puts
+  driving personality under Toggles, and the tici alpha toggle still
+  reads "sunnypilot Longitudinal Control (Alpha)". That is what the
+  devices show; the tables in the reference stay shared.
+- On tici, with alpha longitudinal available the Cruise panel shows an
+  ICBM "unavailable on this platform" note — ICBM and alpha
+  longitudinal are mutually exclusive, and the captures take the
+  alpha-on state most installs run.
+- If a future release adds a panel, add both files here and one
+  `<figure>` pair to `docs/settings/index.md`.
 - The strips need the `settings-strip` CSS in
-  `docs/stylesheets/custom.css` to scroll sideways.
+  `docs/stylesheets/custom.css` to scroll sideways; the mici/tici swap
+  needs `assets/js/device-switch.js` and the `device-switch` CSS.
