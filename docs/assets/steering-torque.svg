@@ -8,7 +8,8 @@
   <text x="265.55824982104514" y="82.98461538461538" fill="#9da2a6" font-family='"JetBrains Mono", ui-monospace, Menlo, monospace' font-size="10.5" letter-spacing="0.04em"><tspan x="265.55824982104514" dy="0">44% more torque</tspan><tspan x="265.55824982104514" dy="13">than stock</tspan></text>
   <path d="M 46.0 119.5 L 470.9 119.5 L 498.4 144.7 L 517.9 156.1 L 628.0 156.1" fill="none" stroke="#7e8695" stroke-width="1.6"/>
   <text x="54" y="135.53846153846152" text-anchor="start" fill="#a9aeb8" font-family='"JetBrains Mono", ui-monospace, Menlo, monospace' font-size="10.5" letter-spacing="0.04em">stock openpilot</text>
-  <path d="M 46.0 48.9 L 306.4 48.9 L 322.7 52.1 L 351.9 60.2 L 381.2 69.2 L 410.5 76.5 L 439.8 95.2 L 469.1 117.9 L 498.4 144.7 L 517.9 156.1 L 628.0 156.1" fill="none" stroke="#9da2a6" stroke-width="2"/>
+  <path d="M 46.0 48.9 L 306.4 48.9 L 322.7 52.1 L 351.9 60.2 L 381.2 69.2 L 410.5 76.5 L 439.8 95.2 L 469.1 117.9 L 470.9 119.5" fill="none" stroke="#9da2a6" stroke-width="2"/>
+  <path d="M 470.9 119.5 L 498.4 144.7 L 517.9 156.1 L 628.0 156.1" fill="none" stroke="#9da2a6" stroke-width="2" stroke-dasharray="7 6"/>
   <text x="54" y="40.867692307692295" text-anchor="start" fill="#9da2a6" font-family='"JetBrains Mono", ui-monospace, Menlo, monospace' font-size="10.5" letter-spacing="0.04em">zoompilot</text>
   <line x1="46" x2="628" y1="282" y2="282" stroke="rgba(255,255,255,0.16)"/>
   <line x1="46" x2="46" y1="18" y2="282" stroke="rgba(255,255,255,0.16)"/>
