@@ -198,59 +198,19 @@ body {
 .md-header__home:hover {
   color: var(--md-default-fg-color);
 }
-/* install info: branch + build the wiki documents, moved up from the
- * announce bar, in the same quiet voice as the home link. Reveals in
- * layers as the header gains room: branch from 60em, build sha from
- * 68em, build date from 81.25em, the "Install URL:" label from
- * 88.75em. Fixed width, so the wordmark never gets squeezed instead.
- * The room comes from the repo widget, which only shows from 106em
- * (see below). Hidden below 60em: phones get the drawer header, and
- * nothing fits in it. */
-.md-header__install {
-  flex-shrink: 0;
-  margin: 0 0.4rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
+/* build line: the install branch + the build the wiki documents. Lives
+ * in the hero (under the Install button) and at the top of the install
+ * page. Page flow, so no viewport can hide it — the header experiment
+ * failed on exactly that. The chip after the branch fills in from the
+ * GitHub API (see .zoom-version at the bottom of this file). */
+.zp-build {
+  margin: 0.8rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
   color: var(--md-default-fg-color--light);
-  white-space: nowrap;
-  cursor: default;
 }
-.md-header__install code {
+.zp-build code {
   color: var(--zp-tint);
-  font-family: var(--md-code-font-family);
-}
-@media screen and (max-width: 59.9375em) {
-  .md-header__install {
-    display: none;
-  }
-}
-@media screen and (min-width: 68em) {
-  .zoom-version[data-zp-ready] {
-    display: inline-block;
-  }
-}
-.zp-i-date {
-  display: none;
-}
-@media screen and (min-width: 81.25em) {
-  .zp-i-date {
-    display: inline;
-  }
-}
-.zp-i-label {
-  display: none;
-}
-@media screen and (min-width: 88.75em) {
-  .zp-i-label {
-    display: inline;
-  }
-}
-/* repo widget: off. The header row caps at ~1340px on every screen,
- * so its ~253px can never fit next to the full install text — one or
- * the other, not both. The install text wins; the repo link stays in
- * the drawer nav and the footer. */
-.md-header__source {
-  display: none;
 }
 
 .md-tabs {
@@ -1187,7 +1147,7 @@ html {
   transform: translateY(-1px);
 }
 
-/* ---- version chip in the header ---- */
+/* ---- build chip in the hero and install page lines ---- */
 /* When the chip may show is decided in the md-header__install block
  * above, so the header row never overflows on narrow desktops. */
 .zoom-version {

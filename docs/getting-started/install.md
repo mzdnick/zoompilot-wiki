@@ -4,6 +4,10 @@ reviewed: 2026-09
 
 # Install zoompilot
 
+<div class="zp-build" markdown>
+Install URL: `zoompilot/main`<span class="zoom-version" data-zp-version></span>
+</div>
+
 !!! warning "Before you install"
 
     zoompilot is experimental software. You drive the car, follow the law,

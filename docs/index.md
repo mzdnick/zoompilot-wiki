@@ -25,6 +25,10 @@ measurement record behind every change.
 [Install :material-rocket-launch:](getting-started/install.md){ .md-button .md-button--primary }
 [Read the safety page :material-shield-alert:](safety.md){ .md-button }
 
+<div class="zp-build" markdown>
+Install URL: `zoompilot/main`<span class="zoom-version" data-zp-version></span>
+</div>
+
 </div>
 
 <div class="zoom-deco" aria-hidden="true">

@@ -70,23 +70,13 @@
       home.className = "md-header__home md-header__button";
       home.href = HOME;
       home.textContent = "zoompilot.ai";
-      /* install info: branch + build the wiki documents. Moved out of
-       * the announce bar. The label, chip, and date join in as the
-       * header gains room (see custom.css). */
-      var install = document.createElement("div");
-      install.className = "md-header__install";
-      install.title = "Install URL: zoompilot/main";
-      install.setAttribute("aria-label", "Install URL: zoompilot/main");
-      install.innerHTML = '<span class="zp-i-label">Install URL: </span>' +
-        "<code>zoompilot/main</code>" +
-        ' <span class="zoom-version" data-zp-version></span>';
       var anchorEl =
         innerEl.querySelector("[data-md-component='palette']") ||
         innerEl.querySelector(".md-header__source");
       if (anchorEl) {
-        anchorEl.before(home, install);
+        anchorEl.before(home);
       } else {
-        innerEl.append(home, install);
+        innerEl.append(home);
       }
     }
 
@@ -172,10 +162,12 @@
       });
     }
 
-    /* version chip: the zoompilot build the wiki documents, fetched like
-     * the one on zoompilot.ai. Stays hidden if the request fails. */
-    var chip = document.querySelector("[data-zp-version]");
-    if (chip) {
+    /* build chips: the zoompilot build the wiki documents, fetched like
+     * the one on zoompilot.ai. They sit in the hero and on the install
+     * page (see .zp-build in custom.css). Stays hidden if the request
+     * fails, so the line reads as just the install URL. */
+    var chips = document.querySelectorAll("[data-zp-version]");
+    if (chips.length) {
       fetch("https://api.github.com/repos/zoompilot/zoompilot/commits?per_page=1")
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (data) {
@@ -183,15 +175,14 @@
           var c = data[0].commit.committer.date;
           var d = new Date(c);
           var pad = function (n) { return (n < 10 ? "0" : "") + n; };
-          /* sha and date are separate spans; the date joins in only on
-           * wide screens, so the header row never overflows */
-          chip.innerHTML = "<span>" + data[0].sha.slice(0, 10) + "</span>" +
-            '<span class="zp-i-date"> · ' +
-            d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
-            "</span>";
-          chip.setAttribute("data-zp-ready", "");
+          var stamp = "· build " + data[0].sha.slice(0, 10) + " · " +
+            d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+          chips.forEach(function (chip) {
+            chip.textContent = stamp;
+            chip.setAttribute("data-zp-ready", "");
+          });
         })
-        .catch(function () { /* offline: chip stays hidden */ });
+        .catch(function () { /* offline: chips stay hidden */ });
     }
   })();
 </script>
