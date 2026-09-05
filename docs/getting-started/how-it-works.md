@@ -59,12 +59,12 @@ wheel, and the powertrain control module (PCM) manages speed.
   <text class="d-hi" x="680" y="172" text-anchor="middle">PCM</text>
   <text x="680" y="188" text-anchor="middle">gas · brakes</text>
   <path class="d-flow-accent" style="stroke-dasharray: 5 4" d="M230,204 V232 H680 V204"/>
-  <text x="455" y="226" text-anchor="middle">alpha long</text>
+  <text class="d-acc" x="455" y="226" text-anchor="middle">alpha long</text>
   <path class="d-flow-accent" d="M745,84 V104 H612 V84"/>
-  <text x="678" y="98" text-anchor="middle">learns your motor</text>
-  <line class="d-flow" x1="160" y1="176" x2="186" y2="176"/>
-  <text x="100" y="164" text-anchor="middle">radar · blind spots</text>
-  <text x="100" y="180" text-anchor="middle">speed signs (FSC)</text>
+  <text class="d-acc" x="678" y="98" text-anchor="middle">learned values</text>
+  <line class="d-flow-accent" x1="160" y1="176" x2="186" y2="176"/>
+  <text class="d-acc" x="100" y="164" text-anchor="middle">radar · blind spots</text>
+  <text class="d-acc" x="100" y="180" text-anchor="middle">speed signs (FSC)</text>
   <line class="d-lane" x1="20" y1="252" x2="785" y2="252"/>
   <text x="402" y="272" text-anchor="middle">you: supervise · brake or cancel ends it</text>
 </svg>

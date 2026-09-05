@@ -786,6 +786,9 @@ body[data-md-color-scheme="default"] .md-typeset details {
   fill: var(--md-default-fg-color);
   font-weight: 600;
 }
+.md-typeset .diagram svg .d-acc {
+  fill: var(--zp-tint);
+}
 .md-typeset .diagram svg .d-box {
   fill: color-mix(in srgb, var(--zp-paint) 8%, transparent);
   stroke: var(--zp-hair-strong);
@@ -815,7 +818,7 @@ body[data-md-color-scheme="default"] .md-typeset details {
   stroke: var(--zp-tint);
   stroke-width: 1.4;
   fill: none;
-  marker-end: url(#zp-arrow);
+  marker-end: url(#zp-arrow-a);
 }
 .md-typeset .diagram svg .d-red {
   fill: var(--zp-p46v-hi);
