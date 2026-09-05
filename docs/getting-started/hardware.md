@@ -2,9 +2,12 @@
 
 ## Comma device
 
-zoompilot runs on a **comma four**. The comma 3X also works for
-development and debugging; the supported parts list below ships with the
-comma four.
+zoompilot runs on a **comma 3X** or a **comma four**. A hardware clone
+of either also works, but only if the clone is identical. Some clones
+omit parts that zoompilot needs, such as a driver monitoring camera.
+Those clones are not supported.
+
+The parts list below ships with the comma four.
 
 ## What you need for a Mazda
 

@@ -18,9 +18,9 @@ parent.
 **zoompilot** — a Mazda-optimized fork of sunnypilot. See
 [What is zoompilot?](../getting-started/about.md).
 
-**comma device** — the hardware openpilot runs on: the comma four
-(supported) or the comma 3X (development). See
-[Hardware](../getting-started/hardware.md).
+**comma device** — the hardware openpilot runs on: the comma 3
+(codename tici), the comma 3X (codename tizi), or the comma four
+(codename mici). See [Hardware](../getting-started/hardware.md).
 
 **panda** — the car-interface board inside the comma device. It
 enforces the safety model on the wire.

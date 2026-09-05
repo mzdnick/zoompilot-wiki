@@ -32,10 +32,9 @@ to your car. See [Which fork, and why](../getting-started/comparison.md).
 
 ## What hardware do I need?
 
-A comma four and the Mazda harness kit from the
-[comma shop](https://comma.ai/shop). The comma 3X works for development,
-but the comma four is the supported device. See
-[Hardware](../getting-started/hardware.md).
+A comma 3X or comma four — or an identical clone of either — plus the
+Mazda harness kit from the [comma shop](https://comma.ai/shop). Clone
+caveats are on [Hardware](../getting-started/hardware.md).
 
 ## How much does zoompilot cost?
 

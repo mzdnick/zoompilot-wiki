@@ -10,7 +10,8 @@ mechanism.
 [Alpha longitudinal](../features/alpha-longitudinal.md) is a work in
 progress. Its known limits and support status are on the feature page.
 
-For everything else, follow development on
+Support for the comma 3 is planned. For everything else, follow
+development on
 [GitHub](https://github.com/zoompilot/zoompilot) and in the
 [Discord](https://discord.gg/jFWkHC2uhh). Release-by-release changes are
 in the [changelog](../releases/changelog.md).
