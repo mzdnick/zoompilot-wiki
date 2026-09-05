@@ -29,7 +29,7 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
 
-const REPO = process.env.REPO || "zoompilot/zoompilot-wiki";
+const REPO = process.env.REPO || "zoompilot/wiki";
 const DRY = !process.env.REPO;
 const TOKEN = process.env.GITHUB_TOKEN;
 const ISSUE_TITLE = "Wiki drift: release notes or upstream docs moved";

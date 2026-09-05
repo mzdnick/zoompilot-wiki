@@ -9,8 +9,8 @@ site_url: https://zoompilot-wiki.pages.dev
 # the pages under docs/ send readers to those two links instead of
 # carrying the URL. If the repo moves again, change repo_url and
 # repo_name here and nothing else.
-repo_url: https://github.com/zoompilot/zoompilot-wiki
-repo_name: zoompilot/zoompilot-wiki
+repo_url: https://github.com/zoompilot/wiki
+repo_name: zoompilot/wiki
 edit_uri: edit/main/docs/
 copyright: >
   zoom-zoom-zoom · zoompilot is experimental software. You drive the car,
