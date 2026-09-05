@@ -18,45 +18,36 @@ computers do the physical work: the EPS motor turns the wheel, and the
 powertrain control module (PCM) manages speed.
 
 <div class="diagram">
-<svg viewBox="0 0 800 188" role="img" aria-label="Pipeline: road camera feeds the driving model, the model feeds the lateral and longitudinal planners, the lateral planner drives the EPS motor through a torque controller, the longitudinal planner drives the PCM, and a self-tune loop runs from the EPS motor back to the torque controller">
+<svg viewBox="0 0 800 232" role="img" aria-label="One drive: the road camera and driving model see, the planners choose where in the lane and how fast, radar, blind-spot monitors, and speed signs feed the plan, the plan drives the EPS motor and the gas and brakes, self-tune learns your motor's response, and you supervise and can brake or cancel at any time">
   <defs>
     <marker id="zp-arrow" class="m-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
     <marker id="zp-arrow-a" class="m-acc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
   </defs>
-  <rect class="d-box" x="20" y="80" width="120" height="48"/>
-  <text class="d-hi" x="80" y="100" text-anchor="middle">road camera</text>
-  <text x="80" y="116" text-anchor="middle">car harness</text>
-  <line class="d-flow" x1="140" y1="104" x2="166" y2="104"/>
-  <rect class="d-box" x="170" y="80" width="120" height="48"/>
-  <text class="d-hi" x="230" y="100" text-anchor="middle">driving model</text>
-  <text x="230" y="116" text-anchor="middle">neural network</text>
-  <line class="d-flow" x1="290" y1="92" x2="316" y2="60"/>
-  <line class="d-flow" x1="290" y1="116" x2="316" y2="148"/>
-  <rect class="d-box-accent" x="320" y="36" width="170" height="48"/>
-  <text class="d-hi" x="405" y="56" text-anchor="middle">lateral planner</text>
-  <text x="405" y="72" text-anchor="middle">where in the lane</text>
-  <rect class="d-box" x="320" y="124" width="170" height="48"/>
-  <text class="d-hi" x="405" y="144" text-anchor="middle">longitudinal planner</text>
-  <text x="405" y="160" text-anchor="middle">how fast, how far</text>
-  <line class="d-flow-accent" x1="490" y1="60" x2="526" y2="60"/>
-  <rect class="d-box-accent" x="530" y="36" width="140" height="48"/>
-  <text class="d-hi" x="600" y="56" text-anchor="middle">torque controller</text>
-  <text x="600" y="72" text-anchor="middle">7 learned bands</text>
-  <line class="d-flow-accent" x1="670" y1="60" x2="700" y2="60"/>
-  <rect class="d-box-accent" x="704" y="36" width="80" height="48"/>
-  <text class="d-hi" x="744" y="56" text-anchor="middle">EPS</text>
-  <text x="744" y="72" text-anchor="middle">motor</text>
-  <line class="d-flow" x1="490" y1="148" x2="526" y2="148"/>
-  <rect class="d-box" x="530" y="124" width="140" height="48"/>
-  <text class="d-hi" x="600" y="144" text-anchor="middle">PCM</text>
-  <text x="600" y="160" text-anchor="middle">gas · brakes</text>
-  <path class="d-flow-accent" d="M744,88 V104 H640 V88"/>
-  <text x="692" y="119" text-anchor="middle">self-tune measures it</text>
+  <rect class="d-box" x="30" y="40" width="180" height="64"/>
+  <text class="d-hi" x="120" y="62" text-anchor="middle">sees</text>
+  <text x="120" y="80" text-anchor="middle">road camera</text>
+  <text x="120" y="96" text-anchor="middle">driving model</text>
+  <line class="d-flow" x1="214" y1="72" x2="250" y2="72"/>
+  <rect class="d-box" x="254" y="40" width="200" height="64"/>
+  <text class="d-hi" x="354" y="62" text-anchor="middle">plans</text>
+  <text x="354" y="80" text-anchor="middle">where in the lane</text>
+  <text x="354" y="96" text-anchor="middle">how fast, how far</text>
+  <line class="d-flow" x1="458" y1="72" x2="494" y2="72"/>
+  <rect class="d-box" x="498" y="40" width="232" height="64"/>
+  <text class="d-hi" x="614" y="62" text-anchor="middle">acts</text>
+  <text x="614" y="80" text-anchor="middle">EPS motor</text>
+  <text x="614" y="96" text-anchor="middle">gas · brakes</text>
+  <line class="d-flow" x1="354" y1="136" x2="354" y2="108"/>
+  <text x="354" y="152" text-anchor="middle">radar · blind spots · speed signs</text>
+  <path class="d-flow-accent" d="M614,108 V172 H400 V108"/>
+  <text x="606" y="166" text-anchor="end">learns your motor</text>
+  <line class="d-lane" x1="30" y1="204" x2="730" y2="204"/>
+  <text x="380" y="224" text-anchor="middle">you: supervise · brake or cancel ends it</text>
 </svg>
 </div>
 
-Everything zoompilot changes happens in the middle: the planners, the
-controllers, and what the car's sensors are allowed to say.
+zoompilot rewrites how this pipeline drives a Mazda — and the work
+keeps reaching deeper into the stack.
 
 ## What a fork means
 
@@ -65,9 +56,9 @@ features and car-specific tuning. zoompilot takes sunnypilot and tunes
 it for one brand: Mazda. The full lineage and credits are on
 [What is zoompilot?](about.md).
 
-zoompilot's Mazda-specific work falls into four areas: steering, cruise,
-sensors, and the experimental alpha longitudinal. The sections below
-take them in turn.
+zoompilot's Mazda-specific work today spans steering, cruise, sensors,
+and the experimental alpha longitudinal. The sections below take them
+in turn.
 
 ## Steering: asking the motor for torque
 

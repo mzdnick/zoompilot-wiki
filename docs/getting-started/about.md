@@ -7,8 +7,8 @@ gives Mazda drivers the best openpilot experience the hardware allows.
 
 ## What zoompilot changes
 
-zoompilot keeps openpilot's safety model and adds Mazda-specific work in
-four areas:
+zoompilot keeps openpilot's safety model and adds Mazda-specific work.
+Today it spans:
 
 1. **Steering** — the full torque curve of the 2022+ EPS, learned across
    seven speed ranges. See [Steering improvements](../features/steering.md).
