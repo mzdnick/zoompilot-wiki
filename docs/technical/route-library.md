@@ -19,9 +19,6 @@ shorthand entry.
 | --- | --- | --- |
 | `126` | icbm.md | The quiet timer is keyed on the raw plan target, not the overshoot-adjusted command: the lever's slow release moved the command every few frames and pinned t… |
 | `126` | icbm.md | route 126 measured 294 of 294 steps at 1 mph, zero grid snaps, 4.1 mph/s under hold frames and 3.8 mph/s under taps. |
-| `126` | icbm.md | Pinned at zero by the lever's own decay (route 126, 4.1 s extra braking). |
-| `126` | icbm.md | Restored between bends and fed the next apex (route 126, 3 of 8 over-ceiling apexes). |
-| `126` | icbm.md | Reads as a fight (route 126 t=341). |
 | `149` | icbm.md | Across all recorded routes 149 of 149 stream-driven dash steps were 1 mph; |
 | `132, 139, 12d, 12f, 123, 124, 126` | lateral-tune-roadmap.md | Each one is there because the 2026-09-01 leave-one-out replay of the previous v2 (routes 132, 139, 12d, 12f, 123, 124, 126) tied it to a felt improvement. |
 | `12a, 12c and 126` | lateral-tune.md | Corner windows on routes 12a, 12c and 126 ran 58 to 100% rail duty with the integrator frozen (no windup); |
@@ -37,8 +34,6 @@ shorthand entry.
 | `00000148` | mazda-lateral.md | At a multiplier of 15 one count of driver torque moves the ceiling by 15, so when the driver fights hard enough to pin the command against it, a few counts o… |
 | `00000148` | mazda-lateral.md | On route 00000148 seg 10 the driver steered with the request through a whole 203-frame blocked run, so same-direction driver torque never unwound the command… |
 | `00000148` | mazda-lateral.md | The speed is read once, when the alert arms, so a car accelerating out of a block that never lets go still gets told (route 00000148 crossed 5.9 to 7.6 m/s w… |
-| `00000148` | mazda-lateral.md | - A panda `max_rate_down` looser than the controller's: rejects every frame of a driver-override winddown (route 00000148). |
-| `00000148` | mazda-lateral.md | - Gating latch entry on `steeringPressed`: route 00000148 seg 10 spent 203 frames blocked with the driver steering along with the request. |
 | `116` | mazda-lateral.md | In both captures the EPS was applying nothing because it had been starved of 0x243 entirely: the panda rejected every frame for 1.7 s (route 148, the rate-do… |
 | `139` | mazda-lateral.md | An earlier reading of route 139 blamed a per-ignition cumulative budget and normal MADS wind-up. |
 | `139` | mazda-lateral.md | `TRACK_STATE = 1` implies `LKAS_BLOCK = 1` over 16k frames with no exception) and clear for a block that began at speed, which is an EPS that dropped LKAS mi… |
@@ -72,12 +67,5 @@ shorthand entry.
 | `6bb2dc61c4` | mazda-longitudinal.md | A marginal vision lead flickers `leadVisible` faster than any real radar ever would (route 6bb2dc61c4 t+400: 6 toggles in 1.4 s on a 120 m lead), so visibili… |
 | `6bb2dc61c4` | mazda-longitudinal.md | A byte-exact check silently dropped every real-lead frame and starved the camera of the track (route 6bb2dc61c4: 982 asked, 0 transmitted). |
 | `7f9e3ff336` | mazda-longitudinal.md | Holding through it kept lateral engaged against a cancel mashed under braking until the brake was released 4 s later (route 7f9e3ff336 t+484 to 488). |
-| `00000057` | rejected.md | - Gating the two-master block on availability alone — lateral latched on with no exit (route 00000057). |
-| `00000148` | rejected.md | - A panda `max_rate_down` looser than the controller's — it rejects every frame of a driver-override winddown (route 00000148). |
-| `126` | rejected.md | - Keying the quiet timer on the overshoot-adjusted command — pinned at zero by the lever's own decay (route 126, 4.1 s of extra braking). |
-| `126` | rejected.md | - Restoring on target stillness when a vision lookahead is available — it restored between bends and fed the next apex (route 126, 3 of 8 over-ceiling apexes). |
-| `126` | rejected.md | - An immediate walk-back after a genuine driver press — reads as a fight (route 126 t=341). |
-| `be` | rejected.md | the full reasoning, with the routes behind every number, lives in the linked page. |
 | `126` | scc-curve-planning.md | The native 5 mph hold grid must not size the lead: synthesized holds register as discrete presses (route 126: 294/294 steps at 1 mph). |
 | `135` | scc-curve-planning.md | Measured against the curvature the car actually pulled at 26 apexes on route 135, the ratio of predicted to realized kappa runs 1.00 inside 30 m, 0.79 at 80 … |
-| `135` | scc-curve-planning.md | Replayed on route 135 it gives back a third of what the gain bought (apex max 2.47 -> 2.68, median 1.56 -> 1.66): at 20 m/s a real corner enters the 200 m ho… |
