@@ -27,11 +27,6 @@ still deciding, a speed limit prompt does not nudge your set speed. This
 is part of the unified cruise rewrite: see
 [Smart Cruise](smart-cruise.md).
 
-## Metric cars
-
-Reading speed limits on cars set to km/h was fixed in the 2026.08.25
-release. See the [changelog](../releases/changelog.md).
-
 ## Design details
 
 - The SLA state machine and its interaction with ICBM:

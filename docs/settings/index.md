@@ -127,7 +127,7 @@ Cruise settings control speed and distance behavior. See
 | Speed Limit Offset Value | −30 to +30, step 1 | 0 | km/h or mph. Needs an offset type above. |
 | Smart Cruise Control: Vision | On / Off | Off | Slows for curves read from the cameras. |
 | Smart Cruise Control: Map | On / Off | Off | Slows for curves read from map data. Needs the nav SD card. |
-| Deceleration Overshoot (Alpha) | On / Off | Off | Mazda-only. Asks for more deceleration than the model wants, because the Mazda ECU is slow to slow down. See [Deceleration Overshoot](../features/deceleration-overshoot.md). |
+| Deceleration Overshoot (Alpha) | On / Off | Off | Mazda-only. Asks for more deceleration than the model wants, because the Mazda ECU is slow to slow down. See [Smart Cruise](../features/smart-cruise.md#deceleration-overshoot). |
 
 ## Models
 

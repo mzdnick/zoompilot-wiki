@@ -43,9 +43,10 @@ jobs:
       # Zensical writes to site/ (the mkdocs.yml default); it has no
       # --site-dir flag. Strict fails on broken internal links.
       - run: zensical build --strict
-      # security headers live outside docs/ so Zensical never copies
-      # or processes them
+      # security headers and page redirects live outside docs/ so
+      # Zensical never copies or processes them
       - run: cp contrib/_headers site/_headers
+      - run: cp contrib/_redirects site/_redirects
       - name: deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

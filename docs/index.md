@@ -143,9 +143,3 @@ Install URL: `zoompilot/main` <span class="zp-stamp">· build 393a506e61 · 2026
     [Fix a problem](troubleshooting.md)
 
 </div>
-
-!!! warning "Experimental software"
-
-    This is experimental software. You drive the car, follow the law, and
-    carry all the risk. Mazda, comma.ai, and the sunnypilot project neither
-    endorse zoompilot nor have anything to do with it.

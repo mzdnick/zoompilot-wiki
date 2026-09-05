@@ -152,7 +152,6 @@ nav:
       - features/smart-cruise.md
       - features/icbm.md
       - features/speed-limit-assist.md
-      - features/deceleration-overshoot.md
       - features/sensor-readouts.md
       - features/alpha-longitudinal.md
       - features/alerts.md

@@ -12,18 +12,11 @@ procedure is in
 
 ## What is recorded
 
-A drive is stored as a **route**, cut into one-minute **segments**.
-Each segment holds:
-
-- **rlog** — the full internal log: every message passed between
-  openpilot's processes. This is what maintainers need to debug.
-- **Camera video** — the road camera, the wide road camera, and the
-  cabin camera, as H.265 files.
-- **qlog and qcamera** — small, decimated versions of the above,
-  designed to upload fast on slow internet. This is the video you see
-  in [comma connect](https://connect.comma.ai).
-
-The file formats are described in [Logging](logs.md).
+A drive is stored as a **route**, cut into one-minute **segments**. Each
+segment holds the full internal log (**rlog**), the camera video, and
+small **qlog**/**qcamera** copies made for fast upload — the video you
+see in [comma connect](https://connect.comma.ai). The file formats are
+described in [Logging](logs.md).
 
 ## What leaves the device
 

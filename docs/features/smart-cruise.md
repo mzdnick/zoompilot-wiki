@@ -15,18 +15,20 @@ together with [ICBM](icbm.md) and
 Smart Cruise can use two data sources:
 
 - **Vision** — the driving model estimates the road curvature ahead.
-- **Maps** — downloaded map data supplies curve geometry. Map-based
-  slowdowns became more accurate in the 2026.08 releases, and map hiccups
-  no longer trip false warnings.
-
-The latest releases also improved how the planner publishes its target to
-the longitudinal controller, so the requested slowdown arrives in time.
+- **Maps** — downloaded map data supplies curve geometry. A map hiccup
+  does not trip a false warning.
 
 ## Deceleration overshoot
 
-The Mazda ECU is slow to obey a lower set speed. The optional
-[deceleration overshoot](deceleration-overshoot.md) toggle compensates by
-requesting a lower speed than the model wants, earlier.
+MRCC, the stock radar cruise, is slow to obey a lower set speed: before a
+curve the car brakes later than the planner expects and enters the curve
+too fast. The optional Deceleration Overshoot toggle compensates — when a
+slowdown is coming, zoompilot asks for more deceleration than the model
+wants, earlier, so the car gets the deceleration the curve actually needs.
+
+The toggle is marked alpha. If braking into curves feels too strong with
+it on, turn the toggle off and report the route in the
+[zoompilot Discord](https://discord.gg/jFWkHC2uhh).
 
 ## One set speed, one owner
 

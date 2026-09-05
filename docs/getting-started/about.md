@@ -32,10 +32,4 @@ The source lives at [github.com/zoompilot/zoompilot](https://github.com/zoompilo
 zoompilot stands on openpilot and sunnypilot. Full credits are on the
 [About & credits](../about.md) page.
 
-## Disclaimers
-
-- This is experimental software. You drive the car, follow the law, and
-  carry all the risk.
-- Mazda, comma.ai, and the sunnypilot project neither endorse zoompilot
-  nor have anything to do with it.
-- Read the [safety page](../safety.md) before your first drive.
+Before your first drive, read the [safety page](../safety.md).

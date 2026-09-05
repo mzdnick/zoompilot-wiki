@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects. Copied to site/_redirects by the deploy
+# workflow, next to _headers.
+/features/deceleration-overshoot/ /features/smart-cruise/ 301
+/features/deceleration-overshoot /features/smart-cruise/ 301

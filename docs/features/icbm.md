@@ -50,12 +50,6 @@ presses the stock cruise buttons for you, at the right moments.
 - **Stays quiet when you act.** Button presses are suppressed while you
   are pressing yours, and pacing adapts to how far the target speed is.
 
-## Recent fixes
-
-The 2026-07-04 release fixed set-speed desync with the stock ECU and the
-target-chasing oscillation. See the
-[changelog](../releases/changelog.md).
-
 ## Design details
 
 ICBM is a servo loop over the button interface, with per-brand actuation

@@ -43,8 +43,6 @@ their work.
 
 ## Disclaimers
 
-- This is experimental software. You drive the car, follow the law, and
-  carry all the risk.
 - Mazda, comma.ai, and the sunnypilot project neither endorse zoompilot
   nor have anything to do with it.
 - This wiki is community documentation, not an official Mazda, comma.ai,
