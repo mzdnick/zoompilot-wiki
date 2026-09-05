@@ -23,11 +23,12 @@ The source lives at
 
 ## Improve this wiki
 
-Every page on this wiki has an "Edit this page" link at the bottom. Fix a
-typo, update a setting description, or add a missing section. The wiki
-source lives in its own repository, so doc changes never block code
-changes. See [CONTRIBUTING](https://github.com/zoompilot/wiki#editing-the-wiki)
-in the wiki repository for the workflow.
+Every page has an edit icon beside its title. It opens that page in the
+wiki repository on GitHub, and the GitHub icon in the header opens the
+repository itself. Fix a typo, update a setting description, or add a
+missing section. The wiki source lives in its own repository, so doc
+changes never block code changes. `CONTRIBUTING.md` at the root of the
+repository has the workflow and the writing rules.
 
 ## Share driving feedback
 

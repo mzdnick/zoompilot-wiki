@@ -17,8 +17,10 @@ workflow and the writing style.
 
 5. Open a pull request.
 
-Every page also has an "Edit this page" link at the bottom, which opens
-the right file on GitHub.
+Every page also has an edit icon beside its title, which opens the right
+file on GitHub. The header icon and the edit links are both built from
+`repo_url` in `mkdocs.yml`; that is the only place the wiki's own
+repository URL is written, so a repo move is a one-line change there.
 
 ## Content rules
 

@@ -4,8 +4,9 @@
 
 This wiki is the central documentation source for
 [zoompilot](https://zoompilot.ai), a Mazda-optimized fork of sunnypilot.
-It is maintained as markdown in the open and deployed from the
-[wiki repository](https://github.com/zoompilot/wiki).
+It is maintained as markdown in the open: the GitHub icon in the header
+opens the wiki repository, and every push to its main branch deploys
+the site.
 
 ## Standing on the shoulders of
 

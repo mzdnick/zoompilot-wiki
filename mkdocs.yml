@@ -4,8 +4,14 @@ site_description: >-
   (openpilot). Install guides, feature reference, settings, safety, and
   technical design notes.
 site_url: https://zoompilot-wiki.pages.dev
-repo_url: https://github.com/zoompilot/wiki
-repo_name: zoompilot/wiki
+# The wiki's own repository. This is the only place its URL is written:
+# the header icon and the "Edit this page" links are built from it, and
+# the pages under docs/ send readers to those two links instead of
+# carrying the URL. When the repo moves to the zoompilot org
+# (zoompilot/zoompilot-wiki or zoompilot/wiki, undecided), change
+# repo_url and repo_name here and nothing else.
+repo_url: https://github.com/mzdnick/zoompilot-wiki
+repo_name: mzdnick/zoompilot-wiki
 edit_uri: edit/main/docs/
 copyright: >
   zoom-zoom-zoom · zoompilot is experimental software. You drive the car,
@@ -46,6 +52,7 @@ theme:
         name: Switch to dark mode
   features:
     - announce.dismiss
+    - content.action.edit
     - content.code.copy
     - content.code.select
     - content.tabs
