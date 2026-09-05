@@ -11,24 +11,22 @@ zoompilot changes on the way. No prior openpilot knowledge needed.
 ## The stack, in one picture
 
 openpilot is software that runs on a comma device. The device sits on
-the car's camera harness and watches the road through the car's
-forward camera, the FSC (forward sensing camera). A neural network
-model reads that camera and the planners turn its output into actuator
-requests. The car's own computers do the physical work: the EPS motor
-turns the wheel, and the powertrain control module (PCM) manages
-speed.
+the car's camera harness, which gives it access to the car's network.
+Its own road camera watches the road, and a neural network model reads
+it. The planners turn what the model sees into actuator requests. The
+car's own computers do the physical work: the EPS motor turns the
+wheel, and the powertrain control module (PCM) manages speed.
 
 <div class="diagram">
-<svg viewBox="0 0 800 260" role="img" aria-label="Module diagram: the Mazda forward camera, the FSC, feeds the driving model on the comma device. The lateral planner and torque controller steer the Mazda EPS. The longitudinal planner sends a set speed to the MRCC radar, which drives the PCM for gas and brakes; under alpha long the planner drives the PCM directly. Radar, blind-spot monitors, and speed signs feed in. Self-tune learns the EPS motor. The driver supervises and can brake or cancel at any time.">
+<svg viewBox="0 0 800 268" role="img" aria-label="Module diagram: the comma device's own road camera feeds the driving model. The lateral planner and torque controller steer the Mazda EPS. The longitudinal planner sends a set speed to the MRCC radar, which drives the PCM for gas and brakes; under alpha long the planner drives the PCM directly. Radar, speed signs from the FSC, and blind spots feed the planners. Self-tune learns the EPS motor. The driver supervises and can brake or cancel at any time.">
   <defs>
     <marker id="zp-arrow" class="m-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
     <marker id="zp-arrow-a" class="m-acc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
   </defs>
   <rect class="d-box" x="20" y="84" width="100" height="48"/>
-  <text class="d-hi" x="70" y="104" text-anchor="middle">FSC</text>
-  <text x="70" y="120" text-anchor="middle">forward camera</text>
+  <text class="d-hi" x="70" y="104" text-anchor="middle">road camera</text>
+  <text x="70" y="120" text-anchor="middle">on the device</text>
   <line class="d-flow" x1="124" y1="108" x2="186" y2="108"/>
-  <text x="155" y="101" text-anchor="middle">road view</text>
   <rect class="d-box" x="190" y="84" width="130" height="48"/>
   <text class="d-hi" x="255" y="104" text-anchor="middle">driving model</text>
   <text x="255" y="120" text-anchor="middle">vision</text>
@@ -56,14 +54,14 @@ speed.
   <rect class="d-box" x="695" y="136" width="90" height="48"/>
   <text class="d-hi" x="740" y="156" text-anchor="middle">PCM</text>
   <text x="740" y="172" text-anchor="middle">gas · brakes</text>
-  <path class="d-flow-accent" style="stroke-dasharray: 5 4" d="M420,188 V212 H740 V188"/>
+  <path class="d-flow-accent" style="stroke-dasharray: 5 4" d="M470,188 V212 H740 V188"/>
   <text x="580" y="206" text-anchor="middle">alpha long</text>
   <path class="d-flow-accent" d="M745,84 V104 H612 V84"/>
   <text x="678" y="98" text-anchor="middle">learns your motor</text>
-  <line class="d-flow" x1="222" y1="150" x2="222" y2="136"/>
-  <text x="222" y="162" text-anchor="middle">radar · blind spots · speed signs</text>
-  <line class="d-lane" x1="20" y1="232" x2="785" y2="232"/>
-  <text x="402" y="252" text-anchor="middle">you: supervise · brake or cancel ends it</text>
+  <line class="d-flow" x1="420" y1="216" x2="420" y2="188"/>
+  <text x="390" y="228" text-anchor="middle">radar · speed signs (FSC) · blind spots</text>
+  <line class="d-lane" x1="20" y1="240" x2="785" y2="240"/>
+  <text x="402" y="260" text-anchor="middle">you: supervise · brake or cancel ends it</text>
 </svg>
 </div>
 
@@ -132,7 +130,7 @@ page before enabling it.
 The CX-5 carries sensors that the stock openpilot port ignores.
 zoompilot wires them in. The forward radar reports up to four cars
 ahead. The blind-spot monitor data backs the safety checks on
-automatic lane changes. The LKAS camera reads speed-limit signs and
+automatic lane changes. The forward camera reads speed-limit signs and
 feeds [Speed-Limit Assist](../features/speed-limit-assist.md). See
 [Sensor readouts](../features/sensor-readouts.md).
 
