@@ -3,13 +3,12 @@
 # Daily (plus manual runs from the Actions tab). Two signals:
 #   1. the current release on zoompilot.ai vs the newest version in
 #      docs/releases/changelog.md
-#   2. commits touching docs/zoompilot on the zoompilot repo,
+#   2. commits touching docs/zoompilot on the zoompilot repo that
+#      are newer than this repo's last docs/technical/ commit,
 #      which docs/technical/ mirrors by hand
 #
-# Any finding opens or updates one issue, "Wiki drift: ...". A clear
-# run closes it. The docs signal stores the commit it handled in
-# .github/drift-state.json and this workflow commits that file when
-# it changes, so each docs change raises exactly one flag.
+# Any finding opens or updates one issue, "Wiki drift: ...", with a
+# short runbook. A clear run closes it.
 #
 # Needs no secrets: GITHUB_TOKEN is the automatic workflow token.
 name: drift check
@@ -20,7 +19,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
   issues: write
 
 concurrency:
@@ -40,12 +38,3 @@ jobs:
           REPO: ${{ github.repository }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node .github/scripts/drift-check.mjs
-      - name: record docs state
-        run: |
-          git config user.name "drift-check"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/drift-state.json
-          git diff --cached --quiet || {
-            git commit -m "drift check: record the upstream docs tip"
-            git push
-          }
