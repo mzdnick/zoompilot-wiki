@@ -30,13 +30,13 @@ body {
   --zp-p42m: #1c2f4e; --zp-p42m-hi: #33507e; --zp-p42m-lo: #0e1728; --zp-p42m-t: #7f9dcb;
   --zp-p41w: #121316; --zp-p41w-hi: #2c2e33; --zp-p41w-lo: #000000; --zp-p41w-t: #aab2bd;
 
-  /* the paint the page currently wears. default 46G: same as the site. */
-  --zp-paint: var(--zp-p46g);
-  --zp-paint-hi: var(--zp-p46g-hi);
-  --zp-paint-lo: var(--zp-p46g-lo);
-  --zp-tint: var(--zp-p46g-t);
+  /* the paint the page currently wears. default 45B: eternal blue. */
+  --zp-paint: var(--zp-p45b);
+  --zp-paint-hi: var(--zp-p45b-hi);
+  --zp-paint-lo: var(--zp-p45b-lo);
+  --zp-tint: var(--zp-p45b-t);
   /* an accent that stays legible on the light scheme */
-  --zp-deep: var(--zp-p46g-lo);
+  --zp-deep: var(--zp-p45b);
 
   /* shared surfaces and inks */
   --zp-ink: rgba(255, 255, 255, 0.93);
