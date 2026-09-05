@@ -18,7 +18,7 @@ car's own computers do the physical work: the EPS motor turns the
 wheel, and the powertrain control module (PCM) manages speed.
 
 <div class="diagram">
-<svg viewBox="0 0 800 268" role="img" aria-label="Module diagram: the comma device's own road camera feeds the driving model. The lateral planner and torque controller steer the Mazda EPS. The longitudinal planner sends a set speed to the MRCC radar, which drives the PCM for gas and brakes; under alpha long the planner drives the PCM directly. Radar, speed signs from the FSC, and blind spots feed the planners. Self-tune learns the EPS motor. The driver supervises and can brake or cancel at any time.">
+<svg viewBox="0 0 800 284" role="img" aria-label="Module diagram: the comma device's own road camera feeds the driving model. The lateral planner and torque controller steer the Mazda EPS. On stock cruise the longitudinal planner's target flows through ICBM, a button servo that walks the dash set speed, to the MRCC radar, which runs its own ACC loop and drives the PCM for gas and brakes; under alpha long the planner drives the PCM directly. Radar, speed signs from the FSC, and blind spots feed the planners. Self-tune learns the EPS motor. The driver supervises and can brake or cancel at any time.">
   <defs>
     <marker id="zp-arrow" class="m-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
     <marker id="zp-arrow-a" class="m-acc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
@@ -31,7 +31,7 @@ wheel, and the powertrain control module (PCM) manages speed.
   <text class="d-hi" x="255" y="104" text-anchor="middle">driving model</text>
   <text x="255" y="120" text-anchor="middle">vision</text>
   <line class="d-flow" x1="324" y1="96" x2="346" y2="56"/>
-  <line class="d-flow" x1="324" y1="120" x2="346" y2="160"/>
+  <line class="d-flow" x1="255" y1="136" x2="255" y2="148"/>
   <rect class="d-box" x="350" y="32" width="140" height="48"/>
   <text class="d-hi" x="420" y="52" text-anchor="middle">lateral planner</text>
   <text x="420" y="68" text-anchor="middle">where in the lane</text>
@@ -43,25 +43,30 @@ wheel, and the powertrain control module (PCM) manages speed.
   <rect class="d-box" x="705" y="32" width="80" height="48"/>
   <text class="d-hi" x="745" y="52" text-anchor="middle">EPS</text>
   <text x="745" y="68" text-anchor="middle">steering</text>
-  <rect class="d-box" x="350" y="136" width="140" height="48"/>
-  <text class="d-hi" x="420" y="156" text-anchor="middle">longitudinal planner</text>
-  <text x="420" y="172" text-anchor="middle">how fast, how far</text>
-  <line class="d-flow" x1="494" y1="160" x2="551" y2="160"/>
-  <rect class="d-box" x="555" y="136" width="110" height="48"/>
-  <text class="d-hi" x="610" y="156" text-anchor="middle">MRCC radar</text>
-  <text x="610" y="172" text-anchor="middle">stock cruise</text>
-  <line class="d-flow" x1="669" y1="160" x2="691" y2="160"/>
-  <rect class="d-box" x="695" y="136" width="90" height="48"/>
-  <text class="d-hi" x="740" y="156" text-anchor="middle">PCM</text>
-  <text x="740" y="172" text-anchor="middle">gas · brakes</text>
-  <path class="d-flow-accent" style="stroke-dasharray: 5 4" d="M470,188 V212 H740 V188"/>
-  <text x="580" y="206" text-anchor="middle">alpha long</text>
+  <rect class="d-box" x="190" y="152" width="140" height="48"/>
+  <text class="d-hi" x="260" y="172" text-anchor="middle">longitudinal planner</text>
+  <text x="260" y="188" text-anchor="middle">how fast, how far</text>
+  <line class="d-flow" x1="334" y1="176" x2="356" y2="176"/>
+  <rect class="d-box" x="360" y="152" width="100" height="48"/>
+  <text class="d-hi" x="410" y="172" text-anchor="middle">ICBM</text>
+  <text x="410" y="188" text-anchor="middle">button servo</text>
+  <line class="d-flow" x1="464" y1="176" x2="486" y2="176"/>
+  <rect class="d-box" x="490" y="152" width="110" height="48"/>
+  <text class="d-hi" x="545" y="172" text-anchor="middle">MRCC radar</text>
+  <text x="545" y="188" text-anchor="middle">stock cruise</text>
+  <line class="d-flow" x1="604" y1="176" x2="626" y2="176"/>
+  <rect class="d-box" x="630" y="152" width="100" height="48"/>
+  <text class="d-hi" x="680" y="172" text-anchor="middle">PCM</text>
+  <text x="680" y="188" text-anchor="middle">gas · brakes</text>
+  <path class="d-flow-accent" style="stroke-dasharray: 5 4" d="M230,204 V232 H680 V204"/>
+  <text x="455" y="226" text-anchor="middle">alpha long</text>
   <path class="d-flow-accent" d="M745,84 V104 H612 V84"/>
   <text x="678" y="98" text-anchor="middle">learns your motor</text>
-  <line class="d-flow" x1="420" y1="216" x2="420" y2="188"/>
-  <text x="390" y="228" text-anchor="middle">radar · speed signs (FSC) · blind spots</text>
-  <line class="d-lane" x1="20" y1="240" x2="785" y2="240"/>
-  <text x="402" y="260" text-anchor="middle">you: supervise · brake or cancel ends it</text>
+  <line class="d-flow" x1="160" y1="176" x2="186" y2="176"/>
+  <text x="100" y="164" text-anchor="middle">radar · blind spots</text>
+  <text x="100" y="180" text-anchor="middle">speed signs (FSC)</text>
+  <line class="d-lane" x1="20" y1="252" x2="785" y2="252"/>
+  <text x="402" y="272" text-anchor="middle">you: supervise · brake or cancel ends it</text>
 </svg>
 </div>
 
@@ -112,12 +117,14 @@ the same treatment.
 
 ## Speed: who owns the gas and brakes
 
-With stock software, Mazda's radar cruise ECU — the MRCC radar —
-controls speed. openpilot sends it a target and the ECU executes.
-zoompilot adds its cruise features on top of this: curve slowdowns,
-speed-limit awareness, and a [cruise arbiter](../technical/cruise-arbiter.md)
-that keeps your set speed yours. Dismiss a speed-limit change once,
-and it stays dismissed until the limit on the road actually changes.
+With stock software, Mazda's radar cruise ECU — the MRCC radar — controls
+speed, and openpilot cannot command its pedals. zoompilot's
+[ICBM](../features/icbm.md) servo presses the cruise buttons so the dash
+set speed follows the plan; the ECU does the rest on its own. zoompilot
+adds its cruise features on top of this: curve slowdowns, speed-limit
+awareness, and a [cruise arbiter](../technical/cruise-arbiter.md) that
+keeps your set speed yours. Dismiss a speed-limit change once, and it
+stays dismissed until the limit on the road actually changes.
 
 [Alpha longitudinal](../features/alpha-longitudinal.md) removes the
 middleman: zoompilot's own planner drives gas and brakes directly. That
