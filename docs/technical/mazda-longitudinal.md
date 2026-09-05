@@ -42,11 +42,12 @@ sessions 0x01 and 0x02. Flashing services stay blocked.
 ### FSC settle gate
 
 Silencing the radar too early after a cold boot latches an i-ACTIVSENSE fault that only a
-roughly 15 min power-down clears. The camera (FSC) runs a radar-presence check in the seconds
-after its boot settles. On the setup/teardown drives the check faulted when the radar went quiet
-1.9 s after the camera's boot-settle broadcast and passed from 5.8 s; waiting about 8 s was
-proven clean, and `FSC_SETTLE_T` is 10 s. The check's verdict is invisible until first motion, so
-the gate is a timer on the camera's settle signal, not any fault bit.
+roughly 15 min power-down clears; the setup/teardown car needed about 13 min. The camera
+(FSC) runs a radar-presence check in the seconds after its boot settles. On the setup/teardown
+drives the check faulted when the radar went quiet 1.9 s after the camera's boot-settle
+broadcast and passed from 5.8 s; waiting about 8 s was proven clean, and `FSC_SETTLE_T` is 10 s.
+The check's verdict is invisible until first motion, so the gate is a timer on the camera's
+settle signal, not any fault bit.
 
 The settle signal is CAM_LANEINFO.NO_ERR_BIT, a pure boot marker that clears at 2.8 to 6.0 s
 after boot and is never set again while driving. A latched fault (ERR_BIT) also shows the boot

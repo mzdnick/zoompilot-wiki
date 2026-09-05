@@ -3,11 +3,11 @@ title: ECU reset
 reviewed: 2026-09
 ---
 
-# ECU reset (the 15-minute power-down)
+# ECU reset
 
 A full power-down clears fault state in the car's electronic control
-units. When a dashboard error appears, this is the first thing to try,
-and it fixes most one-off faults.
+units. When a dashboard error appears, this is the first thing to try.
+Start with a short power-down: it clears most one-off faults.
 
 ## When to use it
 
@@ -19,9 +19,15 @@ and it fixes most one-off faults.
 ## The procedure
 
 1. Park, then turn the car **completely off**.
-2. Leave it off for **15 minutes**. The wait matters: a short off period
-   does not power the ECUs down fully, and the fault state survives.
-3. Start the car and drive again. The errors should be gone.
+2. Leave it off for **one minute**, then start the car and drive again.
+   A short power-down clears most one-off faults.
+3. If the error is still there, park and turn the car off again, this
+   time for **15 minutes**. Some faults survive a short power-down and
+   clear only once the car has sat long enough for its modules to shut
+   down fully. The radar fault that [alpha
+   longitudinal](../features/alpha-longitudinal.md) can latch is one of
+   them; the mechanism is on the
+   [technical notes](../technical/mazda-longitudinal.md#fsc-settle-gate).
 
 ## If the error comes back
 

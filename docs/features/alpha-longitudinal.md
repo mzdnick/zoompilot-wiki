@@ -75,8 +75,9 @@ and implementation for this feature.
 ## Dash errors while on alpha longitudinal
 
 If your dashboard throws cruise, LKAS, or radar errors, run the
-[ECU reset](../how-to/ecu-reset.md): park, turn the car completely off
-for **15 minutes**, then drive again.
+[ECU reset](../how-to/ecu-reset.md), but go straight to the long wait:
+park, turn the car completely off for **15 minutes**, then drive again.
+A short power-down does not clear this fault.
 
 See also [Troubleshooting](../troubleshooting.md).
 

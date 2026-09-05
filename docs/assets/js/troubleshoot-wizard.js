@@ -16,7 +16,8 @@
     {
       label: "Dashboard errors (cruise, LKAS, radar)",
       steps: [
-        "Run the ECU reset: park, car fully off for 15 minutes, drive again.",
+        "Run the ECU reset: park, car fully off for a minute, drive again.",
+        "Still erroring? Repeat with 15 minutes off; a short power-down misses some faults.",
         "Still erroring after that? Update to the latest zoompilot/main first.",
         "Then share a route from the drive, with the exact dash message.",
       ],

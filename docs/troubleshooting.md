@@ -60,8 +60,9 @@ For what the logs contain, see [Logging](how-to/logs.md).
 If your dashboard throws cruise, LKAS, or radar errors, especially with
 [alpha longitudinal](features/alpha-longitudinal.md) on, run the
 [ECU reset](how-to/ecu-reset.md): park, turn the car completely off for
-**15 minutes**, then drive again. If the error survives that, capture a
-route before you keep driving.
+a minute, then drive again. If the error survives, repeat with
+**15 minutes** off. If it survives that too, capture a route before you
+keep driving.
 
 ## "Cruise Fault: Restart the Car" on a cold start
 

@@ -40,7 +40,8 @@ what you are trying to do.
 
     ---
 
-    The 15-minute power-down that clears dashboard faults.
+    A power-down that clears dashboard faults: one minute first, 15 if
+    the fault survives.
 
     [Open the guide](ecu-reset.md)
 
