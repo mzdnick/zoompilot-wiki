@@ -15,8 +15,8 @@ engage.
 2. **Pick a driving model.** The author runs Firehose. DTRv6 is a
    community favorite, and CD210 works well with alpha longitudinal.
 3. **Enable self-tune.** Make sure torque control, self-tune, and
-   speed-dependent self-tune are on. Fresh installs on 2022+ EPS Mazdas
-   already have them on.
+   speed-dependent self-tune are on. Fresh installs on Mazdas with a
+   2022-25 CX-5 EPS already have them on.
 4. **Leave custom tune off.** Keep custom tune and manual real-time off.
    The learned values are better than hand tuning.
 
@@ -31,8 +31,9 @@ engage.
 ## Engaging
 
 zoompilot engages like openpilot: set the cruise with the stock steering
-wheel controls while driving above the minimum speed. On 2022+ EPS Mazdas
-the minimum speed is 0 mph, so the car can steer from a stop.
+wheel controls while driving above the minimum speed. On Mazdas with a
+2022-25 CX-5 EPS the minimum speed is 0 mph, so the car can steer from
+a stop.
 
 What to expect on a first drive:
 
@@ -42,7 +43,7 @@ What to expect on a first drive:
 - Self-tune keeps improving the steering in the background. You do not
   need to touch anything.
 - Nags stay honest. zoompilot suppresses the known false alerts, like
-  the "place hands on wheel" warning on 2022+ models. See
+  the "place hands on wheel" warning on a 2022-25 CX-5 EPS. See
   [Alert fixes](../features/alerts.md).
 - If anything feels wrong, cancel and pull the [troubleshooting
   page](../troubleshooting.md).

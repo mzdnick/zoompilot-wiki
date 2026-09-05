@@ -72,7 +72,7 @@ characters (JM1, JM3, 3MZ, JM0 on Mazdas).
 firmware. Decides what zoompilot is allowed to do.
 
 **steer-to-zero flag** — `STEER_TO_ZERO_EPS`: the flag that marks the
-2022+ CX-5 motor, wherever it is fitted. Unlocks 0 mph steering, the
+2022-25 CX-5 motor, wherever it is fitted. Unlocks 0 mph steering, the
 full torque envelope, and alpha longitudinal.
 
 **torque envelope** — what the EPS may be asked for: 1200/12/12 on the
@@ -135,7 +135,7 @@ tuned torque controller is the tested path.
 **qcamera** — the low-resolution video that comma connect plays.
 
 **LKAS_BLOCK** — the Mazda blocking state behind the false
-"place hands on wheel" alert on 2022+ models. See
+"place hands on wheel" alert on the 2022-25 CX-5 EPS. See
 [Alert fixes](../features/alerts.md).
 
 **CRZ_INFO** — the Mazda CAN message (0x21b) that carries the

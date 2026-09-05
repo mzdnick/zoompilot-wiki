@@ -10,8 +10,8 @@ gives Mazda drivers the best openpilot experience the hardware allows.
 zoompilot keeps openpilot's safety model and adds Mazda-specific work.
 Today it spans:
 
-1. **Steering** — the full torque curve of the 2022+ EPS, learned across
-   seven speed ranges. See [Steering improvements](../features/steering.md).
+1. **Steering** — the full torque curve of the 2022-25 CX-5 EPS, learned
+   across seven speed ranges. See [Steering improvements](../features/steering.md).
 2. **Cruise** — one unified system owns your set speed: ICBM, Speed-Limit
    Assist, Smart Cruise, and deceleration overshoot. See
    [Radar cruise enhancements](../features/smart-cruise.md).

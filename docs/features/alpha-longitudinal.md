@@ -83,8 +83,10 @@ See also [Troubleshooting](../troubleshooting.md).
 
 ## Availability
 
-- 2022+ CX-5: supported since the first zoompilot release.
-- CX-9 and EPS-swapped models: supported since 2026.08.25.
+- CX-5 2022-25: supported since the first zoompilot release.
+- Mazdas with a swapped 2022-25 CX-5 EPS, including the CX-9:
+  supported since 2026.08.25. A stock CX-9 EPS does not qualify — it
+  lacks the steer-to-zero flag.
 
 See [Supported cars](../getting-started/supported-cars.md).
 

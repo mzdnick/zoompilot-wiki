@@ -3,12 +3,12 @@ title: EPS swap
 reviewed: 2026-09
 ---
 
-# The EPS swap: a 2022+ steering motor in an older Mazda
+# The EPS swap: a 2022-25 CX-5 steering motor in an older Mazda
 
 zoompilot's steering work is keyed to one part: the electric power
 steering (EPS) motor from the 2022–2025 CX-5. Some owners fit that
 motor into an older Mazda — a swap. When it is done, zoompilot treats
-the car like a 2022+ EPS car: steering works down to 0 mph, the full
+the car like a 2022-25 CX-5: steering works down to 0 mph, the full
 torque envelope opens up, and alpha longitudinal becomes available.
 
 ## Why people swap
@@ -23,7 +23,7 @@ The older motor holds the car back in three ways:
 
 For the CX-9 2021 the difference is documented exactly: its stock EPS
 firmware (`TC3M-3210X-A-00`) keeps the smaller envelope, and only a
-CX-9 with the swapped 2022 CX-5 motor gets the full one. The evidence
+CX-9 with the swapped 2022-25 CX-5 motor gets the full one. The evidence
 is in [Mazda fingerprinting](../technical/mazda-fingerprinting.md).
 
 ## What this guide does not cover

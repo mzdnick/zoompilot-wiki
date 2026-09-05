@@ -9,7 +9,7 @@ which is a fork of [openpilot](https://github.com/commaai/openpilot).
 A fork keeps everything its parent has. So zoompilot keeps every
 sunnypilot feature, and adds the Mazda work on top.
 
-This page compares what each project does on a 2022+ EPS Mazda today.
+This page compares what each project does on a supported Mazda today.
 It is the deep version of the
 [comparison on zoompilot.ai](https://zoompilot.ai); every zoompilot
 row has a measurement record behind it on this wiki.
@@ -18,13 +18,13 @@ row has a measurement record behind it on this wiki.
 
 | Capability | openpilot | sunnypilot | zoompilot |
 | --- | :-: | :-: | :-: |
-| LKAS + ACC on the 2022+ EPS Mazdas | ✓ | ✓ | ✓ |
+| LKAS + ACC on the 2022-25 CX-5 | ✓ | ✓ | ✓ |
 | Unified cruise management (ICBM) | — | ✓ | ✓ |
 | Speed-Limit Assist and curve-speed Smart Cruise | — | ✓ | ✓ |
 | Speed-dependent torque across seven learned bands | — | — | ✓ |
 | EPS-rail-aware limits and cliff-exact friction | — | — | ✓ |
 | Torque commands per frame | 10 | 10 | 12 |
-| Measured steer-to-zero on the 2022+ EPS | — | — | ✓ |
+| Measured steer-to-zero on the 2022-25 CX-5 EPS | — | — | ✓ |
 | Steer-to-zero on an EPS swap, with your car's own specs | — | — | ✓ |
 | VIN + EPS fingerprinting (finds a swapped-in motor) | — | — | ✓ |
 | Mazda alpha longitudinal | — | — | ✓ experimental |
@@ -33,8 +33,7 @@ row has a measurement record behind it on this wiki.
 
 ## What the rows mean
 
-**The shared rows.** Upstream openpilot already drives the 2022+ EPS
-Mazdas. It caps every steering command at one flat 800 counts, sends at
+**The shared rows.** Upstream openpilot already drives the 2022-25 CX-5. It caps every steering command at one flat 800 counts, sends at
 most 10 commands per frame, and asks for lane keeping only above
 25 mph. That envelope is safe, but it belongs to a spec sheet, not to
 the measured steering rack in your car.
@@ -52,7 +51,8 @@ See [ICBM](../features/icbm.md) and
 The torque curve follows the EPS's real ceiling, which falls from about
 1148 counts in town to 620 on the highway. The seven learned speed
 bands replace one setting for all speeds. Fingerprinting reads the VIN
-and the EPS firmware, which is how a swapped-in 2022+ motor gets
+and the EPS firmware, which is how a swapped-in 2022-25 CX-5 EPS motor
+gets
 recognized — and why the swap row above stays matched to your car's own
 specs. See [steering](../features/steering.md) and
 [fingerprinting](../technical/mazda-fingerprinting.md).

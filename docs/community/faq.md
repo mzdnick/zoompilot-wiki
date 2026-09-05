@@ -12,8 +12,9 @@ missing.
 
 ## Is my Mazda supported?
 
-zoompilot targets the 2022+ EPS motor. Full support: CX-5 2022–2025
-and CX-9 2021–2023. The other platforms in the support list run on the
+zoompilot targets Mazdas with a 2022-25 CX-5 EPS. Full support:
+CX-5 2022–2025 and CX-9 2021–2023. The other platforms in the support
+list run on the
 stock steering envelope: CX-5 2017–2021, CX-9 2016–2020, and — on
 community reports so far — Mazda 3 2017–2018 and Mazda 6 2017–2021.
 Older Mazdas with a swapped 2022-25 CX-5 EPS motor are also supported.
@@ -61,7 +62,8 @@ automatic emergency braking and forward collision alerts with it. See
 
 ## Do fresh installs need tuning?
 
-No. Fresh installs on 2022+ EPS Mazdas arrive with torque control,
+No. Fresh installs on Mazdas with a 2022-25 CX-5 EPS arrive with torque
+control,
 self-tune, and speed-dependent self-tune already on. The steering
 improves as self-tune learns your motor. See
 [First drive](../getting-started/first-drive.md).

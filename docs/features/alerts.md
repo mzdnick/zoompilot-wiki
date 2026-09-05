@@ -7,11 +7,11 @@ title: Alert fixes
 These changes remove known false alerts in the Mazda port without
 touching real fault handling.
 
-## Place hands on wheel alert (2022+)
+## Place hands on wheel alert (2022-25 CX-5 EPS)
 
 Log analysis from many drivers proved that `LKAS_BLOCK` does not actually
-disengage steering on 2022+ models. Based on that evidence, zoompilot
-disables this false alert.
+disengage steering on the 2022-25 CX-5 EPS. Based on that evidence,
+zoompilot disables this false alert.
 
 Real faults stay active. Only the false "place hands on wheel" warning is
 suppressed.

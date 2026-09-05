@@ -66,7 +66,8 @@ That is the whole install. There is nothing to configure on a computer.
 
 ## What a fresh install enables
 
-On 2022+ EPS Mazdas, a fresh install arrives with these already on:
+On Mazdas with a 2022-25 CX-5 EPS, a fresh install arrives with these
+already on:
 
 - Torque control
 - Self-tune

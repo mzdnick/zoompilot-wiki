@@ -41,8 +41,8 @@ zoompilot has its own home, its own build, and the biggest batch of changes yet.
 
 - **New home, new install URL.** The fork lives at zoompilot/zoompilot and installs from `zoompilot/main`. If you are already running zoompilot you don't need to do anything: your device repoints itself on its next start.
 - **Prebuilt releases.** Every release is built ahead of time on a real comma device, so installing no longer means sitting through the better part of an hour of compiling.
-- **Alpha longitudinal on the CX-5.** openpilot can drive the gas and brakes on the 2022+ CX-5. Read section 05 first: it shuts the stock radar down, which takes automatic emergency braking and forward collision alerts with it.
-- **Torque control out of the box.** Fresh installs on 22+ EPS Mazdas arrive with torque control, self-tune, and speed-dependent self-tune already on.
+- **Alpha longitudinal on the CX-5.** openpilot can drive the gas and brakes on the CX-5 2022-25. Read section 05 first: it shuts the stock radar down, which takes automatic emergency braking and forward collision alerts with it.
+- **Torque control out of the box.** Fresh installs on Mazdas with a 2022-25 CX-5 EPS arrive with torque control, self-tune, and speed-dependent self-tune already on.
 - **Fresher steering seeds.** The CX-5 2022 starting values come straight off a real car's learned data, so a new install steers like a tuned car much sooner.
 - **Cruise buttons, rebuilt.** The speed you set is the speed you get back after every curve and speed zone, down to the exact number. Confirming a speed limit is one tap and the answer sticks. Press a button mid-adjustment and zoompilot hands control straight back. Big changes hold the button down the way you would.
 - **Cruise features under one roof.** Speed-limit assist and smart cruise now work the same way whether the stock radar or openpilot has the gas and brakes, and a speed limit prompt no longer nudges your set speed while you are still deciding.

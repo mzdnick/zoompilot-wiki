@@ -36,8 +36,9 @@ search? The same settings are in the
 
 ## Defaults on a fresh Mazda install
 
-Fresh installs on 2022+ EPS Mazdas are not stock sunnypilot. zoompilot
-seeds the torque-control stack once, on the first start:
+Fresh installs on Mazdas with a 2022-25 CX-5 EPS are not stock
+sunnypilot. zoompilot seeds the torque-control stack once, on the first
+start:
 
 | Setting | Seeded value |
 | --- | --- |

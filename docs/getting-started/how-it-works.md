@@ -79,7 +79,7 @@ The electric power steering (EPS) motor is what turns the front wheels.
 openpilot does not move the steering wheel directly — it asks the EPS
 for a torque, many times a second, and the motor delivers what it can.
 
-Two facts about the 2022+ Mazda EPS motor shaped zoompilot's steering
+Two facts about the 2022-25 CX-5 EPS motor shaped zoompilot's steering
 work:
 
 - **The motor is stronger than stock openpilot assumes.** openpilot
@@ -97,9 +97,9 @@ gain and the friction — and keeps a separate tune per band. Fresh
 installs start from a tune learned on a real CX-5, then refine it to
 your motor.
 
-The motor's firmware also decides what zoompilot may do. The 2022+
-CX-5 motor is the only one granted lateral from 0 mph, and it is the
-key that unlocks alpha longitudinal. That check is the
+The motor's firmware also decides what zoompilot may do. The 2022-25
+CX-5 EPS motor is the only one granted lateral from 0 mph, and it is
+the key that unlocks alpha longitudinal. That check is the
 [steer-to-zero flag](../technical/mazda-fingerprinting.md), and it is
 why [EPS swaps](eps-swap.md) work: an older Mazda with that motor gets
 the same treatment.
@@ -133,8 +133,8 @@ feeds [Speed-Limit Assist](../features/speed-limit-assist.md). See
 ## The driver's part
 
 You stay in the loop. Engage with the stock steering-wheel cruise
-controls while driving; on 2022+ EPS Mazdas, steering help is
-available from 0 mph. The device's driver-monitoring camera watches
+controls while driving; on Mazdas with a 2022-25 CX-5 EPS, steering
+help is available from 0 mph. The device's driver-monitoring camera watches
 your attention, and warns then disengages if it loses you. Brake or
 press cancel, and the car is fully yours again. Read the
 [safety page](../safety.md) before your first drive.

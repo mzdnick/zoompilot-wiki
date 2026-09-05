@@ -121,9 +121,9 @@ Check, in order:
 2. The car is in a state that allows engagement: driver door closed,
    seatbelt on, and stock cruise able to set. See
    [First drive](getting-started/first-drive.md).
-3. Your car is supported. zoompilot targets the 2022+ EPS motor. The
-   device fingerprints on VIN and EPS firmware; EPS swaps are identified
-   by motor firmware. See
+3. Your car is supported. zoompilot targets Mazdas with a 2022-25
+   CX-5 EPS. The device fingerprints on VIN and EPS firmware; EPS swaps
+   are identified by motor firmware. See
    [Supported cars](getting-started/supported-cars.md).
 4. The engagement conditions for your model are met. The CX-5 steers
    from 0 mph; stock-radar cars keep their stock stop-and-go limits. See

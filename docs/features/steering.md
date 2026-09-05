@@ -50,9 +50,9 @@ real figures, then refined against driving data.
 
 ## Steering to zero
 
-On the 2022+ EPS motor, zoompilot steers down to 0 mph. This also
-covers older Mazdas fitted with a swapped 2022-25 CX-5 motor, identified
-by EPS fingerprinting. See [Supported cars](../getting-started/supported-cars.md).
+On a 2022-25 CX-5 EPS motor — factory-fitted, or swapped into an older
+Mazda — zoompilot steers down to 0 mph. Fingerprinting identifies the
+motor either way. See [Supported cars](../getting-started/supported-cars.md).
 
 ## Design details
 
