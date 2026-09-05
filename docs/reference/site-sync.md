@@ -51,3 +51,23 @@ rewrites that tail and never stops for edits to it.
 
 The site repo has one generated file of its own,
 `src/data/supported-cars.json` — the same rule applies to it.
+
+## When a release lands
+
+The maintainer publishes release notes on
+[zoompilot.ai](https://zoompilot.ai/release-notes). No repo carries
+them, so a person transcribes them first:
+
+1. Add the release to the site repo's `src/data/changelog.js`.
+   Copy the notes as published. Keep the year-claim wording this
+   wiki already uses where the site words it differently.
+2. Run `npm run sync:wiki` from the site repo.
+3. Commit and push both repos. The wiki push deploys the site.
+
+A daily check (`drift-check.yml` in this repo) watches both ends.
+It compares the current release on zoompilot.ai with the newest
+version on [the changelog](../releases/changelog.md). It also polls
+`docs/zoompilot` on the zoompilot repo, which
+[the technical notes](../technical/index.md) mirror by hand. When
+either moves first, it opens one issue named "Wiki drift: ...".
+The issue carries this runbook. A clear run closes it.
