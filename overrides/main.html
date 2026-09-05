@@ -165,5 +165,65 @@
      * build time (contrib/build_stamp.py + the build-stamp snippet),
      * so nothing here talks to the GitHub API any more. */
   })();
+
+  /* Zensical 0.0.59 ships its search palette as a shadow-DOM scaffold
+   * fixed to the body, and the innards have no accessible names: two
+   * icon-only buttons, a combobox input with no label or state, and a
+   * filters pane that scrolls but cannot take keyboard focus. Patch the
+   * tree until upstream does. Guards keep this a no-op on a fixed
+   * version; revisit the whole block on every zensical pin bump. */
+  (function () {
+    var LABELS = { search: "Search", "list-filter": "Toggle filters" };
+    function patch() {
+      var found = false;
+      document.querySelectorAll("body > div").forEach(function (host) {
+        var sr = host.shadowRoot;
+        if (!sr || !sr.querySelector('input[role="combobox"]')) return;
+        found = true;
+        var input = sr.querySelector('input[role="combobox"]');
+        /* a searchbox carries no required state; an unlabeled combobox
+         * with none managed is worse */
+        if (!input.hasAttribute("aria-expanded")) {
+          input.setAttribute("role", "searchbox");
+          input.setAttribute("aria-label", "Search");
+        }
+        sr.querySelectorAll("button:not([aria-label])").forEach(function (b) {
+          var icon = b.querySelector("svg[class*='lucide-']");
+          var m = icon ? icon.getAttribute("class").match(/lucide-([a-z-]+)/) : null;
+          if (m) b.setAttribute("aria-label", LABELS[m[1]] || m[1].replace(/-/g, " "));
+        });
+        sr.querySelectorAll("*").forEach(function (el) {
+          var s = getComputedStyle(el);
+          if (/(auto|scroll)/.test(s.overflowY + s.overflowX) && el.tabIndex === -1) {
+            el.tabIndex = 0;
+          }
+        });
+      });
+      return found;
+    }
+    function attempt(n) {
+      if (patch() || n <= 0) return;
+      setTimeout(function () { attempt(n - 1); }, 400);
+    }
+    if (document.readyState === "complete") attempt(6);
+    else window.addEventListener("load", function () { attempt(6); });
+  })();
+
+  /* Code-line permalink anchors render as empty self-referencing links
+   * — a nameless tab stop at the top of every code block. Keep them as
+   * jump targets (#id still works), drop the href so they stop being
+   * links. */
+  (function () {
+    function defuse() {
+      document.querySelectorAll('a[id^="__codelineno-"][href]').forEach(function (a) {
+        if (!a.textContent.trim() && !a.firstElementChild) a.removeAttribute("href");
+      });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", defuse);
+    } else {
+      defuse();
+    }
+  })();
 </script>
 {% endblock %}

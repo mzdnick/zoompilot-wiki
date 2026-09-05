@@ -35,8 +35,26 @@ body {
   --zp-paint-hi: var(--zp-p45b-hi);
   --zp-paint-lo: var(--zp-p45b-lo);
   --zp-tint: var(--zp-p45b-t);
+  /* the paint's light tint, for plates that stay dark in both schemes
+   * (the announce bar). Survives the light-scheme --zp-tint remap. */
+  --zp-paint-t: var(--zp-p45b-t);
+  /* ink that sits on --zp-paint: white, except on the light paints,
+   * where white text is invisible (25D is near-white) */
+  --zp-paint-ink: #ffffff;
+  /* the primary CTA's dip. Light paints dip only into their light half
+   * so --zp-paint-ink passes AA at both stops. */
+  --zp-btn-grad: linear-gradient(
+    180deg,
+    var(--zp-paint-hi),
+    var(--zp-paint) 55%,
+    var(--zp-paint-lo)
+  );
   /* an accent that stays legible on the light scheme */
   --zp-deep: var(--zp-p45b);
+  /* note + warning title ink. Both keep their voice (45B blue, hazard
+   * amber) but need a darker step on light paper to pass AA. */
+  --zp-note-ink: var(--zp-p45b-t);
+  --zp-warn-ink: var(--zp-warn);
 
   /* shared surfaces and inks */
   --zp-ink: rgba(255, 255, 255, 0.93);
@@ -51,42 +69,66 @@ body[data-md-paint="46v"] {
   --zp-paint: var(--zp-p46v); --zp-paint-hi: var(--zp-p46v-hi);
   --zp-paint-lo: var(--zp-p46v-lo); --zp-tint: var(--zp-p46v-t);
   --zp-deep: var(--zp-p46v);
+  --zp-paint-t: var(--zp-p46v-t);
+
 }
 body[data-md-paint="45p"] {
   --zp-paint: var(--zp-p45p); --zp-paint-hi: var(--zp-p45p-hi);
   --zp-paint-lo: var(--zp-p45p-lo); --zp-tint: var(--zp-p45p-t);
   --zp-deep: var(--zp-p45p-lo);
+  --zp-paint-t: var(--zp-p45p-t);
+  /* mid-gray paint: dark ink, and the CTA dips only into the light half */
+  --zp-paint-ink: #14161a;
+  --zp-btn-grad: linear-gradient(180deg, var(--zp-p45p-hi), var(--zp-p45p));
+
 }
 body[data-md-paint="47c"] {
   --zp-paint: var(--zp-p47c); --zp-paint-hi: var(--zp-p47c-hi);
   --zp-paint-lo: var(--zp-p47c-lo); --zp-tint: var(--zp-p47c-t);
   --zp-deep: var(--zp-p47c-lo);
+  --zp-paint-t: var(--zp-p47c-t);
+
 }
 body[data-md-paint="45b"] {
   --zp-paint: var(--zp-p45b); --zp-paint-hi: var(--zp-p45b-hi);
   --zp-paint-lo: var(--zp-p45b-lo); --zp-tint: var(--zp-p45b-t);
   --zp-deep: var(--zp-p45b);
+  --zp-paint-t: var(--zp-p45b-t);
+
 }
 body[data-md-paint="46g"] {
   --zp-paint: var(--zp-p46g); --zp-paint-hi: var(--zp-p46g-hi);
   --zp-paint-lo: var(--zp-p46g-lo); --zp-tint: var(--zp-p46g-t);
   --zp-deep: var(--zp-p46g-lo);
+  --zp-paint-t: var(--zp-p46g-t);
+
 }
 body[data-md-paint="25d"] {
   --zp-paint: var(--zp-p25d); --zp-paint-hi: var(--zp-p25d-hi);
   --zp-paint-lo: var(--zp-p25d-lo); --zp-tint: var(--zp-p25d-t);
-  /* white paint never works as text; use a warm gray in light mode */
-  --zp-deep: #6e6a61;
+  /* white paint never works as text; use a warm gray in light mode
+   * (dark enough for AA on the code background, where inline code in
+   * a link inherits the link color) */
+  --zp-deep: #69655c;
+  --zp-paint-t: var(--zp-p25d-t);
+  /* white paint: dark ink everywhere the paint is the surface */
+  --zp-paint-ink: #14161a;
+  --zp-btn-grad: linear-gradient(180deg, var(--zp-p25d-hi), var(--zp-p25d));
+
 }
 body[data-md-paint="42m"] {
   --zp-paint: var(--zp-p42m); --zp-paint-hi: var(--zp-p42m-hi);
   --zp-paint-lo: var(--zp-p42m-lo); --zp-tint: var(--zp-p42m-t);
   --zp-deep: var(--zp-p42m);
+  --zp-paint-t: var(--zp-p42m-t);
+
 }
 body[data-md-paint="41w"] {
   --zp-paint: var(--zp-p41w); --zp-paint-hi: var(--zp-p41w-hi);
   --zp-paint-lo: #121316; --zp-tint: var(--zp-p41w-t);
   --zp-deep: var(--zp-p41w);
+  --zp-paint-t: var(--zp-p41w-t);
+
 }
 
 /* ============================================================
@@ -130,7 +172,7 @@ body[data-md-color-scheme="default"] {
   --md-accent-fg-color: var(--zp-deep);
   --md-default-fg-color: #14161a;
   --md-default-fg-color--light: #4a4f55;
-  --md-default-fg-color--lighter: #7e8695;
+  --md-default-fg-color--lighter: #646b76;
   --md-default-fg-color--lightest: rgba(20, 22, 26, 0.08);
   --md-typeset-a-color: var(--zp-deep);
   --md-code-bg-color: #eceae4;
@@ -139,6 +181,13 @@ body[data-md-color-scheme="default"] {
   --md-footer-fg-color: var(--zp-dim);
   --md-footer-fg-color--light: var(--zp-dim);
   --md-footer-fg-color--lighter: var(--zp-faint);
+
+  /* the paint's light tint fails AA as text on paper, so text that
+   * wears --zp-tint wears the dark accent here instead. Plates that
+   * stay dark in both schemes (the announce bar) use --zp-paint-t. */
+  --zp-tint: var(--zp-deep);
+  --zp-note-ink: var(--zp-p45b);
+  --zp-warn-ink: #9c6410;
 
   --zp-bg: #f4f3ef;
   --zp-hair: rgba(20, 22, 26, 0.12);
@@ -156,7 +205,7 @@ body {
 
 ::selection {
   background: var(--zp-paint);
-  color: #ffffff;
+  color: var(--zp-paint-ink);
 }
 
 /* the paint glow off the top of the page, like the site canvas */
@@ -236,16 +285,26 @@ body {
   color: var(--md-accent-fg-color);
 }
 
-/* Announce bar: quiet, mono, paint-tinted */
-.md-announce {
+/* Announce bar: quiet, mono, paint-tinted. Zensical emits the bar as
+ * [data-md-component="announce"], not Material's .md-announce. */
+[data-md-component="announce"] {
   background: color-mix(in srgb, var(--zp-paint) 12%, #0b0c0e);
-  color: var(--zp-dim);
   font-size: 0.72rem;
   letter-spacing: 0.02em;
 }
-.md-announce a,
-.md-announce a:hover {
+/* the inner md-typeset sets its own ink; it must inherit the dim one */
+[data-md-component="announce"] .md-banner__inner {
+  color: var(--zp-dim);
+}
+[data-md-component="announce"] a,
+[data-md-component="announce"] a:hover {
   color: var(--zp-tint);
+}
+/* the announce plate stays dark in both schemes, so its links keep the
+ * paint's light tint even in the light scheme */
+body[data-md-color-scheme="default"] [data-md-component="announce"] a,
+body[data-md-color-scheme="default"] [data-md-component="announce"] a:hover {
+  color: var(--zp-paint-t);
 }
 
 /* Sidebar: section labels small-caps and letterspaced, active = paint */
@@ -386,28 +445,18 @@ body[data-md-color-scheme="default"] .md-typeset .zoom-deco {
   padding: 0.55rem 1.5rem;
 }
 .md-typeset .md-button--primary {
-  color: #ffffff;
+  color: var(--zp-paint-ink);
   border: 0;
-  background: linear-gradient(
-    180deg,
-    var(--zp-paint-hi),
-    var(--zp-paint) 55%,
-    var(--zp-paint-lo)
-  );
+  background: var(--zp-btn-grad);
   box-shadow:
     0 6px 22px color-mix(in srgb, var(--zp-paint) 40%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 .md-typeset .md-button--primary:focus-visible,
 .md-typeset .md-button--primary:hover {
-  color: #ffffff;
+  color: var(--zp-paint-ink);
   filter: brightness(1.1);
-  background: linear-gradient(
-    180deg,
-    var(--zp-paint-hi),
-    var(--zp-paint) 55%,
-    var(--zp-paint-lo)
-  );
+  background: var(--zp-btn-grad);
 }
 body[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
   color: var(--zp-ink);
@@ -617,6 +666,12 @@ body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li .icon {
 }
 
 /* ---- tables: hairline ledger, no zebra ---- */
+/* wide tables scroll inside their wrapper instead of widening the page
+ * (the settings reference spilled 6px at 320px) */
+.md-typeset .md-typeset__table {
+  max-width: 100%;
+  overflow-x: auto;
+}
 .md-typeset table:not([class]) {
   font-size: 0.72rem;
   border-collapse: collapse;
@@ -696,29 +751,29 @@ body[data-md-color-scheme="default"] .md-typeset details {
 /* note: eternal blue voice */
 .md-typeset .admonition.note,
 .md-typeset details.note {
-  border-color: color-mix(in srgb, var(--zp-p45b-t) 40%, transparent);
+  border-color: color-mix(in srgb, var(--zp-note-ink) 40%, transparent);
 }
 .md-typeset .admonition.note > .admonition-title,
 .md-typeset details.note > summary {
-  color: var(--zp-p45b-t);
+  color: var(--zp-note-ink);
 }
 .md-typeset .admonition.note > .admonition-title::before,
 .md-typeset details.note > summary::before {
-  background-color: var(--zp-p45b-t);
+  background-color: var(--zp-note-ink);
 }
 
 /* warning: hazard amber, like the site's alpha callouts */
 .md-typeset .admonition.warning,
 .md-typeset details.warning {
-  border-color: color-mix(in srgb, var(--zp-warn) 40%, transparent);
+  border-color: color-mix(in srgb, var(--zp-warn-ink) 40%, transparent);
 }
 .md-typeset .admonition.warning > .admonition-title,
 .md-typeset details.warning > summary {
-  color: var(--zp-warn);
+  color: var(--zp-warn-ink);
 }
 .md-typeset .admonition.warning > .admonition-title::before,
 .md-typeset details.warning > summary::before {
-  background-color: var(--zp-warn);
+  background-color: var(--zp-warn-ink);
 }
 
 /* danger: soul red */
@@ -967,7 +1022,7 @@ body[data-md-color-scheme="default"] .md-typeset details {
   font-size: 0.72rem;
 }
 .md-typeset .zp-explorer-search:focus-visible {
-  outline: 1px solid var(--zp-tint);
+  outline: 2px solid var(--zp-tint);
 }
 .md-typeset .zp-explorer-chips {
   display: flex;
@@ -1220,7 +1275,7 @@ html {
 .md-top:hover {
   background-color: var(--zp-paint);
   border-color: var(--zp-paint);
-  color: #ffffff;
+  color: var(--zp-paint-ink);
 }
 
 /* ---- reviewed stamp (overrides/main.html content block) ---- */
@@ -1291,10 +1346,10 @@ html {
 }
 .md-typeset .device-switch button[aria-pressed="true"] {
   background: var(--zp-paint);
-  color: #ffffff;
+  color: var(--zp-paint-ink);
 }
 .md-typeset .device-switch button:focus-visible {
-  outline: 2px solid var(--zp-paint);
+  outline: 2px solid var(--md-default-fg-color);
   outline-offset: -2px;
 }
 

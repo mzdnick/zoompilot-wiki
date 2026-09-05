@@ -58,7 +58,7 @@ A factory reset clears all settings back to these values. See
 
 ## Steering
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/steering.png" alt="The Steering settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -98,7 +98,7 @@ depth on [Steering improvements](../features/steering.md).
 
 ## Cruise
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/cruise.png" alt="The Cruise settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -131,7 +131,7 @@ Cruise settings control speed and distance behavior. See
 
 ## Models
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/models.png" alt="The Models settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -153,7 +153,7 @@ Model behavior settings: steering delay, turn speeds, and camera offset.
 
 ## Visuals
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/visuals.png" alt="The Visuals settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -182,7 +182,7 @@ Display-only settings. None of them change how the car drives.
 
 ## Toggles
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/toggles.png" alt="The Toggles settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -204,7 +204,7 @@ Core on/off switches.
 
 ## Device
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/device.png" alt="The Device settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -227,7 +227,7 @@ for the hardware basics.
 
 ## Software
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/software.png" alt="The Software settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
@@ -242,7 +242,7 @@ for the hardware basics.
 
 ## Developer
 
-<figure class="settings-strip settings-figure-mici">
+<figure class="settings-strip settings-figure-mici" tabindex="0" aria-label="Settings panel screenshot, scrolls sideways">
   <img src="../assets/settings/developer.png" alt="The Developer settings panel on comma four" loading="lazy">
   <figcaption>comma four</figcaption>
 </figure>
