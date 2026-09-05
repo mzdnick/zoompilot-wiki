@@ -73,17 +73,6 @@ wheel, and the powertrain control module (PCM) manages speed.
 zoompilot rewrites how this pipeline drives a Mazda — and the work
 keeps reaching deeper into the stack.
 
-## What a fork means
-
-openpilot by comma.ai is the base. sunnypilot extends it with more
-features and car-specific tuning. zoompilot takes sunnypilot and tunes
-it for one brand: Mazda. The full lineage and credits are on
-[What is zoompilot?](about.md).
-
-zoompilot's Mazda-specific work today spans steering, cruise, sensors,
-and the experimental alpha longitudinal. The sections below take them
-in turn.
-
 ## Steering: asking the motor for torque
 
 The electric power steering (EPS) motor is what turns the front wheels.
