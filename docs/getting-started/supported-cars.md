@@ -20,7 +20,7 @@ carries sets the steering envelope, not whether zoompilot runs.
 | Car | Status | Notes |
 | --- | --- | --- |
 | CX-5 2022–2025 | Full support, primary target | Every zoompilot feature. Steering works down to 0 mph. |
-| CX-9 2021–2023 | Full support | Factory-matched specs included. Speed-dependent torque needs more learning time, because the starting seeds come from a CX-5. |
+| CX-9 2021–2023 | Full support | Runs on the stock steering envelope with its own factory-matched specs. The 2022-25 CX-5 EPS swap adds steer-to-zero and alpha longitudinal. Speed-dependent torque needs more learning time, because the starting seeds come from a CX-5. |
 | Older Mazdas with a swapped 2022-25 CX-5 EPS motor | Supported | The motor is identified by its firmware during fingerprinting. Steering works down to 0 mph, and alpha longitudinal is enabled — radar and AEB off while it is on. |
 | CX-5 2017–2021 | Supported | Runs on the stock steering motor and its stock envelope. No steer-to-zero until a 2022-25 CX-5 motor is swapped in. |
 | CX-9 2016–2020 | Supported | Stock motor and stock envelope, like the CX-5 2017–2021 row. No steer-to-zero on the stock motor. |

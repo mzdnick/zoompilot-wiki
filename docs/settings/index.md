@@ -47,10 +47,11 @@ start:
 | Speed-Dependent Self-Tune | On |
 | Torque Control Tune Version | v2.0 |
 
-The seed runs only once, on cars with the steer-to-zero EPS (the 2022+
-CX-5 motor, the CX-9, and EPS swaps). After it runs, you can turn any of
-these off and zoompilot keeps your choice. Everything else starts at the
-defaults in the tables below.
+The seed runs only once, on any Mazda carrying the 2022-25 CX-5 EPS —
+factory-fitted or swapped in — because it keys on that motor's
+steer-to-zero flag. After it runs, you can turn any of these off and
+zoompilot keeps your choice. Everything else starts at the defaults in
+the tables below.
 
 A factory reset clears all settings back to these values. See
 [Install](../getting-started/install.md).

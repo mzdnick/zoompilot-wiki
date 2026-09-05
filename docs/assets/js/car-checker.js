@@ -131,10 +131,10 @@
       );
     } else if (car.value === "cx9") {
       verdict(
-        "Supported.",
+        "Supported — on the stock steering envelope.",
         rowFor("CX-9 2021")
           ? rowFor("CX-9 2021").notes
-          : "Factory-matched specs included. Speed-dependent torque needs more learning time, because the starting seeds come from a CX-5.",
+          : "Runs on the stock steering envelope with its own factory-matched specs. The 2022-25 CX-5 EPS swap adds steer-to-zero and alpha longitudinal. Speed-dependent torque needs more learning time, because the starting seeds come from a CX-5.",
         true,
       );
     } else if (car.value === "cx5old") {

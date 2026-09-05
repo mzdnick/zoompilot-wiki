@@ -22,9 +22,9 @@ The EPS behaves in a non-linear way across speeds. Instead of one tune,
 zoompilot learns across **seven distinct speed ranges** and applies the
 right one for your current speed.
 
-Self-tune does the learning in the background. Fresh installs on 2022+
-EPS Mazdas start from seeds learned on a real CX-5, so the car steers
-well from day one and improves from there.
+Self-tune does the learning in the background. Fresh installs on Mazdas
+with a 2022-25 CX-5 EPS start from seeds learned on a real CX-5, so the
+car steers well from day one and improves from there.
 
 <div id="zp-torque-live" markdown="1">
 ![EPS torque response across speed: stock openpilot holds one factor at every speed, while zoompilot keeps a learned tune per band and steps down at the cliff near 32 mph, where the measured EPS scale steps from 1200 to 800 counts](../assets/steering-torque.svg)

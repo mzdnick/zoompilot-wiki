@@ -65,10 +65,11 @@ real trade, and it is written down everywhere the feature is. See
 ## What you give up
 
 - **Car coverage.** Upstream supports many makes and models. zoompilot
-  supports one brand: the Mazda platforms in its list — full support on
-  the CX-5 2022-25 and CX-9 2021-23, the stock steering envelope on the
-  older ones. If your car is not one of them, run
-  upstream — see [supported cars](supported-cars.md).
+  supports one brand: the Mazda platforms in its list. Steer-to-zero
+  follows the 2022-25 CX-5 EPS, factory-fitted or swapped in; every
+  other Mazda in the list runs on its stock motor's envelope. If your
+  car is not one of them, run upstream — see
+  [supported cars](supported-cars.md).
 - **Maturity.** zoompilot is a young fork with a narrow focus. Upstream
   has thousands of car-miles of broad testing that a young fork cannot
   claim.
@@ -80,10 +81,10 @@ real trade, and it is written down everywhere the feature is. See
 - **Any brand of car** → openpilot. It is the upstream everything else
   builds on.
 - **A supported car, and you want ICBM or Smart Cruise** → sunnypilot.
-- **A supported Mazda** → zoompilot. Full support on the CX-5 2022-25
-  and CX-9 2021-23; the 2022-25 CX-5 EPS adds steer-to-zero wherever it
-  is fitted, factory or swapped. That is the case this whole wiki
-  measures.
+- **A supported Mazda** → zoompilot. Every Mazda in the list runs; the
+  2022-25 CX-5 EPS adds steer-to-zero and alpha longitudinal wherever
+  it is fitted, factory or swapped. That motor is the case this whole
+  wiki measures.
 
 Stock Mazda cruise and lane keeping are always still there whenever
 zoompilot is off. Switching forks or uninstalling returns the car to

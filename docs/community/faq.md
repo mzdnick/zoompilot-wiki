@@ -12,13 +12,14 @@ missing.
 
 ## Is my Mazda supported?
 
-zoompilot targets Mazdas with a 2022-25 CX-5 EPS. Full support:
-CX-5 2022–2025 and CX-9 2021–2023. The other platforms in the support
-list run on the
-stock steering envelope: CX-5 2017–2021, CX-9 2016–2020, and — on
-community reports so far — Mazda 3 2017–2018 and Mazda 6 2017–2021.
-Older Mazdas with a swapped 2022-25 CX-5 EPS motor are also supported.
-See [Supported cars](../getting-started/supported-cars.md).
+zoompilot runs on every Mazda platform in its support list: the CX-5
+2017–2025, the CX-9 2016–2023, and — on community reports so far — the
+Mazda 3 2017–2018 and the Mazda 6 2017–2021. The steering motor sets
+the envelope. The 2022-25 CX-5 EPS steers to zero and unlocks alpha
+longitudinal; it is factory-fitted in the CX-5 2022–2025, and an older
+Mazda gets it by swapping the motor in — the CX-9 included. Every other
+car runs on its stock motor's envelope. See
+[Supported cars](../getting-started/supported-cars.md).
 
 ## How is zoompilot different from sunnypilot on an EPS swap?
 
