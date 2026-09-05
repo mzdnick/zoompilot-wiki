@@ -12,37 +12,58 @@ zoompilot changes on the way. No prior openpilot knowledge needed.
 
 openpilot is software that runs on a comma device. The device sits on
 the car's camera harness and watches the road through the car's
-forward camera. A neural network model reads that camera and the
-planners turn its output into actuator requests. The car's own
-computers do the physical work: the EPS motor turns the wheel, and the
-powertrain control module (PCM) manages speed.
+forward camera, the FSC (forward sensing camera). A neural network
+model reads that camera and the planners turn its output into actuator
+requests. The car's own computers do the physical work: the EPS motor
+turns the wheel, and the powertrain control module (PCM) manages
+speed.
 
 <div class="diagram">
-<svg viewBox="0 0 800 232" role="img" aria-label="One drive: the road camera and driving model see, the planners choose where in the lane and how fast, radar, blind-spot monitors, and speed signs feed the plan, the plan drives the EPS motor and the gas and brakes, self-tune learns your motor's response, and you supervise and can brake or cancel at any time">
+<svg viewBox="0 0 800 260" role="img" aria-label="Module diagram: the Mazda forward camera, the FSC, feeds the driving model on the comma device. The lateral planner and torque controller steer the Mazda EPS. The longitudinal planner sends a set speed to the MRCC radar, which drives the PCM for gas and brakes; under alpha long the planner drives the PCM directly. Radar, blind-spot monitors, and speed signs feed in. Self-tune learns the EPS motor. The driver supervises and can brake or cancel at any time.">
   <defs>
     <marker id="zp-arrow" class="m-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
     <marker id="zp-arrow-a" class="m-acc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
   </defs>
-  <rect class="d-box" x="30" y="40" width="180" height="64"/>
-  <text class="d-hi" x="120" y="62" text-anchor="middle">sees</text>
-  <text x="120" y="80" text-anchor="middle">road camera</text>
-  <text x="120" y="96" text-anchor="middle">driving model</text>
-  <line class="d-flow" x1="214" y1="72" x2="250" y2="72"/>
-  <rect class="d-box" x="254" y="40" width="200" height="64"/>
-  <text class="d-hi" x="354" y="62" text-anchor="middle">plans</text>
-  <text x="354" y="80" text-anchor="middle">where in the lane</text>
-  <text x="354" y="96" text-anchor="middle">how fast, how far</text>
-  <line class="d-flow" x1="458" y1="72" x2="494" y2="72"/>
-  <rect class="d-box" x="498" y="40" width="232" height="64"/>
-  <text class="d-hi" x="614" y="62" text-anchor="middle">acts</text>
-  <text x="614" y="80" text-anchor="middle">EPS motor</text>
-  <text x="614" y="96" text-anchor="middle">gas · brakes</text>
-  <line class="d-flow" x1="354" y1="136" x2="354" y2="108"/>
-  <text x="354" y="152" text-anchor="middle">radar · blind spots · speed signs</text>
-  <path class="d-flow-accent" d="M614,108 V172 H400 V108"/>
-  <text x="606" y="166" text-anchor="end">learns your motor</text>
-  <line class="d-lane" x1="30" y1="204" x2="730" y2="204"/>
-  <text x="380" y="224" text-anchor="middle">you: supervise · brake or cancel ends it</text>
+  <rect class="d-box" x="20" y="84" width="100" height="48"/>
+  <text class="d-hi" x="70" y="104" text-anchor="middle">FSC</text>
+  <text x="70" y="120" text-anchor="middle">forward camera</text>
+  <line class="d-flow" x1="124" y1="108" x2="186" y2="108"/>
+  <text x="155" y="101" text-anchor="middle">road view</text>
+  <rect class="d-box" x="190" y="84" width="130" height="48"/>
+  <text class="d-hi" x="255" y="104" text-anchor="middle">driving model</text>
+  <text x="255" y="120" text-anchor="middle">vision</text>
+  <line class="d-flow" x1="324" y1="96" x2="346" y2="56"/>
+  <line class="d-flow" x1="324" y1="120" x2="346" y2="160"/>
+  <rect class="d-box" x="350" y="32" width="140" height="48"/>
+  <text class="d-hi" x="420" y="52" text-anchor="middle">lateral planner</text>
+  <text x="420" y="68" text-anchor="middle">where in the lane</text>
+  <line class="d-flow" x1="494" y1="56" x2="551" y2="56"/>
+  <rect class="d-box" x="555" y="32" width="115" height="48"/>
+  <text class="d-hi" x="612" y="52" text-anchor="middle">torque controller</text>
+  <text x="612" y="68" text-anchor="middle">7 learned bands</text>
+  <line class="d-flow" x1="674" y1="56" x2="701" y2="56"/>
+  <rect class="d-box" x="705" y="32" width="80" height="48"/>
+  <text class="d-hi" x="745" y="52" text-anchor="middle">EPS</text>
+  <text x="745" y="68" text-anchor="middle">steering</text>
+  <rect class="d-box" x="350" y="136" width="140" height="48"/>
+  <text class="d-hi" x="420" y="156" text-anchor="middle">longitudinal planner</text>
+  <text x="420" y="172" text-anchor="middle">how fast, how far</text>
+  <line class="d-flow" x1="494" y1="160" x2="551" y2="160"/>
+  <rect class="d-box" x="555" y="136" width="110" height="48"/>
+  <text class="d-hi" x="610" y="156" text-anchor="middle">MRCC radar</text>
+  <text x="610" y="172" text-anchor="middle">stock cruise</text>
+  <line class="d-flow" x1="669" y1="160" x2="691" y2="160"/>
+  <rect class="d-box" x="695" y="136" width="90" height="48"/>
+  <text class="d-hi" x="740" y="156" text-anchor="middle">PCM</text>
+  <text x="740" y="172" text-anchor="middle">gas · brakes</text>
+  <path class="d-flow-accent" style="stroke-dasharray: 5 4" d="M420,188 V212 H740 V188"/>
+  <text x="580" y="206" text-anchor="middle">alpha long</text>
+  <path class="d-flow-accent" d="M745,84 V104 H612 V84"/>
+  <text x="678" y="98" text-anchor="middle">learns your motor</text>
+  <line class="d-flow" x1="222" y1="150" x2="222" y2="136"/>
+  <text x="222" y="162" text-anchor="middle">radar · blind spots · speed signs</text>
+  <line class="d-lane" x1="20" y1="232" x2="785" y2="232"/>
+  <text x="402" y="252" text-anchor="middle">you: supervise · brake or cancel ends it</text>
 </svg>
 </div>
 
@@ -93,12 +114,12 @@ the same treatment.
 
 ## Speed: who owns the gas and brakes
 
-With stock software, Mazda's own radar cruise ECU controls speed.
-openpilot sends it a target and the ECU executes. zoompilot adds its
-cruise features on top of this: curve slowdowns, speed-limit awareness,
-and a [cruise arbiter](../technical/cruise-arbiter.md) that keeps your
-set speed yours. Dismiss a speed-limit change once, and it stays
-dismissed until the limit on the road actually changes.
+With stock software, Mazda's radar cruise ECU — the MRCC radar —
+controls speed. openpilot sends it a target and the ECU executes.
+zoompilot adds its cruise features on top of this: curve slowdowns,
+speed-limit awareness, and a [cruise arbiter](../technical/cruise-arbiter.md)
+that keeps your set speed yours. Dismiss a speed-limit change once,
+and it stays dismissed until the limit on the road actually changes.
 
 [Alpha longitudinal](../features/alpha-longitudinal.md) removes the
 middleman: zoompilot's own planner drives gas and brakes directly. That
