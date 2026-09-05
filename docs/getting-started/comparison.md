@@ -25,6 +25,7 @@ row has a measurement record behind it on this wiki.
 | EPS-rail-aware limits and cliff-exact friction | — | — | ✓ |
 | Torque commands per frame | 10 | 10 | 12 |
 | Measured steer-to-zero on the 2022+ EPS | — | — | ✓ |
+| Steer-to-zero on an EPS swap, with your car's own specs | — | — | ✓ |
 | VIN + EPS fingerprinting (finds a swapped-in motor) | — | — | ✓ |
 | Mazda alpha longitudinal | — | — | ✓ experimental |
 | Mazda sensors wired in: radar, blind spots, speed signs | — | — | ✓ |
@@ -41,7 +42,10 @@ the measured steering rack in your car.
 **The sunnypilot rows.** ICBM, Speed-Limit Assist, and Smart Cruise
 are sunnypilot features. zoompilot inherits them and reworks their
 Mazda parts — ICBM is rebuilt as a button servo measured against the
-real ECU, for example. See [ICBM](../features/icbm.md) and
+real ECU, for example. On an EPS swap, sunnypilot reaches steer-to-zero
+one way: select the CX-5 2022-25 platform by hand. That applies the
+CX-5 steering ratio, wheelbase, and mass to a car that is not a CX-5.
+See [ICBM](../features/icbm.md) and
 [Smart Cruise](../features/smart-cruise.md).
 
 **The zoompilot rows.** Everything else comes from measuring the car.
@@ -49,7 +53,8 @@ The torque curve follows the EPS's real ceiling, which falls from about
 1148 counts in town to 620 on the highway. The seven learned speed
 bands replace one setting for all speeds. Fingerprinting reads the VIN
 and the EPS firmware, which is how a swapped-in 2022+ motor gets
-recognized. See [steering](../features/steering.md) and
+recognized — and why the swap row above stays matched to your car's own
+specs. See [steering](../features/steering.md) and
 [fingerprinting](../technical/mazda-fingerprinting.md).
 
 **Alpha longitudinal** is zoompilot's experimental full cruise control.
@@ -60,7 +65,9 @@ real trade, and it is written down everywhere the feature is. See
 ## What you give up
 
 - **Car coverage.** Upstream supports many makes and models. zoompilot
-  supports three rows of Mazdas. If your car is not one of them, run
+  supports one brand: the Mazda platforms in its list — full support on
+  the CX-5 2022-25 and CX-9 2021-23, the stock steering envelope on the
+  older ones. If your car is not one of them, run
   upstream — see [supported cars](supported-cars.md).
 - **Maturity.** zoompilot is a young fork with a narrow focus. Upstream
   has thousands of car-miles of broad testing that a young fork cannot
@@ -73,8 +80,10 @@ real trade, and it is written down everywhere the feature is. See
 - **Any brand of car** → openpilot. It is the upstream everything else
   builds on.
 - **A supported car, and you want ICBM or Smart Cruise** → sunnypilot.
-- **A 2022+ EPS Mazda, factory-fitted or swapped** → zoompilot. That is
-  the case this whole wiki measures.
+- **A supported Mazda** → zoompilot. Full support on the CX-5 2022-25
+  and CX-9 2021-23; the 2022-25 CX-5 EPS adds steer-to-zero wherever it
+  is fitted, factory or swapped. That is the case this whole wiki
+  measures.
 
 Stock Mazda cruise and lane keeping are always still there whenever
 zoompilot is off. Switching forks or uninstalling returns the car to

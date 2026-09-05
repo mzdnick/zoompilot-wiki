@@ -39,13 +39,13 @@
    * (WMI, chassis, year code) keys are disjoint. */
   var PLATFORMS = [
     { wmis: ["JM3"], chassis: "KF", codes: "HJKLM",
-      name: "CX-5 2017–2021", kind: "old" },
+      name: "CX-5 2017–2021", kind: "cx5old" },
     { wmis: ["JM3"], chassis: "TC", codes: "GHJKL",
-      name: "CX-9 2016–2020", kind: "old" },
+      name: "CX-9 2016–2020", kind: "cx9old" },
     { wmis: ["JM1", "3MZ"], chassis: "BN", codes: "HJ",
-      name: "Mazda3 2017–2018", kind: "old" },
+      name: "Mazda 3 2017–2018", kind: "mazda3" },
     { wmis: ["JM1"], chassis: "GL", codes: "HJKLM",
-      name: "Mazda6 2017–2021", kind: "old" },
+      name: "Mazda 6 2017–2021", kind: "mazda6" },
     { wmis: ["JM3"], chassis: "TC", codes: "MNP",
       name: "CX-9 2021–2023", kind: "cx9" },
     { wmis: ["JM3"], chassis: "KF", codes: "NPRS",
@@ -146,14 +146,31 @@
               '<a href="../getting-started/supported-cars/">supported ' +
               "cars</a>." };
     }
-    /* kind === "old" */
-    return { cls: "mid", pill: "Not supported as-is — swap candidate",
-      body: "<strong>" + p.name + ".</strong> zoompilot does not " +
-            "support this platform. With a 2022–25 CX-5 EPS motor " +
-            "swapped in, the car is supported: the motor is " +
-            "recognized by its firmware, steering works down to " +
-            "0 mph, and alpha longitudinal opens. See " +
-            '<a href="../getting-started/eps-swap/">the EPS swap</a>.' };
+    /* stock-envelope platforms: they run, on the stock motor */
+    if (p.kind === "cx5old" || p.kind === "cx9old") {
+      return { cls: "mid", pill: "Supported — stock steering envelope",
+        body: "<strong>" + p.name + ".</strong> zoompilot runs on the " +
+              "stock motor with the stock torque envelope — no " +
+              "steer-to-zero. With a 2022-25 CX-5 EPS motor swapped " +
+              "in, steering works down to 0 mph and alpha " +
+              "longitudinal opens (radar and AEB off while it is " +
+              "on). See " +
+              '<a href="../getting-started/supported-cars/">supported ' +
+              "cars</a> and " +
+              '<a href="../getting-started/eps-swap/">the EPS swap</a>.' };
+    }
+    /* community-reported platforms: fewer test miles */
+    if (p.kind === "mazda3" || p.kind === "mazda6") {
+      return { cls: "mid", pill: "Reported working — community drives",
+        body: "<strong>" + p.name + ".</strong> Community drives " +
+              "report zoompilot runs on the stock motor and " +
+              "envelope; fewer test miles than the CX-5 and CX-9. " +
+              "A 2022-25 CX-5 EPS swap opens steer-to-zero and " +
+              "alpha longitudinal (radar and AEB off while it is " +
+              "on). See " +
+              '<a href="../getting-started/supported-cars/">supported ' +
+              "cars</a>." };
+    }
   }
 
   function render(v) {
