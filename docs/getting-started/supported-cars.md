@@ -20,11 +20,11 @@ carries sets the steering envelope, not whether zoompilot runs.
 | Model | Year | Native steer-to-zero | Steer-to-zero with swap | Alpha longitudinal | Pre-seeded torque |
 | --- | --- | --- | --- | --- | --- |
 | CX-5 | 2022–2025 | ✓ | n/a | ✓ | ✓ |
-| | 2017–2021 | — | ✓ | ✓ | ✓ with swap |
-| CX-9 | 2021–2023 | — | ✓ | ✓ | ✓ with swap |
+| | 2017–2021 | — | ✓ | ✓ with swap | ✓ with swap |
+| CX-9 | 2021–2023 | — | ✓ | ✓ with swap | ✓ with swap |
 | | 2016–2020 | — | ✓ | — | ✓ with swap |
-| Mazda 3 | 2017–2018 | — | ✓ | ✓ | ✓ with swap |
-| Mazda 6 | 2017–2021 | — | ✓ | ✓ | ✓ with swap |
+| Mazda 3 | 2017–2018 | — | ✓ | ✓ with swap | ✓ with swap |
+| Mazda 6 | 2017–2021 | — | ✓ | ✓ with swap | ✓ with swap |
 
 *Radar and AEB are off while alpha longitudinal is on. The pre-2021
 CX-9 keeps it off even with the swap: its radar does not publish the
