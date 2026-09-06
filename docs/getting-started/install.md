@@ -34,6 +34,20 @@ from previous forks and prevents odd behavior after switching.
 
 That is the whole install. There is nothing to configure on a computer.
 
+## Watch the install
+
+<figure class="zp-clip">
+  <video controls preload="metadata" playsinline src="../assets/demo/install-comma-3-3x.mp4" aria-label="Demo: installing zoompilot on a comma 3/3X"></video>
+  <figcaption>comma 3/3X — choose custom software, type the URL, download</figcaption>
+</figure>
+<figure class="zp-clip">
+  <video controls preload="metadata" playsinline src="../assets/demo/install-comma-four.mp4" aria-label="Demo: installing zoompilot on comma four"></video>
+  <figcaption>comma four — slide to install custom software, type the URL, download</figcaption>
+</figure>
+
+The clips run the real setup wizard. The typed URL and the download are
+real.
+
 ## Branches
 
 | Branch | URL | What it is |

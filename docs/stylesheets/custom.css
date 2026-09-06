@@ -921,6 +921,25 @@ body[data-md-color-scheme="default"] .md-typeset details {
   border: 0;
 }
 
+/* ---- install demo clips (self-hosted mp4) ---- */
+.md-typeset .zp-clip {
+  margin: 1.2rem 0;
+  border: 1px solid var(--zp-hair);
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+.md-typeset .zp-clip video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.md-typeset .zp-clip figcaption {
+  padding: 0.45rem 0.9rem;
+  border-top: 1px solid var(--zp-hair);
+  color: var(--zp-dim);
+  font-size: 0.72rem;
+}
+
 /* ---- live EPS torque chart (features/steering.md) ---- */
 .md-typeset .tc-live {
   width: 100%;

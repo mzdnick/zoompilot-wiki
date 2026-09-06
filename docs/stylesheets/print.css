@@ -15,7 +15,8 @@
   .md-announce,
   .md-paints,
   .md-content__button,
-  .zp-video {
+  .zp-video,
+  .zp-clip {
     display: none !important;
   }
 

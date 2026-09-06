@@ -7,9 +7,9 @@ software, types `zoompilot/main`, and starts the download.
 - `tici-install-demo.mp4` — comma 3 / comma 3X (tici/tizi UI, 2160x1080)
 - `mici-install-demo.mp4` — comma four / mici UI (536x240, shown at 3x)
 
-The mp4 files are not committed. They are too heavy for the wiki repo.
-Keep them here locally, or upload them to the video host when the wiki
-embeds them.
+The published cuts live in `docs/assets/demo/` and are embedded on the
+[Install page](../../docs/getting-started/install.md). The raw takes in
+this directory are gitignored — keep them local.
 
 ## How the recordings are made
 
