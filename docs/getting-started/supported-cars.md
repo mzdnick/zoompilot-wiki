@@ -24,7 +24,17 @@ carries sets the steering envelope, not whether zoompilot runs.
 | Mazda 3 | 2017–2018 | ✓ with swap | ? |
 | Mazda 6 | 2017–2021 | ✓ with swap | ? |
 
-*✓ means it works as the car ships. "✓ with swap" means it works once a 2022-25 CX-5 EPS motor is swapped in. "—" marks a hard limit: the pre-2021 CX-9's radar does not publish the track data the port stands in for, so alpha longitudinal stays off even with the swap. "?" means expected to work but not yet validated on that platform: the Mazda 3 and Mazda 6 are community-reported only, with fewer test miles than the CX-5 and CX-9. While alpha longitudinal is on, the stock radar and AEB are off.*
+- **✓** — works as the car ships.
+- **✓ with swap** — works once a 2022-25 CX-5 EPS motor is swapped in.
+  See the [EPS swap guide](../how-to/eps-swap.md).
+- **—** — a hard limit. The pre-2021 CX-9's radar does not publish the
+  track data the port stands in for, so alpha longitudinal stays off
+  even with the swap.
+- **?** — expected to work, not yet validated on that platform. The
+  Mazda 3 and Mazda 6 are community-reported only, with fewer test
+  miles than the CX-5 and CX-9.
+
+While alpha longitudinal is on, the stock radar and AEB are off.
 
 ## How EPS swaps are detected
 

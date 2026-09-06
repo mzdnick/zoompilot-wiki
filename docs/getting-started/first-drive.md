@@ -4,21 +4,17 @@ reviewed: 2026-09
 
 # First drive
 
-You can manage almost everything directly on the device. This page walks
-through the recommended setup from the zoompilot author, then how to
-engage.
+This page walks through the recommended setup from the zoompilot author,
+then how to engage.
 
 ## Recommended setup
 
-1. **Factory-reset before installing.** Clear out stale settings from
-   previous forks. See [Install](install.md).
-2. **Pick a driving model.** The author runs Firehose. DTRv6 is a
+1. **Pick a driving model.** The author runs Firehose. DTRv6 is a
    community favorite, and CD210 works well with alpha longitudinal.
-3. **Enable self-tune.** Make sure torque control, self-tune, and
-   speed-dependent self-tune are on. Fresh installs on Mazdas with a
-   2022-25 CX-5 EPS already have them on.
-4. **Leave custom tune off.** Keep custom tune and manual real-time off.
-   The learned values are better than hand tuning.
+2. **Trust the learned tune.** Keep self-tune on. Keep custom tune and
+   manual real-time off. The learned values are better than hand
+   tuning. On Mazdas with a 2022-25 CX-5 EPS, a fresh install already
+   has the steering toggles on — see [Install](install.md).
 
 ## Before you engage
 
