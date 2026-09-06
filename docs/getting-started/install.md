@@ -63,6 +63,8 @@ already on:
 - Torque control
 - Self-tune
 - Speed-dependent self-tune
+- Steer-to-zero steering from 0 mph
+- The EPS's full torque envelope
 
 You can change everything on the device. See
 [First drive](first-drive.md) for the recommended settings.
