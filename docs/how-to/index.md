@@ -23,8 +23,8 @@ what you are trying to do.
 
     ---
 
-    A power-down that clears dashboard faults: one minute first, 15 if
-    the fault survives.
+    Shutting the vehicle off for a minute can clear most faults. If the
+    fault survives, wait 15 minutes.
 
     [Open the guide](ecu-reset.md)
 
