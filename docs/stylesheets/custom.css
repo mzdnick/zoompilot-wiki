@@ -1121,6 +1121,11 @@ body[data-md-color-scheme="default"] .md-typeset details {
 .md-typeset .zp-explorer-card .zp-explorer-note {
   font-size: 0.64rem;
   color: var(--md-default-fg-color--light);
+  /* notes carry the full reference wording; clamp the card display */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .md-typeset .zp-triage-prompt {

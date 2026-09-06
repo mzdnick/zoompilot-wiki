@@ -27,6 +27,9 @@ The explorer needs JavaScript. The same content lives in the plain
 
 ## Where the data comes from
 
-The card data is a structured copy of the reference tables, kept in
-`docs/assets/js/settings-data.js`. Change the reference first, then
-mirror it there.
+The card data is generated from the reference tables in
+`contrib/gen-settings-data.py`. The reference is canonical: edit it,
+run the script, and commit the regenerated
+`docs/assets/js/settings-data.js`. Cards show the reference wording,
+with long notes clamped; the reference carries the full picture and
+every "why".
