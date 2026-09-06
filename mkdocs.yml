@@ -167,7 +167,7 @@ nav:
       - technical/icbm.md
       - technical/scc-curve-planning.md
       - technical/rejected.md
-  - How-to:
+  - Guides:
       - how-to/index.md
       - how-to/connect-to-comma.md
       - how-to/replay-a-drive.md

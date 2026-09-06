@@ -1,10 +1,10 @@
 ---
-title: How-to guides
+title: Guides
 hide:
   - toc
 ---
 
-# How-to guides
+# Guides
 
 Practical guides for the device and your data. Pick the one that matches
 what you are trying to do.

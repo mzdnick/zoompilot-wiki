@@ -92,7 +92,7 @@ Install URL: `zoompilot/main` <span class="zp-stamp">· build 393a506e61 · 2026
 
     [Read the notes](technical/index.md)
 
-- :material-wrench: __How-to guides__
+- :material-wrench: __Guides__
 
     ---
 
