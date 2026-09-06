@@ -62,8 +62,9 @@ and implementation for this feature.
 - Cruise features such as [Smart Cruise](smart-cruise.md) and
   [Speed-Limit Assist](speed-limit-assist.md) work the same way as with
   the stock radar.
-- In experimental mode, zoompilot uses the openpilot model end to end and
-  can brake for stop signs and lights.
+- With an experimental driving model, zoompilot can also brake for stop
+  signs and lights. The model is your pick on the device — see
+  [First drive](../getting-started/first-drive.md).
 
 ## Known limitations
 
@@ -84,9 +85,11 @@ See also [Troubleshooting](../troubleshooting.md).
 ## Availability
 
 - CX-5 2022-25: supported since the first zoompilot release.
-- Mazdas with a swapped 2022-25 CX-5 EPS, including the CX-9:
-  supported since 2026.08.25. A stock CX-9 EPS does not qualify — it
-  lacks the steer-to-zero flag.
+- Mazdas with a swapped 2022-25 CX-5 EPS: supported since 2026.08.25.
+  On a swapped CX-9, only the 2021-23 gets alpha longitudinal: the
+  2016-2020 CX-9's radar does not publish the track data the port stands
+  in for. A stock CX-9 EPS does not qualify — it lacks the steer-to-zero
+  flag.
 
 See [Supported cars](../getting-started/supported-cars.md).
 

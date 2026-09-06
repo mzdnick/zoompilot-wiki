@@ -82,9 +82,10 @@ real trade, and it is written down everywhere the feature is. See
   builds on.
 - **A supported car, and you want ICBM or Smart Cruise** → sunnypilot.
 - **A supported Mazda** → zoompilot. Every Mazda in the list runs; the
-  2022-25 CX-5 EPS adds steer-to-zero and alpha longitudinal wherever
-  it is fitted, factory or swapped. That motor is the case this whole
-  wiki measures.
+  2022-25 CX-5 EPS adds steer-to-zero wherever it is fitted, factory or
+  swapped. Alpha longitudinal follows that motor too — one hard limit:
+  the 2016-2020 CX-9's radar does not publish the track data. That motor
+  is the case this whole wiki measures.
 
 Stock Mazda cruise and lane keeping return as soon as zoompilot is off.
 To leave zoompilot, factory-reset the device, or enter another fork's
