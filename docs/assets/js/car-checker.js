@@ -89,15 +89,30 @@
     return found;
   };
 
+  /* What a swap adds, from the matrix row's flags. The pre-2021 CX-9
+   * is the one platform where alpha long does not follow the swap. */
+  var swapAdds = function (row) {
+    if (!row) return "";
+    if (row.alphaLong === false) {
+      return " The swap adds steer-to-zero and pre-seeded torque, but not" +
+        " alpha longitudinal: this platform's radar does not publish the" +
+        " track frames the port stands in for.";
+    }
+    return " The 2022-25 CX-5 EPS swap adds steer-to-zero and alpha" +
+      " longitudinal, with torque control pre-seeded.";
+  };
+
   function renderMotor() {
     labelMotor.hidden = car.value !== "older";
     if (car.value !== "older") return;
     if (motor.value === "swap") {
       verdict(
         "Supported — the swap is what does it.",
-        rowFor("swapped")
-          ? rowFor("swapped").notes
-          : "The 2022-25 CX-5 EPS motor identifies by firmware, steering works down to 0 mph, and alpha longitudinal is enabled — radar and AEB off while it is on.",
+        "The 2022-25 CX-5 EPS motor identifies by firmware: steering works" +
+          " down to 0 mph and alpha longitudinal turns on — radar and AEB" +
+          " off while it is on. The pre-2021 CX-9 is the one exception:" +
+          " its radar does not publish the track frames, so alpha long" +
+          " stays off.",
         true,
       );
     } else if (motor.value === "stock") {
@@ -122,44 +137,45 @@
     motor.value = "";
     renderMotor();
     if (car.value === "cx5") {
+      var cx5row = rowFor("CX-5 2022");
       verdict(
         "Supported — this is the primary target.",
-        rowFor("CX-5 2022")
-          ? rowFor("CX-5 2022").notes
-          : "Every zoompilot feature. Steering works down to 0 mph.",
+        cx5row && cx5row.stzNative
+          ? "Steer-to-zero and alpha longitudinal are native to this" +
+            " motor, and torque control arrives pre-seeded."
+          : "Steer-to-zero and alpha longitudinal are native; steering" +
+            " works down to 0 mph.",
         true,
       );
     } else if (car.value === "cx9") {
       verdict(
         "Supported — on the stock steering envelope.",
-        rowFor("CX-9 2021")
-          ? rowFor("CX-9 2021").notes
-          : "Runs on the stock steering envelope with its own factory-matched specs. The 2022-25 CX-5 EPS swap adds steer-to-zero and alpha longitudinal. Speed-dependent torque needs more learning time, because the starting seeds come from a CX-5.",
+        "On the stock motor it runs speed-limited, no steer-to-zero." +
+          swapAdds(rowFor("CX-9 2021")),
         true,
       );
     } else if (car.value === "cx5old") {
       verdict(
         "Supported — on the stock steering envelope.",
-        rowFor("CX-5 2017")
-          ? rowFor("CX-5 2017").notes
-          : "Runs on the stock steering motor and its stock envelope. No steer-to-zero until a 2022-25 CX-5 motor is swapped in.",
+        "On the stock motor it runs speed-limited, no steer-to-zero." +
+          swapAdds(rowFor("CX-5 2017")),
         true,
       );
     } else if (car.value === "cx9old") {
       verdict(
         "Supported — on the stock steering envelope.",
-        rowFor("CX-9 2016")
-          ? rowFor("CX-9 2016").notes
-          : "Stock motor and stock envelope. No steer-to-zero on the stock motor.",
+        "On the stock motor it runs speed-limited, no steer-to-zero." +
+          swapAdds(rowFor("CX-9 2016")),
         true,
       );
     } else if (car.value === "mazda3" || car.value === "mazda6") {
       var row = rowFor(car.value === "mazda3" ? "Mazda 3" : "Mazda 6");
       verdict(
         "Reported working.",
-        row
-          ? row.notes
-          : "Community drives report it runs on the stock motor. Fewer test miles than the CX-5 and CX-9 rows.",
+        "Runs on the stock motor: speed-limited, no steer-to-zero." +
+          swapAdds(row) +
+          " Community-reported, with fewer test miles than the CX-5 and" +
+          " CX-9 rows.",
       );
     } else if (car.value === "older") {
       renderMotor();

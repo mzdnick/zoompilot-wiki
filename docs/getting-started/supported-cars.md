@@ -17,14 +17,19 @@ carries sets the steering envelope, not whether zoompilot runs.
 
 ## Supported vehicles
 
-| Model | Year | Status | Notes |
-| --- | --- | --- | --- |
-| CX-5 | 2022–2025 | Full support | Steer-to-zero. |
-| | 2017–2021 | Supported | Runs on the stock steering motor and its stock envelope. No steer-to-zero until a 2022-25 CX-5 motor is swapped in. |
-| CX-9 | 2021–2023 | Supported | Steer-to-zero with EPS swap. |
-| | 2016–2020 | Supported | Stock motor and stock envelope, like the CX-5 2017–2021 row. No steer-to-zero on the stock motor. |
-| Mazda 3 | 2017–2018 | Reported working | Community drives report it runs on the stock motor. Fewer test miles than the CX-5 and CX-9 rows. |
-| Mazda 6 | 2017–2021 | Reported working | Community-reported like the Mazda 3 row: stock motor, stock envelope. |
+| Model | Year | Native steer-to-zero | Steer-to-zero with swap | Alpha longitudinal | Pre-seeded torque |
+| --- | --- | --- | --- | --- | --- |
+| CX-5 | 2022–2025 | ✓ | n/a | ✓ | ✓ |
+| | 2017–2021 | — | ✓ | ✓ | ✓ with swap |
+| CX-9 | 2021–2023 | — | ✓ | ✓ | ✓ with swap |
+| | 2016–2020 | — | ✓ | — | ✓ with swap |
+| Mazda 3 | 2017–2018 | — | ✓ | ✓ | ✓ with swap |
+| Mazda 6 | 2017–2021 | — | ✓ | ✓ | ✓ with swap |
+
+*Radar and AEB are off while alpha longitudinal is on. The pre-2021
+CX-9 keeps it off even with the swap: its radar does not publish the
+track frames the port stands in for. The Mazda 3 and Mazda 6 rows are
+community-reported, with fewer test miles than the CX-5 and CX-9.*
 
 ## How EPS swaps are detected
 
