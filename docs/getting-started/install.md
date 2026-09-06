@@ -62,7 +62,7 @@ On Mazdas with a 2022-25 CX-5 EPS, a fresh install arrives with these
 already on:
 
 - Speed-dependent self-tune
-- Steer-to-zero steering
+- Steers to a standstill
 - Full range of EPS steering torque
 
 You can change everything on the device. See
