@@ -136,6 +136,7 @@ extra:
 nav:
   - Home: index.md
   - Getting started:
+      - getting-started/index.md
       - getting-started/about.md
       - getting-started/how-it-works.md
       - getting-started/supported-cars.md
@@ -145,6 +146,7 @@ nav:
       - getting-started/first-drive.md
       - getting-started/eps-swap.md
   - Features:
+      - features/index.md
       - features/steering.md
       - features/smart-cruise.md
       - features/icbm.md
@@ -174,10 +176,12 @@ nav:
       - how-to/ecu-reset.md
       - how-to/custom-tune.md
   - Community:
+      - community/index.md
       - community/contribute.md
       - community/feedback.md
       - community/roadmap.md
   - Reference:
+      - reference/index.md
       - community/faq.md
       - reference/glossary.md
       - reference/site-sync.md
