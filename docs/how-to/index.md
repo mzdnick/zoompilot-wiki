@@ -54,7 +54,7 @@ what you are trying to do.
 
     [Open the guide](custom-tune.md)
 
-- :material-lock: __Logs and privacy__
+- :material-lock: __Privacy__
 
     ---
 
