@@ -6,8 +6,11 @@ hide:
 
 # Getting started
 
-These pages take you from first questions to first drive. Read them in
-order, or jump to the one you need.
+These pages take you from first questions to first drive. The four
+stages below follow that path. Read the stages in order, or jump to the
+page you need.
+
+### Understand it
 
 <div class="grid cards" markdown>
 
@@ -18,7 +21,7 @@ order, or jump to the one you need.
     A Mazda-optimized fork of sunnypilot and openpilot. What it adds,
     and what it keeps.
 
-    [Open the page](about.md)
+    [Open the page](what-is-zoompilot.md)
 
 - :material-chart-timeline-variant: __How zoompilot works__
 
@@ -28,6 +31,12 @@ order, or jump to the one you need.
     No prior openpilot knowledge needed.
 
     [Open the page](how-it-works.md)
+
+</div>
+
+### Check your car
+
+<div class="grid cards" markdown>
 
 - :material-car-side: __Supported cars__
 
@@ -47,6 +56,12 @@ order, or jump to the one you need.
 
     [Open the page](comparison.md)
 
+</div>
+
+### Set it up
+
+<div class="grid cards" markdown>
+
 - :material-chip: __Hardware__
 
     ---
@@ -65,6 +80,12 @@ order, or jump to the one you need.
 
     [Open the page](install.md)
 
+</div>
+
+### Drive it
+
+<div class="grid cards" markdown>
+
 - :material-steering: __First drive__
 
     ---
@@ -72,14 +93,5 @@ order, or jump to the one you need.
     The author's recommended setup, then how to engage and drive.
 
     [Open the page](first-drive.md)
-
-- :material-swap-horizontal: __EPS swap__
-
-    ---
-
-    Fitting the 2022-25 CX-5 steering motor into an older Mazda, and
-    what that unlocks.
-
-    [Open the page](eps-swap.md)
 
 </div>
