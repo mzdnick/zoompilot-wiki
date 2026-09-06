@@ -1127,49 +1127,6 @@ body[data-md-color-scheme="default"] .md-typeset details {
   font-size: 0.66rem;
 }
 
-.md-typeset .zp-checker-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  margin: 0.4rem 0;
-}
-.md-typeset .zp-checker-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.66rem;
-  color: var(--md-default-fg-color--light);
-}
-.md-typeset .zp-checker-form select {
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--zp-hair-strong);
-  border-radius: 0.5rem;
-  background: var(--zp-card);
-  color: var(--md-default-fg-color);
-  font-size: 0.7rem;
-  min-width: 12rem;
-}
-.md-typeset .zp-checker-out {
-  margin-top: 0.8rem;
-  padding: 0.9rem 1.1rem;
-  background: var(--zp-card);
-  border: 1px solid var(--zp-card-line);
-  border-radius: 0.7rem;
-  font-size: 0.72rem;
-}
-.md-typeset .zp-checker-out[hidden] {
-  display: none;
-}
-.md-typeset .zp-checker-out strong.is-good {
-  color: var(--zp-tint);
-}
-.md-typeset .zp-checker-out strong.is-bad {
-  color: var(--zp-p46v-hi);
-}
-.md-typeset .zp-checker-out p {
-  margin: 0.3rem 0 0 !important;
-}
-
 /* ---- micro-polish ---- */
 html {
   scroll-behavior: smooth;

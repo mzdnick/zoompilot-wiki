@@ -13,9 +13,7 @@ zoompilot runs on every Mazda platform in its support list: the CX-5,
 the CX-9, the Mazda 3, and the Mazda 6. The steering motor your car
 carries sets the steering envelope, not whether zoompilot runs.
 
-<div id="zp-car-checker" markdown="0"></div>
-
-## Supported vehicles
+## Supported Mazda vehicles
 
 | Model | Year | Steer-to-zero | Alpha longitudinal |
 | --- | --- | --- | --- |
