@@ -103,6 +103,15 @@ you after an incident. You can turn this off under Settings → Device →
 Onroad Uploads. Driver camera and microphone recording are off by
 default. See [Settings](../settings/index.md#toggles).
 
+## How do I share a route?
+
+zoompilot records every drive as a route, and you can share one from
+[comma connect](https://connect.comma.ai). Turn on **Public access** and
+post the route ID. A public route shows GPS position, so pick drives
+that start and end at public places. To keep a route private, share the
+device with a reviewer instead. See
+[Share a route](../troubleshooting.md#share-a-route).
+
 ## Will it drain my car's battery?
 
 The device shuts itself down after 30 hours offroad by default. You can

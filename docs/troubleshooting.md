@@ -27,7 +27,7 @@ Work through these three steps first. They fix most reports.
    branches, retest on a clean `zoompilot/main` install before you
    report. See [Install](getting-started/install.md).
 
-## Share your logs
+## Share a route
 
 Most bug reports need a route. zoompilot records every drive as a route,
 and you can share one from [comma connect](https://connect.comma.ai).

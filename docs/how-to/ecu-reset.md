@@ -36,6 +36,6 @@ one-off. Do not keep resetting and driving. Capture evidence instead:
 
 1. Update to the latest `zoompilot/main` release first.
 2. Share a route from that drive, following
-   [Share your logs](../troubleshooting.md#share-your-logs).
+   [Share a route](../troubleshooting.md#share-a-route).
 3. Post the route ID and the exact dashboard message on the
    [Discord](https://discord.gg/jFWkHC2uhh).

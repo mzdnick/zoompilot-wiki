@@ -63,7 +63,7 @@ that were tried and rejected, is in
 - **Check recognition.** On the first drive, confirm the device
   recognizes the car. If it does not, or support looks wrong, stop and
   post on the Discord with a route ID (see
-  [Share your logs](../troubleshooting.md#share-your-logs)).
+  [Share a route](../troubleshooting.md#share-a-route)).
 - **Expect a learning period.** The self-tune seeds come from a CX-5.
   On any swapped car the learner starts from those and adapts to your
   motor over the first drives. CX-9 owners report the longest

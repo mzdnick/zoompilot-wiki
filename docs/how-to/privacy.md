@@ -8,7 +8,7 @@ reviewed: 2026-09
 openpilot records every drive. This page says what is recorded, what
 leaves the device, and which switches control it. The full sharing
 procedure is in
-[Share your logs](../troubleshooting.md#share-your-logs).
+[Share a route](../troubleshooting.md#share-a-route).
 
 ## What is recorded
 
