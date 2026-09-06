@@ -5,20 +5,18 @@ reviewed: 2026-09
 
 # Settings
 
-You manage zoompilot from the **Settings** screen on the device. The
-panels are: Steering, Cruise, Models, Visuals, Toggles, Device, Software,
-and Developer.
+You manage zoompilot from the **Settings** screen on the device. This
+page documents the panels a Mazda owner may want to touch, panel by
+panel: Steering, Cruise, Models, Visuals, Toggles, Device, Software, and
+Developer. The device's other panels sit under
+[Other panels](#other-panels). Values come from the toggle definitions
+in the zoompilot source (2026.08 releases).
 
-This page lists every on-device setting with its accepted values, its
-default, and notes for Mazda installs. Values shown here come from the
-toggle definitions in the zoompilot source (2026.08 releases).
-
-Each panel below shows its settings screen for both supported
-devices, rendered from the release code — comma four strips scroll
-sideways; comma 3/3X panels are full-frame. Pick a device once and
-every panel follows. The tables stay shared: both devices drive the
-same settings, so a row's value means the same thing on each. The
-capture checklist and the tool that regenerates these images live in
+Each panel shows its settings screen for both devices, rendered from
+the release code — comma four strips scroll sideways; comma 3/3X panels
+are full-frame. Pick a device once and every panel follows, and the
+tables stay shared: a row's value means the same thing on each. The
+capture tool that regenerates these images lives in
 [assets/settings](../assets/settings/README.md). Prefer cards and
 search? The same settings are in the
 [Settings explorer](explorer.md).
@@ -195,7 +193,7 @@ Core on/off switches.
 
 | Setting | Values | Default | Notes |
 | --- | --- | --- | --- |
-| Enable zoompilot | On / Off | **On** | Master switch for driving support. Some screens still label this "Enable sunnypilot"; it is the same toggle. On comma 3/3X the alpha longitudinal toggle likewise reads "sunnypilot Longitudinal Control (Alpha)". |
+| Enable zoompilot | On / Off | **On** | Master switch for driving support — some screens still label this "Enable sunnypilot"; it is the same toggle. On comma 3/3X the alpha longitudinal toggle likewise reads "sunnypilot Longitudinal Control (Alpha)". |
 | Enable Lane Departure Warnings | On / Off | Off | Alerts when you drift over a lane line above 50 km/h (31 mph). |
 | Always-On Driver Monitoring | On / Off | Off | Runs driver monitoring even when zoompilot is not engaged. |
 | Use Metric System | On / Off | Off | km/h instead of mph. |
@@ -269,9 +267,24 @@ Power-user and debug settings. Test-only items are **not for road use**.
 
 ## Other panels
 
-Network, Sunnylink, Trips, and Firehose panels manage connectivity and
-data collection. None of them change driving behavior, and the defaults
-are fine for Mazda owners.
+The comma 3/3X settings screen lists fifteen panels; the comma four
+shows a shorter list with the same driving panels. The seven panels
+below have no settings a Mazda owner needs to touch, so this page does
+not document them row by row, and neither device's capture above covers
+them.
+
+| Panel | What it holds |
+| --- | --- |
+| Network | Wi-Fi and hotspot settings. |
+| sunnylink | sunnypilot's backup, restore, and remote configuration. On by default. |
+| Display | Screen comfort: onroad brightness, timeouts, screen saver. |
+| OSM | Map data management: downloads, updates, region. Feeds the map-based cruise features; their toggles live on the Cruise panel. |
+| Vehicle | Forces a platform fingerprint by hand. zoompilot fingerprints the car itself, so a supported Mazda never needs this — it is the old swap workaround, and a forced platform applies the wrong car specs. |
+| Trips | Read-only drive stats: drives, distance, hours. |
+| Firehose | comma's route-upload program for model training; shows upload activity. |
+
+On a supported Mazda, the defaults stand. Leave the Vehicle panel alone
+unless support asks.
 
 ## Where the defaults come from
 
