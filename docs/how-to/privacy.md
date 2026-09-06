@@ -1,11 +1,11 @@
 ---
-title: Logs and privacy
+title: Privacy
 reviewed: 2026-09
 ---
 
-# Logs and privacy
+# Privacy
 
-zoompilot records every drive. This page says what is recorded, what
+openpilot records every drive. This page says what is recorded, what
 leaves the device, and which switches control it. The full sharing
 procedure is in
 [Share your logs](../troubleshooting.md#share-your-logs).
