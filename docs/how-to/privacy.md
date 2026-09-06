@@ -48,6 +48,10 @@ Practical rules from the sharing procedure:
 - Mark a route **Preserved** so cleanup does not remove it while it is
   being reviewed.
 
+The other way to share is at the device level. A device shared by
+email exposes **every route on it**, not just one. See
+[Share the device instead](../troubleshooting.md#share-the-device-instead).
+
 Routes you want gone can be deleted from comma connect.
 
 ## What zoompilot itself sends

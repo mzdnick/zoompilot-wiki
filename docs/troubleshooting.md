@@ -34,7 +34,8 @@ and you can share one from [comma connect](https://connect.comma.ai).
 This process is adapted from the
 [sunnypilot docs](https://github.com/sunnypilot/user-docs) (MIT).
 
-To prepare a route for review:
+Prepare the route first. These steps share nothing on their own; they
+make sure the logs reach the servers and stay there:
 
 1. Park where you have Wi-Fi, or a strong hotspot signal, and let the
    device upload. Keep **Onroad Uploads** on (see
@@ -44,14 +45,39 @@ To prepare a route for review:
    wait for the uploads to finish. Reviewers need the complete raw logs.
 3. Open **More info** and turn on **Preserved**, so the route is not
    cleaned up.
-4. Open **More info**, turn on **Public access**, and copy the **route
-   ID**. Post the route ID on the Discord with a short description.
+
+Then choose how to share access.
+
+### Share a public route
+
+This is the normal way. It exposes one route and grants no access to
+the device.
+
+1. Open **More info**, turn on **Public access**, and copy the **route
+   ID**.
+2. Post the route ID on the [Discord](https://discord.gg/jFWkHC2uhh)
+   with a short description of the problem.
 
 !!! note "Public routes"
 
     A public route is visible to anyone who has its ID. It contains GPS
     position, speed, and timestamps. Start and end your drives at public
     places, and share only routes you are comfortable making public.
+
+### Share the device instead
+
+Use this if you would rather not make the route public. A shared
+device exposes **all routes on it**, not just one.
+
+1. On [comma connect](https://connect.comma.ai), click the **gear icon**
+   on your device.
+2. Rename the device to your car and your Discord username, for example
+   `2024 CX-5 - mazdanick`. The reviewer then knows which device is
+   yours.
+3. Share the device with the reviewer's email address, and confirm the
+   share. Ask the reviewer for the address in your Discord thread.
+4. Copy the **route ID** from the route's **More info** page, and post
+   it on the Discord. The reviewer needs the ID to find the drive.
 
 For what the logs contain, see [Logging](how-to/logs.md).
 
