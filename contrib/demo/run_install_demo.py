@@ -85,13 +85,13 @@ class Pointer:
         with self.lock:
             self.release_ev, self.down = True, False
 
-    def click(self, x, y, hold=0.15):
+    def click(self, x, y, hold=0.12):
         self.move(x, y)
-        time.sleep(0.12)
+        time.sleep(0.08)
         self.press()
         time.sleep(hold)
         self.release()
-        time.sleep(0.15)
+        time.sleep(0.1)
 
     def drag(self, x0, y0, x1, y1, dur=0.7, settle=0.2):
         self.move(x0, y0)
@@ -266,23 +266,23 @@ def run_tici(d):
     btn_w = (W - MARGIN * 3) / 2
     cont = (MARGIN * 2 + btn_w + btn_w / 2, H - MARGIN - BTN_H / 2)
 
-    time.sleep(2.5)
-    log("low voltage: Continue")
-    PTR.click(*cont)
+    # a bench-powered device shows a low-voltage screen first; this demo
+    # starts straight at the software setup
+    s.state = SetupState.GETTING_STARTED
 
-    time.sleep(0.6)
+    time.sleep(1.2)
     log("getting started: next")
     PTR.click(W - 155, H / 2)
 
-    time.sleep(0.8)
+    time.sleep(0.45)
     log("software selection: Custom Software")
     PTR.click(W / 2, 90 * FONT_SCALE + MARGIN * 2 + 230 + 30 + 115)
-    time.sleep(0.7)
+    time.sleep(0.4)
     log("software selection: Continue")
     PTR.click(*cont)
 
     d.wait_for(lambda: s.state == SetupState.CUSTOM_SOFTWARE_WARNING, "warning page")
-    time.sleep(1.0)
+    time.sleep(0.5)
     log("warning: fling to bottom")
     # the Continue button only enables while the scroll offset overshoots
     # the content end, so fling hard, then retry-click as it settles
@@ -294,19 +294,19 @@ def run_tici(d):
 
     log("network: waiting for internet check, then Continue")
     d.wait_for(lambda: _click_through(lambda: s.state == SetupState.CUSTOM_SOFTWARE,
-                                      lambda: PTR.click(*cont, hold=0.1), gap=1.2, max_clicks=40),
+                                      lambda: PTR.click(*cont, hold=0.1), gap=0.5, max_clicks=40),
                "URL keyboard", timeout=60)
 
     d.wait_for(lambda: s.state == SetupState.CUSTOM_SOFTWARE and d.active_name() == "Keyboard",
                "keyboard visible")
-    time.sleep(1.0)
+    time.sleep(0.6)
     log("typing %s" % INSTALL_URL)
     for ch in INSTALL_URL:
         x, y = key_center(ch)
-        PTR.click(x, y, hold=0.12)
-        time.sleep(0.28)
+        PTR.click(x, y, hold=0.1)
+        time.sleep(0.16)
         log(f"  typed {ch!r}")
-    time.sleep(0.8)
+    time.sleep(0.5)
     log("submit URL (enter)")
     PTR.click(*key_center(ENTER_KEY), hold=0.2)
 
@@ -353,7 +353,7 @@ def _swipe_to_end(page):
         if _scroller_at_end(page):
             return True
         PTR.drag(440, 120, 90, 120, dur=0.35)
-        time.sleep(1.0)
+        time.sleep(0.65)
     return _scroller_at_end(page)
 
 
@@ -361,46 +361,48 @@ def run_mici(d):
     s = d.setup
     W, H = MI_W, MI_H
 
-    time.sleep(2.5)
+    time.sleep(1.2)
     log("start page")
-    PTR.click(W / 2, H / 2, hold=0.25)
+    PTR.click(W / 2, H / 2, hold=0.2)
 
     d.wait_for(lambda: d.active_name() == "SoftwareSelectionPage", "software selection")
-    time.sleep(1.2)
+    time.sleep(0.7)
     log("slide to install custom software")
-    PTR.drag(438, 180, 110, 180, dur=1.0, settle=0.3)
+    PTR.drag(438, 180, 110, 180, dur=0.8, settle=0.25)
 
     d.wait_for(lambda: d.active_name() == "CustomSoftwareWarningPage", "warning page")
-    time.sleep(1.2)
+    time.sleep(0.7)
     log("warning: swipe left to the end")
     if not _swipe_to_end(s._custom_software_warning_page):
         log("warning: scroller not at end after swipes")
     d.wait_for(lambda: _scroller_at_end(s._custom_software_warning_page), "warning scrolled to end", timeout=8)
-    time.sleep(0.6)
+    time.sleep(0.4)
     log("warning: next")
-    PTR.click(W / 2, 120, hold=0.2)
+    PTR.click(W / 2, 120, hold=0.15)
 
     d.wait_for(lambda: d.active_name() == "NetworkSetupPage", "network page")
     log("network: waiting for internet, auto-scroll, then choose software")
     d.wait_for(lambda: _scroller_at_end(s._network_setup_page), "network scrolled to end", timeout=30)
-    time.sleep(0.6)
-    PTR.click(W / 2, 120, hold=0.2)
+    time.sleep(0.4)
+    PTR.click(W / 2, 120, hold=0.15)
 
     d.wait_for(lambda: d.active_name() == "BigInputDialog", "URL dialog", timeout=20)
-    time.sleep(1.2)
+    time.sleep(0.7)
     log("drag-typing %s" % INSTALL_URL)
+    # slide from key to key like a finger, so every drag lands cleanly
+    # on its target instead of hovering neighbouring letters
+    at = (W / 2, 190)  # neutral spot on the keyboard
     for ch in INSTALL_URL:
         if ch == "/":
-            x, y = key_center("123")
-            PTR.click(x, y, hold=0.15)
-            time.sleep(0.6)
-            drag_type(special_key_center("/"))
-            time.sleep(0.6)  # auto-return to letters
+            at = _slide(key_center("123"), at)
+            time.sleep(0.32)
+            at = _slide(special_key_center("/"), at)
+            time.sleep(0.32)  # auto-return to letters
         else:
-            drag_type(key_center(ch))
+            at = _slide(key_center(ch), at)
         log(f"  typed {ch!r}")
-        time.sleep(0.35)
-    time.sleep(1.0)
+        time.sleep(0.12)
+    time.sleep(0.6)
     log("submit URL (enter, top left)")
     PTR.click(40, 40, hold=0.2)
 
@@ -416,17 +418,17 @@ def run_mici(d):
         time.sleep(0.25)
 
 
-def drag_type(target):
-    x, y = target
-    start = (min(x + 60, MI_W - 20), y + 22)
+def _slide(target, start):
+    """Press at `start`, glide onto the key, release — one keystroke."""
     PTR.move(*start)
-    time.sleep(0.15)
+    time.sleep(0.08)
     PTR.press()
-    time.sleep(0.1)
-    PTR.glide(x, y, 0.35)
-    time.sleep(0.2)
+    time.sleep(0.08)
+    PTR.glide(target[0], target[1], 0.24)
+    time.sleep(0.14)
     PTR.release()
-    time.sleep(0.2)
+    time.sleep(0.12)
+    return target
 
 
 # ----------------------------------------------------------------- main --

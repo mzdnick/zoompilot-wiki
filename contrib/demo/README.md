@@ -64,13 +64,12 @@ determine Monitor`, the Mac display is asleep — wake it first
 
 comma 3/3X (tici_setup):
 
-1. Low voltage warning (device on USB power) — Continue
-2. Getting started — tap the right-edge arrow
-3. Choose Software to Use — pick Custom Software, Continue
-4. Custom software warning — swipe to the bottom, Continue
-5. Connect to Wi-Fi — Continue without Wi-Fi (internet check passes)
-6. Enter URL keyboard — type `zoompilot/main`, tap enter
-7. Downloading... — real progress to 100%, window closes
+1. Getting started — tap the right-edge arrow
+2. Choose Software to Use — pick Custom Software, Continue
+3. Custom software warning — swipe to the bottom, Continue
+4. Connect to Wi-Fi — Continue without Wi-Fi (internet check passes)
+5. Enter URL keyboard — type `zoompilot/main`, tap enter
+6. Downloading... — real progress to 100%, window closes
 
 comma four (mici_setup):
 
@@ -89,8 +88,10 @@ comma four (mici_setup):
 - comma 3 (tici) is not yet supported by zoompilot, so the big-UI
   recording stands for the 3X. The setup flow is the same for both;
   only the download resolution differs on a real device.
-- Low voltage screen: a device powered over USB shows it. It makes the
-  demo feel like a bench install. Cut it in post if it reads as noise.
+- The demo skips the low-voltage screen a bench-powered device shows
+  first: the driver starts the wizard at the software setup. The
+  safety page still carries the advice about powering the device in
+  a car.
 - The installer download is ~2 MB, so progress reaches 100% in about a
   second on fast internet. The driver holds the window open ~2.5 s
   after the download so the video ends on the finished download screen.
