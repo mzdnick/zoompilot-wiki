@@ -5,22 +5,20 @@ reviewed: 2026-09
 
 # Steering improvements
 
-zoompilot reverse-engineered the Mazda steering hardware so the electric
-power steering (EPS) works to its full potential. The approach is
-data-driven: every constant is measured, logged, and validated against
-thousands of miles of driving.
+zoompilot reverse-engineered the Mazda steering hardware — the electric
+power steering (EPS) motor — and asks it for what it can actually
+deliver. The approach is data-driven: every constant is measured, logged,
+and validated against thousands of miles of driving.
 
-## Speed-dependent torque
+## The speed-dependent tune
 
 Stock openpilot uses one lateral acceleration factor for all speeds.
 zoompilot encodes the EPS's full torque curve instead. The result is more
 confident steering in neighborhoods and fewer wobbles on the highway.
 
-## Speed-dependent tuning
-
-The EPS behaves in a non-linear way across speeds. Instead of one tune,
-zoompilot learns across **seven distinct speed ranges** and applies the
-right one for your current speed.
+One tune cannot follow the motor across speeds, so zoompilot learns
+across **seven distinct speed ranges** and applies the right one for your
+current speed.
 
 Self-tune does the learning in the background. Fresh installs on Mazdas
 with a 2022-25 CX-5 EPS start from seeds learned on a real CX-5, so the
