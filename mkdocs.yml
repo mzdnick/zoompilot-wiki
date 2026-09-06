@@ -137,14 +137,13 @@ nav:
   - Home: index.md
   - Getting started:
       - getting-started/index.md
-      - getting-started/about.md
+      - getting-started/what-is-zoompilot.md
       - getting-started/how-it-works.md
       - getting-started/supported-cars.md
       - getting-started/comparison.md
       - getting-started/hardware.md
       - getting-started/install.md
       - getting-started/first-drive.md
-      - getting-started/eps-swap.md
   - Features:
       - features/index.md
       - features/steering.md
@@ -175,6 +174,7 @@ nav:
       - how-to/privacy.md
       - how-to/ecu-reset.md
       - how-to/custom-tune.md
+      - how-to/eps-swap.md
   - Community:
       - community/index.md
       - community/contribute.md

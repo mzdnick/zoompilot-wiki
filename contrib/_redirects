@@ -12,3 +12,7 @@
 /how-to/replay-a-drive https://github.com/commaai/openpilot/blob/master/openpilot/tools/replay/README.md 301
 /how-to/uninstall/ /getting-started/install/ 301
 /how-to/uninstall /getting-started/install/ 301
+/getting-started/about/ /getting-started/what-is-zoompilot/ 301
+/getting-started/about /getting-started/what-is-zoompilot/ 301
+/getting-started/eps-swap/ /how-to/eps-swap/ 301
+/getting-started/eps-swap /how-to/eps-swap/ 301
