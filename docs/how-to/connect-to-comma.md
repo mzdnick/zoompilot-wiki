@@ -1,4 +1,4 @@
-# connect to a comma 3X or comma four
+# Connect to comma
 
 A comma device is a normal [Linux](https://github.com/commaai/agnos-builder) computer that exposes [SSH](https://wiki.archlinux.org/title/Secure_Shell) and a [serial console](https://wiki.archlinux.org/title/Working_with_the_serial_console).
 
