@@ -10,6 +10,8 @@
 /how-to/logs https://docs.comma.ai/concepts/logs/ 301
 /how-to/replay-a-drive/ https://github.com/commaai/openpilot/blob/master/openpilot/tools/replay/README.md 301
 /how-to/replay-a-drive https://github.com/commaai/openpilot/blob/master/openpilot/tools/replay/README.md 301
+/how-to/connect-to-comma/ https://docs.comma.ai/how-to/connect-to-comma/ 301
+/how-to/connect-to-comma https://docs.comma.ai/how-to/connect-to-comma/ 301
 /how-to/uninstall/ /getting-started/install/ 301
 /how-to/uninstall /getting-started/install/ 301
 /getting-started/about/ /getting-started/what-is-zoompilot/ 301

@@ -153,7 +153,7 @@ Core on/off switches.
   <figcaption>comma 3/3X</figcaption>
 </figure>
 
-Device behavior. See [Your comma device](../how-to/connect-to-comma.md)
+Device behavior. See [Connect to comma](https://docs.comma.ai/how-to/connect-to-comma/)
 for the hardware basics.
 
 <div class="zp-panel-cards" data-panel="Device"></div>

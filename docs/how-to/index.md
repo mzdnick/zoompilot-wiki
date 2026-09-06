@@ -11,14 +11,6 @@ that matches what you are trying to do.
 
 <div class="grid cards" markdown>
 
-- :material-connection: __Connect to your comma__
-
-    ---
-
-    Serial console, SSH, ADB, and the ssh.comma.ai proxy.
-
-    [Open the guide](connect-to-comma.md)
-
 - :material-restart: __ECU reset__
 
     ---

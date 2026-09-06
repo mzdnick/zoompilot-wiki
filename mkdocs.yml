@@ -169,7 +169,6 @@ nav:
       - technical/rejected.md
   - Guides:
       - how-to/index.md
-      - how-to/connect-to-comma.md
       - how-to/privacy.md
       - how-to/ecu-reset.md
       - how-to/custom-tune.md

@@ -96,10 +96,9 @@ Install URL: `zoompilot/main` <span class="zp-stamp">· build 393a506e61 · 2026
 
     ---
 
-    Connect to your device, replay a drive, read logs, and set up a
-    development environment.
+    ECU reset, custom tune, privacy, and the EPS swap.
 
-    [Open the guides](how-to/connect-to-comma.md)
+    [Open the guides](how-to/index.md)
 
 - :material-puzzle: __Settings__
 
