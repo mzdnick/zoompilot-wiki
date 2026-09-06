@@ -16,11 +16,11 @@ carries sets the steering envelope, not whether zoompilot runs.
 ## Supported Mazda vehicles
 
 | Model | Year | Steer-to-zero | Alpha longitudinal |
-| --- | --- | --- | --- |
+| :---: | :---: | :---: | :---: |
 | CX-5 | 2022–2025 | ✓ | ✓ |
-| | 2017–2021 | ✓ with swap | ✓ with swap |
+| CX-5 | 2017–2021 | ✓ with swap | ✓ with swap |
 | CX-9 | 2021–2023 | ✓ with swap | ✓ with swap |
-| | 2016–2020 | ✓ with swap | — |
+| CX-9 | 2016–2020 | ✓ with swap | — |
 | Mazda 3 | 2017–2018 | ✓ with swap | ? |
 | Mazda 6 | 2017–2021 | ✓ with swap | ? |
 
