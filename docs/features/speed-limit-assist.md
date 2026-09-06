@@ -1,5 +1,6 @@
 ---
 title: Speed-Limit Assist
+reviewed: 2026-09
 ---
 
 # Speed-Limit Assist (SLA)

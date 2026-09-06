@@ -1,5 +1,6 @@
 ---
 title: Alert fixes
+reviewed: 2026-09
 ---
 
 # Alert fixes and steering override
