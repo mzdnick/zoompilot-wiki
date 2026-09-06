@@ -17,15 +17,14 @@ carries sets the steering envelope, not whether zoompilot runs.
 
 ## Supported vehicles
 
-| Car | Status | Notes |
-| --- | --- | --- |
-| CX-5 2022–2025 | Full support | Steer-to-zero. |
-| CX-9 2021–2023 | Supported | Steer-to-zero with EPS swap. |
-| Older Mazdas with a swapped 2022-25 CX-5 EPS motor | Supported | The motor is identified by its firmware during fingerprinting. Steering works down to 0 mph, and alpha longitudinal is enabled — radar and AEB off while it is on. |
-| CX-5 2017–2021 | Supported | Runs on the stock steering motor and its stock envelope. No steer-to-zero until a 2022-25 CX-5 motor is swapped in. |
-| CX-9 2016–2020 | Supported | Stock motor and stock envelope, like the CX-5 2017–2021 row. No steer-to-zero on the stock motor. |
-| Mazda 3 2017–2018 | Reported working | Community drives report it runs on the stock motor. Fewer test miles than the CX-5 and CX-9 rows. |
-| Mazda 6 2017–2021 | Reported working | Community-reported like the Mazda 3 row: stock motor, stock envelope. |
+| Model | Year | Status | Notes |
+| --- | --- | --- | --- |
+| CX-5 | 2022–2025 | Full support | Steer-to-zero. |
+| | 2017–2021 | Supported | Runs on the stock steering motor and its stock envelope. No steer-to-zero until a 2022-25 CX-5 motor is swapped in. |
+| CX-9 | 2021–2023 | Supported | Steer-to-zero with EPS swap. |
+| | 2016–2020 | Supported | Stock motor and stock envelope, like the CX-5 2017–2021 row. No steer-to-zero on the stock motor. |
+| Mazda 3 | 2017–2018 | Reported working | Community drives report it runs on the stock motor. Fewer test miles than the CX-5 and CX-9 rows. |
+| Mazda 6 | 2017–2021 | Reported working | Community-reported like the Mazda 3 row: stock motor, stock envelope. |
 
 ## How EPS swaps are detected
 
