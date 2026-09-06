@@ -8,3 +8,4 @@ node_modules/
 .cache/
 .playwright-mcp/
 .zcode/
+contrib/demo/*.mp4
