@@ -61,11 +61,9 @@ That is the whole install. There is nothing to configure on a computer.
 On Mazdas with a 2022-25 CX-5 EPS, a fresh install arrives with these
 already on:
 
-- Torque control
-- Self-tune
 - Speed-dependent self-tune
-- Steer-to-zero steering from 0 mph
-- The EPS's full torque envelope
+- Steer-to-zero steering
+- Full range of EPS steering torque
 
 You can change everything on the device. See
 [First drive](first-drive.md) for the recommended settings.
