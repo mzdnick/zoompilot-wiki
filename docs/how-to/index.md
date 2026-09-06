@@ -70,7 +70,7 @@ what you are trying to do.
 
     [Open the guide](car-port.md)
 
-- :material-application-remove: __Uninstall__
+- :material-backup-restore: __Uninstall__
 
     ---
 
