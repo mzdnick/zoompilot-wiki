@@ -6,8 +6,8 @@ hide:
 
 # Guides
 
-Practical guides for the device and your data. Pick the one that matches
-what you are trying to do.
+Practical guides for the device, your data, and your car. Pick the one
+that matches what you are trying to do.
 
 <div class="grid cards" markdown>
 
@@ -44,5 +44,14 @@ what you are trying to do.
     What is recorded, what uploads, and the switches that control it.
 
     [Open the guide](privacy.md)
+
+- :material-swap-horizontal: __EPS swap__
+
+    ---
+
+    Fitting the 2022-25 CX-5 steering motor into an older Mazda, and
+    what that unlocks.
+
+    [Open the guide](eps-swap.md)
 
 </div>

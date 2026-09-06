@@ -157,7 +157,7 @@
               "on). See " +
               '<a href="../getting-started/supported-cars/">supported ' +
               "cars</a> and " +
-              '<a href="../getting-started/eps-swap/">the EPS swap</a>.' };
+              '<a href="../how-to/eps-swap/">the EPS swap</a>.' };
     }
     /* community-reported platforms: fewer test miles */
     if (p.kind === "mazda3" || p.kind === "mazda6") {

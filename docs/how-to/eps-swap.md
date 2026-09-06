@@ -69,6 +69,6 @@ that were tried and rejected, is in
   motor over the first drives. CX-9 owners report the longest
   adaptation; give it miles before judging the feel. See
   [Steering improvements](../features/steering.md) and
-  [First drive](first-drive.md).
+  [First drive](../getting-started/first-drive.md).
 - **Custom tune stays off.** The learned values beat hand values. See
-  [Custom tune](../how-to/custom-tune.md).
+  [Custom tune](custom-tune.md).

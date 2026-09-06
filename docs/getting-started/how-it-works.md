@@ -101,7 +101,7 @@ The motor's firmware also decides what zoompilot may do. The 2022-25
 CX-5 EPS motor is the only one granted lateral from 0 mph, and it is
 the key that unlocks alpha longitudinal. That check is the
 [steer-to-zero flag](../technical/mazda-fingerprinting.md), and it is
-why [EPS swaps](eps-swap.md) work: an older Mazda with that motor gets
+why [EPS swaps](../how-to/eps-swap.md) work: an older Mazda with that motor gets
 the same treatment.
 
 ## Speed: who owns the gas and brakes
