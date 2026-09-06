@@ -19,23 +19,6 @@ what you are trying to do.
 
     [Open the guide](connect-to-comma.md)
 
-- :material-play-circle: __Replay a drive__
-
-    ---
-
-    Simulate a logged drive on your PC, or send recorded CAN traffic to
-    a device on a jungle.
-
-    [Open the guide](replay-a-drive.md)
-
-- :material-file-chart: __Read the logs__
-
-    ---
-
-    What rlog, qlog, and the camera files hold, and how to open them.
-
-    [Open the guide](logs.md)
-
 - :material-restart: __ECU reset__
 
     ---

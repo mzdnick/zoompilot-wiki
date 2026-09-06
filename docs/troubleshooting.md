@@ -79,7 +79,8 @@ device exposes **all routes on it**, not just one.
 4. Copy the **route ID** from the route's **More info** page, and post
    it on the Discord. The reviewer needs the ID to find the drive.
 
-For what the logs contain, see [Logging](how-to/logs.md).
+For what the logs contain, see
+[comma's logging docs](https://docs.comma.ai/concepts/logs/).
 
 ## Dashboard errors (cruise, LKAS, or radar)
 

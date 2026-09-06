@@ -27,8 +27,7 @@ enforces the safety model on the wire.
 
 **jungle** — a [panda jungle](https://comma.ai/shop/panda-jungle):
 a test board that takes up to six comma devices or pandas, used to
-replay recorded CAN traffic into devices. See
-[Replay a drive](../how-to/replay-a-drive.md).
+replay recorded CAN traffic into devices.
 
 ## Car terms
 
@@ -130,7 +129,7 @@ tuned torque controller is the tested path.
 **segment** — a one-minute slice of a route.
 
 **rlog / qlog** — the full log and its small decimated copy. See
-[Logging](../how-to/logs.md).
+[comma's logging docs](https://docs.comma.ai/concepts/logs/).
 
 **qcamera** — the low-resolution video that comma connect plays.
 

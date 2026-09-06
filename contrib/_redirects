@@ -6,5 +6,9 @@
 /how-to/turn-the-speed-blue https://docs.comma.ai/how-to/turn-the-speed-blue/ 301
 /how-to/car-port/ https://docs.comma.ai/how-to/car-port/ 301
 /how-to/car-port https://docs.comma.ai/how-to/car-port/ 301
+/how-to/logs/ https://docs.comma.ai/concepts/logs/ 301
+/how-to/logs https://docs.comma.ai/concepts/logs/ 301
+/how-to/replay-a-drive/ https://github.com/commaai/openpilot/blob/master/openpilot/tools/replay/README.md 301
+/how-to/replay-a-drive https://github.com/commaai/openpilot/blob/master/openpilot/tools/replay/README.md 301
 /how-to/uninstall/ /getting-started/install/ 301
 /how-to/uninstall /getting-started/install/ 301

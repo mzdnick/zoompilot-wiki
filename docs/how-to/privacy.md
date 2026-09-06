@@ -16,7 +16,7 @@ A drive is stored as a **route**, cut into one-minute **segments**. Each
 segment holds the full internal log (**rlog**), the camera video, and
 small **qlog**/**qcamera** copies made for fast upload — the video you
 see in [comma connect](https://connect.comma.ai). The file formats are
-described in [Logging](logs.md).
+described in [comma's logging docs](https://docs.comma.ai/concepts/logs/).
 
 ## What leaves the device
 
