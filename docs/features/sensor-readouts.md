@@ -1,10 +1,11 @@
 ---
 title: Sensor readouts
+reviewed: 2026-09
 ---
 
 # Sensor readouts
 
-Your CX-5 ships with sensors that the stock openpilot port ignores.
+Supported Mazdas carry sensors that the stock openpilot port ignores.
 zoompilot wires them in.
 
 ## Forward radar

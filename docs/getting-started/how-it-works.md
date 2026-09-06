@@ -123,7 +123,7 @@ page before enabling it.
 
 ## Sensors: what the car already knows
 
-The CX-5 carries sensors that the stock openpilot port ignores.
+Supported Mazdas carry sensors that the stock openpilot port ignores.
 zoompilot wires them in. The forward radar reports up to four cars
 ahead. The blind-spot monitor data backs the safety checks on
 automatic lane changes. The forward camera reads speed-limit signs and
