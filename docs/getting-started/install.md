@@ -20,29 +20,6 @@ from previous forks and prevents odd behavior after switching.
 
 ## Install steps
 
-<div class="diagram">
-<svg viewBox="0 0 800 130" role="img" aria-label="Install flow: comma device, enter the zoompilot/main URL, download and boot, then first drive">
-  <defs>
-    <marker id="zp-arrow" class="m-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
-    <marker id="zp-arrow-a" class="m-acc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z"/></marker>
-  </defs>
-  <rect class="d-box" x="20" y="38" width="150" height="48"/>
-  <text class="d-hi" x="95" y="58" text-anchor="middle">comma four</text>
-  <text x="95" y="74" text-anchor="middle">finish setup</text>
-  <line class="d-flow" x1="170" y1="62" x2="246" y2="62"/>
-  <rect class="d-box-accent" x="250" y="38" width="210" height="48"/>
-  <text class="d-hi" x="355" y="58" text-anchor="middle">custom software</text>
-  <text x="355" y="74" text-anchor="middle">zoompilot/main</text>
-  <line class="d-flow-accent" x1="460" y1="62" x2="526" y2="62"/>
-  <rect class="d-box" x="530" y="38" width="130" height="48"/>
-  <text class="d-hi" x="595" y="58" text-anchor="middle">download</text>
-  <text x="595" y="74" text-anchor="middle">boot · a few min</text>
-  <line class="d-flow" x1="660" y1="62" x2="706" y2="62"/>
-  <rect class="d-box-accent" x="710" y="38" width="74" height="48"/>
-  <text class="d-hi" x="747" y="66" text-anchor="middle">drive</text>
-</svg>
-</div>
-
 1. Power on the comma device and finish the standard setup until it asks
    for software.
 2. Choose the custom software option.
