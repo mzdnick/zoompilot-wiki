@@ -2,6 +2,11 @@
 title: ICBM
 ---
 
+---
+title: ICBM
+reviewed: 2026-09
+---
+
 # Intelligent Cruise Button Management (ICBM)
 
 ICBM is the core system that lets zoompilot safely manage your cruise set
@@ -40,8 +45,8 @@ presses the stock cruise buttons for you, at the right moments.
 
 ## What it does for you
 
-- **Restores your speed exactly.** The speed you set is the speed you get
-  back after every curve and speed zone, down to the exact number.
+- **Restores your speed exactly.** The servo presses until the ECU's
+  readback matches the target speed.
 - **Hands control back instantly.** Press a cruise button yourself in the
   middle of an adjustment, and zoompilot stops and gives you control
   straight away.
