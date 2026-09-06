@@ -36,6 +36,8 @@ That is the whole install. There is nothing to configure on a computer.
 
 ## Watch the install
 
+<details class="zp-demo">
+<summary>Two short clips — the setup, the URL, the download</summary>
 <figure class="zp-clip">
   <video controls preload="metadata" playsinline src="../assets/demo/install-comma-3-3x.mp4" aria-label="Demo: installing zoompilot on a comma 3/3X"></video>
   <figcaption>comma 3/3X — choose custom software, type the URL, download</figcaption>
@@ -44,9 +46,8 @@ That is the whole install. There is nothing to configure on a computer.
   <video controls preload="metadata" playsinline src="../assets/demo/install-comma-four.mp4" aria-label="Demo: installing zoompilot on comma four"></video>
   <figcaption>comma four — slide to install custom software, type the URL, download</figcaption>
 </figure>
-
-The clips run the real setup wizard. The typed URL and the download are
-real.
+<p>The clips run the real setup wizard. The typed URL and the download are real.</p>
+</details>
 
 ## Branches
 
