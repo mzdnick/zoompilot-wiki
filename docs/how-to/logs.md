@@ -5,7 +5,7 @@ one-minute chunks called segments. A route starts on the rising edge of
 ignition and ends on the falling edge.
 
 This page is about the tools and the file formats. For what uploads and
-the privacy switches, see [Logs and privacy](logs-and-privacy.md).
+the privacy switches, see [Privacy](privacy.md).
 
 ## Where routes live
 
