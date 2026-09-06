@@ -1128,6 +1128,11 @@ body[data-md-color-scheme="default"] .md-typeset details {
   overflow: hidden;
 }
 
+/* the settings filter collapses whole panel sections via [hidden] */
+.md-typeset [hidden] {
+  display: none !important;
+}
+
 .md-typeset .zp-triage-prompt {
   font-weight: 600;
   margin-bottom: 0.5rem;

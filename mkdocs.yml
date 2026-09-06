@@ -154,7 +154,6 @@ nav:
       - features/alpha-longitudinal.md
       - features/alerts.md
       - Settings: settings/index.md
-      - Settings explorer: settings/explorer.md
   - Safety: safety.md
   - Technical:
       - technical/index.md
