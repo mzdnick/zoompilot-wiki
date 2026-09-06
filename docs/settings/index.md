@@ -12,8 +12,9 @@ comma 3/3X panels are full-frame. Pick a device once and every panel
 follows. The capture tool that regenerates these images lives in
 [assets/settings](../assets/settings/README.md).
 
-Type in the search bar to filter the cards, or use the chips to show one
-panel at a time. Panels with no matches collapse. The card data lives in
+The page opens on the Steering panel. The chips show one panel at a
+time, and a search covers every panel. Panels with no matches collapse.
+The card data lives in
 `docs/assets/js/settings-data.js` in this wiki's source, kept next to
 the release files that define it — see
 [Where the defaults come from](#where-the-defaults-come-from).
