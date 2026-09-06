@@ -112,7 +112,6 @@ extra_css:
 extra_javascript:
   # site -> wiki generated data (npm run sync:wiki)
   - assets/steering-torque-data.js
-  - assets/js/car-checker-data.js
   # wiki-side interactive features; each exits when its mount is absent
   - assets/js/torque-live.js
   - assets/js/settings-data.js
