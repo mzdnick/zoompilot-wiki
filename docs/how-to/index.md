@@ -60,7 +60,7 @@ what you are trying to do.
 
     What is recorded, what uploads, and the switches that control it.
 
-    [Open the guide](logs-and-privacy.md)
+    [Open the guide](privacy.md)
 
 - :material-car-cog: __Port zoompilot to a new car__
 
