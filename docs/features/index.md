@@ -9,6 +9,8 @@ hide:
 What zoompilot adds on a Mazda, one page per feature. Each page says
 what the feature does and where its numbers come from.
 
+### Steering
+
 <div class="grid cards" markdown>
 
 - :material-steering: __Steering improvements__
@@ -19,6 +21,20 @@ what the feature does and where its numbers come from.
     speed ranges.
 
     [Open the page](steering.md)
+
+- :material-bell-alert: __Alert fixes__
+
+    ---
+
+    Known false Mazda alerts are gone. Real faults stay active.
+
+    [Open the page](alerts.md)
+
+</div>
+
+### Cruise
+
+<div class="grid cards" markdown>
 
 - :material-road-variant: __Smart Cruise__
 
@@ -45,6 +61,12 @@ what the feature does and where its numbers come from.
 
     [Open the page](speed-limit-assist.md)
 
+</div>
+
+### See the road
+
+<div class="grid cards" markdown>
+
 - :material-radar: __Sensor readouts__
 
     ---
@@ -54,6 +76,12 @@ what the feature does and where its numbers come from.
 
     [Open the page](sensor-readouts.md)
 
+</div>
+
+### Experimental
+
+<div class="grid cards" markdown>
+
 - :material-car-cruise-control: __Alpha longitudinal__
 
     ---
@@ -62,14 +90,6 @@ what the feature does and where its numbers come from.
     radar cruise. Work in progress.
 
     [Open the page](alpha-longitudinal.md)
-
-- :material-bell-alert: __Alert fixes__
-
-    ---
-
-    Known false Mazda alerts are gone. Real faults stay active.
-
-    [Open the page](alerts.md)
 
 </div>
 
