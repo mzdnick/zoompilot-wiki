@@ -20,7 +20,7 @@ Work through these three steps first. They fix most reports.
 1. **Update zoompilot.** Run the latest `zoompilot/main` release. Fixes
    are not backported to older releases.
 2. **Check your settings.** Compare against the
-   [Settings reference](settings/index.md). In particular, check that
+   [Settings](settings/index.md) page. In particular, check that
    torque control, self-tune, and speed-dependent self-tune are on, and
    custom tuning is off.
 3. **Remove customizations.** If you patched the code or changed fork

@@ -94,6 +94,5 @@ what the feature does and where its numbers come from.
 </div>
 
 Every switch behind these features lives on the
-[Settings](../settings/index.md) page. The
-[Settings explorer](../settings/explorer.md) shows each one as it appears
-on the device.
+[Settings](../settings/index.md) page — searchable, filterable by panel,
+with each panel's settings screens for both devices.
