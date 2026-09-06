@@ -17,9 +17,9 @@ The source lives at
 - Pull requests are welcome. Read
   [CONTRIBUTING](https://github.com/zoompilot/zoompilot/blob/develop/docs/CONTRIBUTING.md)
   in the repository first.
-- To set up a development environment, start with
-  [Turn the speed blue](../how-to/turn-the-speed-blue.md), then
-  [Connect to a comma device](../how-to/connect-to-comma.md).
+- To set up a development environment, start with the openpilot guide
+  [Turn the speed blue](https://docs.comma.ai/how-to/turn-the-speed-blue/),
+  then [Connect to a comma device](../how-to/connect-to-comma.md).
 
 ## Improve this wiki
 

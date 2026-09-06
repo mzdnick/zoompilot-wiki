@@ -172,12 +172,11 @@ nav:
       - how-to/connect-to-comma.md
       - how-to/replay-a-drive.md
       - how-to/logs.md
-      - how-to/logs-and-privacy.md
+      - how-to/privacy.md
       - how-to/ecu-reset.md
       - how-to/car-port.md
       - how-to/custom-tune.md
       - how-to/uninstall.md
-      - how-to/turn-the-speed-blue.md
   - Community:
       - community/contribute.md
       - community/feedback.md

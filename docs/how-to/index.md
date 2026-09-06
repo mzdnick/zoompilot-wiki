@@ -78,12 +78,4 @@ what you are trying to do.
 
     [Open the guide](uninstall.md)
 
-- :material-palette: __Turn the speed blue__
-
-    ---
-
-    A small first dev project: change the UI speed color and deploy it.
-
-    [Open the guide](turn-the-speed-blue.md)
-
 </div>

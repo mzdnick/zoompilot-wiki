@@ -2,3 +2,5 @@
 # workflow, next to _headers.
 /features/deceleration-overshoot/ /features/smart-cruise/ 301
 /features/deceleration-overshoot /features/smart-cruise/ 301
+/how-to/turn-the-speed-blue/ https://docs.comma.ai/how-to/turn-the-speed-blue/ 301
+/how-to/turn-the-speed-blue https://docs.comma.ai/how-to/turn-the-speed-blue/ 301
