@@ -57,7 +57,7 @@ Install URL: `zoompilot/main` <span class="zp-stamp">· build 393a506e61 · 2026
     Supported Mazdas, hardware you need, and how to install `zoompilot/main`
     on a comma device.
 
-    [Start here](getting-started/about.md)
+    [Start here](getting-started/what-is-zoompilot.md)
 
 - :material-shield-alert: __Safety__
 
