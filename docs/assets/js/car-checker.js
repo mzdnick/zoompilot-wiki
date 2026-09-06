@@ -90,16 +90,21 @@
   };
 
   /* What a swap adds, from the matrix row's flags. The pre-2021 CX-9
-   * is the one platform where alpha long does not follow the swap. */
+   * is the one platform where alpha long does not follow the swap; the
+   * Mazda 3 and Mazda 6 alpha support is not yet validated. */
   var swapAdds = function (row) {
     if (!row) return "";
     if (row.alphaLong === false) {
-      return " The swap adds steer-to-zero and pre-seeded torque, but not" +
-        " alpha longitudinal: this platform's radar does not publish the" +
-        " track frames the port stands in for.";
+      return " The swap adds steer-to-zero, but not alpha longitudinal:" +
+        " this platform's radar does not publish the track frames the" +
+        " port stands in for.";
+    }
+    if (row.alphaLong === "unknown") {
+      return " The swap adds steer-to-zero; alpha longitudinal is built" +
+        " to work here but has not been validated on this platform yet.";
     }
     return " The 2022-25 CX-5 EPS swap adds steer-to-zero and alpha" +
-      " longitudinal, with torque control pre-seeded.";
+      " longitudinal.";
   };
 
   function renderMotor() {
@@ -137,14 +142,10 @@
     motor.value = "";
     renderMotor();
     if (car.value === "cx5") {
-      var cx5row = rowFor("CX-5 2022");
       verdict(
         "Supported — this is the primary target.",
-        cx5row && cx5row.stzNative
-          ? "Steer-to-zero and alpha longitudinal are native to this" +
-            " motor, and torque control arrives pre-seeded."
-          : "Steer-to-zero and alpha longitudinal are native; steering" +
-            " works down to 0 mph.",
+        "Steer-to-zero and alpha longitudinal are native to this motor;" +
+          " steering works down to 0 mph.",
         true,
       );
     } else if (car.value === "cx9") {
