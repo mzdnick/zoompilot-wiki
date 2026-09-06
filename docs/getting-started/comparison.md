@@ -88,4 +88,6 @@ real trade, and it is written down everywhere the feature is. See
 
 Stock Mazda cruise and lane keeping are always still there whenever
 zoompilot is off. Switching forks or uninstalling returns the car to
-stock behavior — see [uninstall](../how-to/uninstall.md).
+stock behavior. To leave zoompilot, factory-reset the device, or enter
+another fork's URL under the custom software option. See
+[Install](install.md) for the steps.

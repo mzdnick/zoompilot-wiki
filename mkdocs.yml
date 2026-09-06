@@ -174,9 +174,7 @@ nav:
       - how-to/logs.md
       - how-to/privacy.md
       - how-to/ecu-reset.md
-      - how-to/car-port.md
       - how-to/custom-tune.md
-      - how-to/uninstall.md
   - Community:
       - community/contribute.md
       - community/feedback.md

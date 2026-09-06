@@ -20,6 +20,10 @@ The source lives at
 - To set up a development environment, start with the openpilot guide
   [Turn the speed blue](https://docs.comma.ai/how-to/turn-the-speed-blue/),
   then [Connect to a comma device](../how-to/connect-to-comma.md).
+- To add support for a new car, start with comma's
+  [car porting guide](https://docs.comma.ai/how-to/car-port/), then
+  study the [Mazda port](../technical/mazda-fingerprinting.md) in this
+  wiki.
 
 ## Improve this wiki
 

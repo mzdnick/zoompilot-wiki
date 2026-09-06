@@ -62,20 +62,4 @@ what you are trying to do.
 
     [Open the guide](privacy.md)
 
-- :material-car-cog: __Port zoompilot to a new car__
-
-    ---
-
-    What a car port involves, from fingerprints to safety code.
-
-    [Open the guide](car-port.md)
-
-- :material-backup-restore: __Uninstall__
-
-    ---
-
-    Leave zoompilot cleanly, back to stock or to another fork.
-
-    [Open the guide](uninstall.md)
-
 </div>
