@@ -8,6 +8,42 @@ site header always shows the current release commit.
      there, not this page: manual edits to the releases below are
      lost on the next sync. -->
 
+## 2026.09.05-11 — New steering tune, Smart Cruise reimplemented, Alpha Longitudinal stop-and-go fixed (2026-09-05)
+
+I feel like this is the most smooth and clean release yet. I'm very proud of the improvements and recommend anyone be on the latest release.
+
+- **Speed-dependent torque tune v2 is the default.** Rewritten on the v0 base. It turns in earlier for curves and reduces oscillations and micro-adjustments on the highway. v0 and v1 are unchanged if you prefer them.
+- **Mazda torque limits in openpilot.** The controller follows the EPS's measured torque ceiling at each speed and winds down at the rate the EPS accepts. More torque at low speed, steadier steering on the highway.
+- **Lane Change Smoothing.** New toggle under Steering settings. Lane changes are slower and smoother, with a configurable pace. Off by default.
+- **Smart Cruise Vision reimplemented.** A new solver plans the slowdown for the whole curve from the model path and the map. It slows earlier, reaches the target speed at the apex more accurately, and returns to your set speed sooner. It also corrects the model's under-read of curves far ahead and no longer commits to false slowdowns on highway bends.
+- **Deceleration Overshoot front-loaded.** The extra deceleration is requested at curve entry, where the stock cruise is slowest to respond.
+- **ICBM restores your set speed sooner.** After a curve or a speed zone the dash is walked back within about a second. A press of yours hands control back at once, and a speed limit prompt can no longer bank an overshoot.
+- **TJA button as the MADS switch.** New toggle under Steering, MADS. When on, the wheel's TJA button is the only steering switch and MRCC main only controls cruise. Off by default.
+- **Fixed the camera's LKAS error.** Pushing against the wheel at low speed could get the torque command rejected by the panda until the EPS gave up and the camera faulted. The controller and panda now agree on the limits.
+- **Fixed steering engaging on its own at startup.** MADS armed lateral before the panda did, which also dropped steering for two seconds with an LKAS error. Both arm on the same frame now, steering disengages when MRCC main is turned off, and you get a warning if the panda has not armed.
+- **Fixed the false “Steering Assist Temporarily Unavailable” on launch.** A brisk pull-away from a stop no longer trips the alert.
+- **Alpha longitudinal only.**
+  - **Stop-and-go resumes on its own.** Two root causes fixed. The car reported a stock cruise standstill under openpilot longitudinal, which pinned the controller in stopping forever, and the resume pulse carried a bad checksum that faulted the camera every time. The car now pulls away when the lead departs, without the SCBS warnings afterwards.
+  - **Smoother acceleration.** Throttle builds at close to the stock rate, lifts off gently, and uses the same ceiling as stock at each speed. The harsh push-off is gone, and the pull-away from a hold is gentler.
+  - **Cruise arms on a driver button only.** openpilot no longer arms cruise by itself after the radar hand-back.
+  - **The toggle applies at a standstill.** Flipping alpha longitudinal or force offroad while rolling used to take the device offroad under a moving car.
+  - **Stock camera frames pass through when disengaged.** The dash behaves like stock while openpilot is off.
+  - **Offered on any Mazda with the 2022-25 CX-5 EPS.** Not just the CX-9 swap. The pre-2021 CX-9 is excluded.
+  - A full review of the longitudinal stack: radar hand-back, hold release and fault handling are all more robust.
+- **Device.**
+  - Fingerprinting is VIN-first. Export VINs fall back to the engine and EPS firmware.
+  - Steering Arc and Display Turn Signals are hidden on the comma 4, where they do nothing.
+  - Force offroad follows upstream again, and a noisy ignition signal no longer flickers the device on and off road.
+  - The torque pickers show the value that is actually set.
+  - No more offline update nags.
+- **Synced sunnypilot as of 2026-09-03.** See the [sunnypilot docs](https://docs.sunnypilot.ai).
+  - **Initial support for Chestnut and big models.** The eGPU's big model downloads and runs next to the on-device model, with a fallback to the small model when the big one is not ready, an alert when it is, and an eGPU icon in the sidebar and on the home screen.
+  - **Model Selector upgrades.** Your selection is kept per catalog when Chestnut is plugged or unplugged.
+  - Downloaded maps can be deleted from sunnylink.
+  - The sunnylink pill moved and was restyled in comma 4 settings.
+  - Scrolling labels run at the right speed on non-60 Hz screens.
+  - Two openpilot syncs: UI cleanups and Chestnut power fault logging.
+
 ## 2026.09.05-10 — New steering tune, Smart Cruise reimplemented, Alpha Longitudinal stop-and-go fixed (2026-09-05)
 
 I feel like this is the most smooth and clean release yet. I'm very proud of the improvements and recommend anyone be on the latest release.

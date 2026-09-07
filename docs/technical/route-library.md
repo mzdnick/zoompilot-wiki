@@ -40,6 +40,7 @@ shorthand entry.
 | `148` | mazda-lateral.md | In both captures the EPS was applying nothing because it had been starved of 0x243 entirely: the panda rejected every frame for 1.7 s (route 148, the rate-do… |
 | `148` | mazda-lateral.md | 12 mph sits inside the 2 to 15 mph range Honda's per-car minimums span, and it is under the 4.6 m/s where route 148's block began. |
 | `148` | mazda-lateral.md | `TRACK_STATE = 1` implies `LKAS_BLOCK = 1` over 16k frames with no exception) and clear for a block that began at speed, which is an EPS that dropped LKAS mi… |
+| `148` | mazda-lateral.md | Longer holds or higher speed gates alone do not get there: 3 s still lets one crawl through and 20 mph loses route 148. |
 | `148` | mazda-lateral.md | - A per-ignition cumulative non-delivery budget: falsified by route 00000031 (6705 frames, no fault) and route 148 (faulted on a third of 139's spend). |
 | `00000004` | mazda-longitudinal.md | The CX-9 2021 was checked to share the wire format (route 00000004: identical CRZ_INFO checksum and rates over 54k frames, radar UDS at 0x764, same FSC camer… |
 | `00000009` | mazda-longitudinal.md | On the EPS-swapped CX-9 the plan parked at +0.42 to +0.47 behind a lead 2.5 m ahead and the car sat dead still for the whole 1.5 s the command was held there… |
