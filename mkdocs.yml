@@ -155,18 +155,6 @@ nav:
       - features/alerts.md
       - Settings: settings/index.md
   - Safety: safety.md
-  - Technical:
-      - technical/index.md
-      - technical/route-library.md
-      - technical/mazda-lateral.md
-      - technical/eps-swap.md
-      - technical/mazda-longitudinal.md
-      - technical/mazda-fingerprinting.md
-      - technical/lateral-tune.md
-      - technical/cruise-arbiter.md
-      - technical/icbm.md
-      - technical/scc-curve-planning.md
-      - technical/rejected.md
   - Guides:
       - how-to/index.md
       - how-to/privacy.md
@@ -187,6 +175,11 @@ nav:
       - About & credits: about.md
 
 validation:
-  omitted_files: warn
+  # The technical pages are deliberately unlisted: no nav entry, but
+  # built, searchable, and linked from the home card, the feature
+  # pages' "Design details" sections, and the glossary. Omitted-file
+  # reports are downgraded to info so the unlisted section does not
+  # turn every build noisy and hide real warnings.
+  omitted_files: info
   not_found: warn
   absolute_links: warn
