@@ -23,6 +23,9 @@ place.
   EPS detection and flag, the "1200/12/12 envelope", speed-dependent
   STEER_MAX, LKAS_BLOCK and the non-delivery latch, and the camera
   ERR_BIT_1 history.
+- [EPS swap](eps-swap.md) — what the swap unlocks for an older Mazda,
+  and how zoompilot sees a swapped car. The owner-facing side of the
+  steering story.
 - [Lateral tune: v2 torque controller](lateral-tune.md) — the v0/v1/v2
   lineage, v2 mechanisms and how they are attributed, the steer-limit
   classifier, and the speed-bin learner with its cache.
@@ -46,9 +49,6 @@ place.
 
 - [Mazda fingerprinting](mazda-fingerprinting.md) — a VIN decode table
   and the EPS-swap fallback.
-- [EPS swap](eps-swap.md) — what the swap unlocks for an older Mazda,
-  and how zoompilot sees a swapped car. The owner-facing side of the
-  fingerprinting story.
 
 ## Evidence
 

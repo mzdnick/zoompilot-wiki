@@ -159,9 +159,9 @@ nav:
       - technical/index.md
       - technical/route-library.md
       - technical/mazda-lateral.md
+      - technical/eps-swap.md
       - technical/mazda-longitudinal.md
       - technical/mazda-fingerprinting.md
-      - technical/eps-swap.md
       - technical/lateral-tune.md
       - technical/lateral-tune-roadmap.md
       - technical/cruise-arbiter.md
