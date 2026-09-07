@@ -161,6 +161,7 @@ nav:
       - technical/mazda-lateral.md
       - technical/mazda-longitudinal.md
       - technical/mazda-fingerprinting.md
+      - technical/eps-swap.md
       - technical/lateral-tune.md
       - technical/lateral-tune-roadmap.md
       - technical/cruise-arbiter.md
@@ -172,7 +173,6 @@ nav:
       - how-to/privacy.md
       - how-to/ecu-reset.md
       - how-to/custom-tune.md
-      - how-to/eps-swap.md
   - Community:
       - community/index.md
       - community/contribute.md

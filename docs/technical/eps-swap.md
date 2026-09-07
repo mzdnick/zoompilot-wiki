@@ -22,14 +22,13 @@ The older motor holds the car back in three ways:
 | Alpha longitudinal | not available | available |
 
 For the CX-9 2021 the difference is documented exactly: its stock EPS
-firmware (`TC3M-3210X-A-00`) keeps the smaller envelope, and only a
-CX-9 with the swapped 2022-25 CX-5 motor gets the full one. The evidence
-is in [Mazda fingerprinting](../technical/mazda-fingerprinting.md).
+firmware keeps the smaller envelope, and only a CX-9 with the swapped
+2022-25 CX-5 motor gets the full one. The evidence is in
+[Mazda fingerprinting](mazda-fingerprinting.md).
 
-## What this guide does not cover
+## What this page does not cover
 
-This page explains **how the software sees a swap**. It does not cover
-the mechanical work: which columns fit, wiring, alignment, or torque
+The mechanical work: which columns fit, wiring, alignment, or torque
 specs. That work lives with the swap community — ask in the
 [zoompilot Discord](https://discord.gg/jFWkHC2uhh) before you buy
 parts. An incorrectly done swap is a steering safety problem before it
@@ -43,20 +42,17 @@ Identification runs in a fixed order at every startup:
    its firmware belongs to the CX-5, not to the car it now sits in.
 2. **VIN decode.** The VIN names the chassis through any motor swap.
    For most VINs, this alone identifies the car.
-3. **EPS-swap fallback.** Only for export VINs (the JM0 WMI, which
-   carries no model year field). It needs two recognized ECUs before
-   it trusts the car:
-   - an EPS at address `0x730` whose firmware is one of the two
-     steer-to-zero versions (`KBST-3210X-A-00` or `KSD5-3210X-C-00`), and
-   - an engine ECU at address `0x7e0` whose firmware names exactly one
-     Mazda platform.
+3. **Swap fallback.** Export VINs carry no model year, so the decode
+   cannot place them. The fallback then needs two ECUs that agree
+   before it trusts the car: a steer-to-zero EPS, and an engine ECU
+   that names exactly one Mazda platform.
 
-When the fallback fires, the log names it: *"by engine firmware behind
-a steer-to-zero EPS swap"*. A car that passes gets the
-`STEER_TO_ZERO_EPS` flag, and everything in the table above follows
-from that one flag. The full matching design, including the fallbacks
-that were tried and rejected, is in
-[Mazda fingerprinting](../technical/mazda-fingerprinting.md).
+A car that passes gets the steer-to-zero flag, and everything in the
+table above follows from that one flag. When the fallback fires, the
+log says so: *"by engine firmware behind a steer-to-zero EPS swap"*.
+The full matching design — every firmware string, the VIN table, and
+the fallbacks that were tried and rejected — is in
+[Mazda fingerprinting](mazda-fingerprinting.md).
 
 ## After the swap
 
@@ -71,4 +67,4 @@ that were tried and rejected, is in
   [Steering improvements](../features/steering.md) and
   [First drive](../getting-started/first-drive.md).
 - **Custom tune stays off.** The learned values beat hand values. See
-  [Custom tune](custom-tune.md).
+  [Custom tune](../how-to/custom-tune.md).

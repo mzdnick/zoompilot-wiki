@@ -16,7 +16,9 @@
 /how-to/uninstall /getting-started/install/ 301
 /getting-started/about/ /getting-started/what-is-zoompilot/ 301
 /getting-started/about /getting-started/what-is-zoompilot/ 301
-/getting-started/eps-swap/ /how-to/eps-swap/ 301
-/getting-started/eps-swap /how-to/eps-swap/ 301
+/how-to/eps-swap/ /technical/eps-swap/ 301
+/how-to/eps-swap /technical/eps-swap/ 301
+/getting-started/eps-swap/ /technical/eps-swap/ 301
+/getting-started/eps-swap /technical/eps-swap/ 301
 /settings/explorer/ /settings/ 301
 /settings/explorer /settings/ 301

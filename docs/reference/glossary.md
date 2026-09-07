@@ -40,7 +40,7 @@ the highway.
 
 **EPS** — electric power steering. The motor that turns the front
 wheels. zoompilot's work is keyed to the 2022–25 CX-5 EPS motor; see
-[EPS swap](../how-to/eps-swap.md).
+[EPS swap](../technical/eps-swap.md).
 
 **PCM** — powertrain control module. The car's engine and transmission
 computer; it executes gas and brake requests.

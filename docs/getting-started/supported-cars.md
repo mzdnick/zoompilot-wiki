@@ -26,7 +26,7 @@ carries sets the steering envelope, not whether zoompilot runs.
 
 - **✓** — works as the car ships.
 - **✓ with swap** — works once a 2022-25 CX-5 EPS motor is swapped in.
-  See the [EPS swap guide](../how-to/eps-swap.md).
+  See [EPS swap](../technical/eps-swap.md).
 - **—** — a hard limit. The pre-2021 CX-9's radar does not publish the
   track data the port stands in for, so alpha longitudinal stays off
   even with the swap.

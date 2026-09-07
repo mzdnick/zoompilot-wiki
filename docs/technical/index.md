@@ -8,7 +8,7 @@ These pages are the engineering record behind the fork. They document the
 reasoning behind zoompilot's constants and design choices, kept out of
 the code comments on purpose.
 
-Each page carries a **Constants** table (name, value, measurement,
+The design pages carry a **Constants** table (name, value, measurement,
 route) and a **Tried and rejected** section. Rlogs and the analysis
 scripts live in the private `zoompilot-research` repository. Route IDs
 are the dongle-side segment names in `tools/mazda_long/test_data/` of the
@@ -46,6 +46,9 @@ place.
 
 - [Mazda fingerprinting](mazda-fingerprinting.md) — a VIN decode table
   and the EPS-swap fallback.
+- [EPS swap](eps-swap.md) — what the swap unlocks for an older Mazda,
+  and how zoompilot sees a swapped car. The owner-facing side of the
+  fingerprinting story.
 
 ## Evidence
 

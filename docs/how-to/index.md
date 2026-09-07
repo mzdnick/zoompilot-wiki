@@ -37,13 +37,4 @@ that matches what you are trying to do.
 
     [Open the guide](privacy.md)
 
-- :material-swap-horizontal: __EPS swap__
-
-    ---
-
-    Fitting the 2022-25 CX-5 steering motor into an older Mazda, and
-    what that unlocks.
-
-    [Open the guide](eps-swap.md)
-
 </div>
