@@ -228,6 +228,17 @@ body {
   letter-spacing: 0.03em;
 }
 
+/* The wordmark is a link home (overrides/partials/header.html). Keep
+ * the text look: no link color, no underline, a slight dim on hover. */
+.md-header__wordmark {
+  color: inherit;
+  text-decoration: none;
+}
+.md-header__wordmark:hover {
+  color: inherit;
+  opacity: 0.8;
+}
+
 .md-header {
   box-shadow: none;
   border-bottom: 1px solid var(--zp-hair);
