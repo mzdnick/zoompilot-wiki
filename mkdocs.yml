@@ -135,6 +135,7 @@ extra:
 
 nav:
   - Home: index.md
+  - Safety: safety.md
   - Getting started:
       - getting-started/index.md
       - getting-started/what-is-zoompilot.md
@@ -154,7 +155,6 @@ nav:
       - features/alpha-longitudinal.md
       - features/alerts.md
   - Settings: settings/index.md
-  - Safety: safety.md
   - Guides:
       - how-to/index.md
       - how-to/privacy.md
