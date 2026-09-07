@@ -58,4 +58,3 @@ The full evidence and design record lives in the technical section:
 
 - [Mazda lateral: evidence and design notes](../technical/mazda-lateral.md)
 - [Lateral tune: v2 torque controller](../technical/lateral-tune.md)
-- [v2 torque tune roadmap](../technical/lateral-tune-roadmap.md)

@@ -3,7 +3,7 @@
 This is where the measurements live. The source files carry one to three lines of what and
 why per mechanism; every number, route id, attribution study and rejected alternative that
 justified them is here. Routes are the CX-5 2022 test car's unless stated. The acceptance
-plan for the next on-car pass is in `lateral-tune-roadmap.md`.
+plan for the next on-car pass is at the end of this page.
 
 Files: `openpilot/sunnypilot/selfdrive/controls/lib/latcontrol_torque_v2.py` (the tune),
 `latcontrol_torque_ext.py` and `latcontrol_torque_ext_override.py` (the shared extension:
@@ -19,6 +19,10 @@ Mazda seed).
 | v0 | sunnypilot's `latcontrol_torque_v0.py`: setpoint == the live request, error corrected in lateral-accel space, the extension owning the feedforward params. Byte-identical to sunnypilot's; the only change it sees is the corrected `steer_limited_by_safety` flag from the classifier. | `TorqueControlTune = 0.0`, and any torque car with Enforce Torque Control off (`torque_tune.resolved_tune_version`) |
 | v1 | sunnypilot's current `LatControlTorque` (the `lac` controlsd built), untouched | `TorqueControlTune = 1.0` |
 | v2 | v0 plus the four mechanisms below | `TorqueControlTune = 2.0`; seeded on steer-to-zero Mazdas by `_seed_mazda_torque_defaults` (`MAZDA_STEER_TO_ZERO_TORQUE_TUNE = 2.0`) |
+
+v2 is seeded once per steer-to-zero Mazda, from card at fingerprint and from manager start off
+the last drive's CarParams. The marker is `MazdaTorqueTuneSeeded`, because manager_init writes
+the 0.0 default to disk before card runs.
 
 v2 was rewritten on the v0 base on 2026-09-01 (commit `ede6d8bb81`) after a leave-one-out
 open-loop replay of the previous v2 (routes 132 and 139 = v2 with KD, 12d and 12f = the same
@@ -257,3 +261,17 @@ the same commit; a device picks it up on the next boot after the update.
 | filter decay | 50 to 250 (MIN / MAX_FILTER_DECAY) | restored from cache; resetting to MIN re-learned 5x faster per boot | |
 | cache cadence | every 240 sm frames (60 s) | upstream's `LiveTorqueParameters` write | |
 | `MAZDA_STEER_TO_ZERO_TORQUE_TUNE` | 2.0 | seeded when `TorqueControlTune` is unset on a Mazda with `MazdaFlags.STEER_TO_ZERO_EPS` | |
+
+## Acceptance for the next on-car pass
+
+### Replay acceptance (open loop, `attrib/loo_replay.py`, routes 132 + 139 + 12d + 12f)
+
+NEW vs the previous FULL: STRAIGHT hf_rms within 5%; low-speed EXIT applied counter-swing
+within 0.02; TURN_ENTRY t50 not later; RELEASE max delta p90 <= 0.4.
+
+### On-car acceptance (one drive, same roads as 139)
+
+`tools/mazda_long/tune_version_metrics.py` split by gitCommit, new tune vs 139: straight-line
+weave and step RMS not above 139; low-speed exit counter-swing and reversals not above 139;
+hand-back range p50 not above 139 and no "abrupt at first" report; interventions per 100 km
+not above 139; `lkas_starvation_check.py` zero rate-down bursts.

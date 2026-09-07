@@ -20,7 +20,6 @@ shorthand entry.
 | `126` | icbm.md | The quiet timer is keyed on the raw plan target, not the overshoot-adjusted command: the lever's slow release moved the command every few frames and pinned t… |
 | `126` | icbm.md | route 126 measured 294 of 294 steps at 1 mph, zero grid snaps, 4.1 mph/s under hold frames and 3.8 mph/s under taps. |
 | `149` | icbm.md | Across all recorded routes 149 of 149 stream-driven dash steps were 1 mph; |
-| `132, 139, 12d, 12f, 123, 124, 126` | lateral-tune-roadmap.md | Each one is there because the 2026-09-01 leave-one-out replay of the previous v2 (routes 132, 139, 12d, 12f, 123, 124, 126) tied it to a felt improvement. |
 | `12a, 12c and 126` | lateral-tune.md | Corner windows on routes 12a, 12c and 126 ran 58 to 100% rail duty with the integrator frozen (no windup); |
 | `12e` | lateral-tune.md | Mechanism (route 12e, lateral maneuver mode at 9 m/s, 2026-08-30): every 0.5 m/s^2 step overshoots 35 to 100% (peak 1.35 to 2.04 of target, t90 about 0.85 s)… |
 | `132` | lateral-tune.md | Replay A/B of the directional freeze (routes 132/139): corner |i| falls 4 to 6x, stale-integrator-vs-error frames 59% -> 5%, open-loop output delta < 0.014. |

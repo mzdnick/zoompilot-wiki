@@ -163,7 +163,6 @@ nav:
       - technical/mazda-longitudinal.md
       - technical/mazda-fingerprinting.md
       - technical/lateral-tune.md
-      - technical/lateral-tune-roadmap.md
       - technical/cruise-arbiter.md
       - technical/icbm.md
       - technical/scc-curve-planning.md

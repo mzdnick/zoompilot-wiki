@@ -28,9 +28,8 @@ place.
   steering story.
 - [Lateral tune: v2 torque controller](lateral-tune.md) — the v0/v1/v2
   lineage, v2 mechanisms and how they are attributed, the steer-limit
-  classifier, and the speed-bin learner with its cache.
-- [v2 torque tune roadmap](lateral-tune-roadmap.md) — the empirical
-  roadmap and acceptance numbers for the torque tune.
+  classifier, the speed-bin learner with its cache, and the acceptance
+  numbers for the next on-car pass.
 
 ## Longitudinal (cruise)
 

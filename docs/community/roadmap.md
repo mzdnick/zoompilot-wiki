@@ -2,10 +2,9 @@
 
 ## zoompilot
 
-The active zoompilot work plan is the
-[v2 torque tune roadmap](../technical/lateral-tune-roadmap.md). It lists
-the next on-car acceptance pass for the steering tune, mechanism by
-mechanism.
+The active zoompilot work is the v2 steering tune. Its acceptance plan
+for the next on-car pass is on the
+[lateral tune](../technical/lateral-tune.md) page.
 
 [Alpha longitudinal](../features/alpha-longitudinal.md) is a work in
 progress. Its known limits and support status are on the feature page.
