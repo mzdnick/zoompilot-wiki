@@ -258,14 +258,30 @@ body {
 .md-header__home:hover {
   color: var(--md-default-fg-color);
 }
-/* repo widget: icon only. The name text is noise next to the wordmark;
- * the icon still links to the repo. */
+/* repo link: the sidebar carries the badge whenever the sidebar is on
+ * screen, and the header widget fills the gaps. The theme swaps them
+ * below 60em (drawer badge, no widget); the media query continues the
+ * swap above 76.23em, where the primary sidebar sits inline. The
+ * widget keeps the band between, where the sidebar is off canvas, and
+ * the Home page, whose front matter hides the sidebar — that guard is
+ * the :not([hidden]) on the widget rule. */
 .md-header__source .md-source__repository {
   display: none;
 }
 .md-header__source .md-source {
   display: block;
   padding: 0.3rem 0;
+}
+@media screen and (min-width: 76.234375em) {
+  .md-sidebar--primary .md-nav__source {
+    display: block;
+    padding: 0 0.2rem;
+    background-color: var(--md-primary-fg-color--dark);
+    color: var(--md-primary-bg-color);
+  }
+  body:has(.md-sidebar--primary:not([hidden])) .md-header__source {
+    display: none;
+  }
 }
 /* build line: the install branch + the build the wiki documents. Lives
  * in the hero (under the Install button) and at the top of the install
