@@ -153,7 +153,7 @@ nav:
       - features/sensor-readouts.md
       - features/alpha-longitudinal.md
       - features/alerts.md
-      - Settings: settings/index.md
+  - Settings: settings/index.md
   - Safety: safety.md
   - Guides:
       - how-to/index.md
