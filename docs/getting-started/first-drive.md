@@ -9,8 +9,9 @@ then how to engage.
 
 ## Recommended setup
 
-1. **Pick a driving model.** The author runs Firehose. DTRv6 is a
-   community favorite, and CD210 works well with alpha longitudinal.
+1. **Pick a driving model.** New installs default to Firehose, also
+   the author's pick. DTRv6 is a community favorite, and CD210 works
+   well with alpha longitudinal.
 2. **Trust the learned tune.** Keep self-tune on. Keep custom tune and
    manual real-time off. The learned values are better than hand
    tuning. On Mazdas with a 2022-25 CX-5 EPS, a fresh install already
