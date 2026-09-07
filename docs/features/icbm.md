@@ -1,9 +1,5 @@
 ---
 title: ICBM
----
-
----
-title: ICBM
 reviewed: 2026-09
 ---
 
